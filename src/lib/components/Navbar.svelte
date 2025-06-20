@@ -21,7 +21,7 @@
 </script>
 
 <nav
-	class={`sticky top-0 z-[999] flex w-full items-center justify-between px-5 py-4 transition-all duration-300 md:pt-5 lg:px-10 xl:px-[150px] ${
+	class={`sticky top-0 z-[999] flex w-full items-center justify-between px-5 py-4 transition-all duration-300 md:pt-5 lg:px-10 2xl:px-[150px] ${
 		scrolled ? 'bg-[#181818]' : ''
 	}`}
 >
