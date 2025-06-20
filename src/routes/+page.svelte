@@ -1,6 +1,6 @@
 <script>
-	import Logo from '$lib/assets/logo.png';
-	import HeroBackground from '$lib/assets/herobg.jpg';
+	import Logo from '$lib/assets/logo.svg';
+	import HeroBackground from '$lib/assets/herobg.png';
 	import Security from '$lib/assets/security.png';
 	import Exclusivity from '$lib/assets/exclusivity.png';
 	import Liquidity from '$lib/assets/liquidity.png';
@@ -25,8 +25,27 @@
 	import BenefitImg from '$lib/assets/benefit.jpg';
 	import BenefitImg2 from '$lib/assets/benefit2.png';
 	import AultGold from '$lib/assets/ault-gold.png';
+	import Vision from '$lib/components/Vision.svelte';
 
 	let isOpen = false;
+
+	const vision = [
+		{
+			title: 'BUY',
+			to: 'Own With Confidence',
+			how: 'Securely purchase and hold physical allocated gold, safely stored in LBMA-certified vaults.'
+		},
+		{
+			title: 'SPEND',
+			to: 'Spend Without Limits',
+			how: 'Instantly access your gold or its benefits via the AULT Mastercard, enabling seamless global spending.'
+		},
+		{
+			title: 'MORE',
+			to: 'Unlock Financial Freedom',
+			how: 'Lease, borrow against, or transfer your gold assets with unparalleled flexibility and security.'
+		}
+	];
 
 	const features = [
 		{
@@ -144,19 +163,20 @@
 </script>
 
 <!-- ============================Hero section======================== -->
-<section
-	class="relative flex min-h-screen flex-col gap-20 overflow-x-hidden py-10"
-	style="background-image: url({HeroBackground}); background-size: cover; background-position: center; background-repeat: no-repeat;"
->
+<section class="relative flex h-[900px] flex-col gap-20 overflow-x-hidden py-5 mx-auto max-w-[1728px]">
 	<!-- Gradient overlay -->
-	<div class="absolute inset-0 z-0 bg-black opacity-20"></div>
-	<!-- navbar -->
+	<!-- <div class="absolute inset-0 z-0 bg-black opacity-20"></div> -->
 
-	<nav class="relative z-10 mx-5 flex items-center justify-between py-4 md:py-0">
+	<!-- Hero Image -->
+	<div class="absolute inset-0 z-0">
+		<img src={HeroBackground} alt="hero-bg" class="h-full w-full object-cover" />
+	</div>
+
+	<!-- navbar -->
+	<nav class="relative z-10 flex items-center justify-between px-8 py-4 md:py-0">
 		<!-- Logo -->
 		<div class="cursor-pointer">
-			<a href="#"><img src={Logo} alt="logo" class="w-28 md:w-32" /></a>
-			
+			<a href="/"><img src={Logo} alt="logo" class="w-[86px] md:w-[149px]" /></a>
 		</div>
 
 		<!-- Desktop Links -->
@@ -165,41 +185,41 @@
 				<li>
 					<a
 						href="#how-it-works"
-						class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-[#D9D9D9] after:transition-all after:duration-300 hover:text-white/80 hover:after:w-full"
+						class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
 						>Discover</a
 					>
 				</li>
 				<li>
 					<a
 						href="#your-card"
-						class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-[#D9D9D9] after:transition-all after:duration-300 hover:text-white/80 hover:after:w-full"
+						class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
 						>Your Card</a
 					>
 				</li>
 				<li>
 					<a
 						href="#benefits"
-						class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-[#D9D9D9] after:transition-all after:duration-300 hover:text-white/80 hover:after:w-full"
+						class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
 						>Benefits</a
 					>
 				</li>
 				<li>
 					<a
 						href="#insight"
-						class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-[#D9D9D9] after:transition-all after:duration-300 hover:text-white/80 hover:after:w-full"
+						class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
 						>Insight</a
 					>
 				</li>
 			</ul>
-			<div class="flex gap-5">
+			<div class="flex gap-7">
 				<a
 					href="#log-in"
-					class="group grid h-[55px] w-[189px] place-items-center rounded-[10px] bg-[#D9D9D9] text-center text-[14px] font-[700] uppercase text-black transition-all duration-300 hover:scale-105 hover:opacity-95 hover:shadow-lg"
-					><span class="transition-all duration-300 group-hover:tracking-wider">LOG-IN</span></a
+					class="group grid h-[55px] w-[150px] place-items-center rounded-[10px] border-3 border-[#D9D9D9] bg-transparent text-center text-[14px] font-[700] text-white uppercase transition-all duration-300 hover:bg-[#D9D9D9] hover:text-black hover:shadow-lg"
+					><span class="transition-all duration-300 group-hover:tracking-wider">LOG IN</span></a
 				>
 				<a
 					href="#about"
-					class="group grid h-[55px] w-[189px] place-items-center rounded-[10px] bg-[#D9D9D9] text-center text-[14px] font-[700] uppercase text-black transition-all duration-300 hover:scale-105 hover:opacity-95 hover:shadow-lg"
+					class="group grid h-[55px] w-[150px] place-items-center rounded-[10px] bg-[#D9D9D9] text-center text-[14px] font-[700] text-black uppercase transition-all duration-300"
 					><span class="transition-all duration-300 group-hover:tracking-wider">Get Started</span
 					></a
 				>
@@ -236,11 +256,10 @@
 		<!-- Mobile Menu -->
 		{#if isOpen}
 			<div
-				class="fixed inset-0 z-[90] h-full w-[80%] max-w-[300px] overflow-y-auto bg-black p-5 shadow-lg lg:hidden pt-20"
+				class="fixed inset-0 z-[90] h-full w-[80%] max-w-[300px] overflow-y-auto bg-black p-5 pt-20 shadow-lg lg:hidden"
 			>
-				<div class="mb-10 cursor-pointer ">
+				<div class="mb-10 cursor-pointer">
 					<a href="#"><img src={Logo} alt="logo" class="w-28 md:w-32" /></a>
-					
 				</div>
 				<ul class="space-y-6 text-left text-[16px] font-medium text-white">
 					<li>
@@ -274,7 +293,7 @@
 					<li>
 						<a
 							href="#log-in"
-							class="group mx-auto block w-full max-w-[300px] rounded-[10px] bg-[#D9D9D9] px-4 py-2 text-center font-bold uppercase text-black transition-all duration-300 hover:scale-105 hover:opacity-95 hover:shadow-lg"
+							class="group mx-auto block w-full max-w-[300px] rounded-[10px] bg-[#D9D9D9] px-4 py-2 text-center font-bold text-black uppercase transition-all duration-300 hover:scale-105 hover:opacity-95 hover:shadow-lg"
 							on:click={() => (isOpen = false)}
 							><span class="transition-all duration-300 group-hover:tracking-wider">LOG-IN</span></a
 						>
@@ -282,7 +301,7 @@
 					<li>
 						<a
 							href="#about"
-							class="group mx-auto block w-full max-w-[300px] rounded-[10px] bg-[#D9D9D9] px-4 py-2 text-center font-bold uppercase text-black transition-all duration-300 hover:scale-105 hover:opacity-95 hover:shadow-lg"
+							class="group mx-auto block w-full max-w-[300px] rounded-[10px] bg-[#D9D9D9] px-4 py-2 text-center font-bold text-black uppercase transition-all duration-300 hover:scale-105 hover:opacity-95 hover:shadow-lg"
 							on:click={() => (isOpen = false)}
 							><span class="transition-all duration-300 group-hover:tracking-wider"
 								>Get Started</span
@@ -297,9 +316,9 @@
 	<!-- hero content -->
 	<div class="relative z-[1] mx-5 flex flex-col gap-5 text-center">
 		<div
-			class="3xl:text-[96px] text-[40px] font-[200] uppercase leading-none tracking-tighter sm:text-[45px] lg:text-[60px] xl:text-[70px]"
+			class="3xl:text-[96px] text-[40px] leading-none font-[200] tracking-tighter uppercase sm:text-[45px] lg:text-[60px] xl:text-[70px]"
 		>
-			timeless security,<br />modern convenience
+			timeless security,<br />modern liquidity
 		</div>
 		<p class="text-[14px] font-[316] lg:text-[20px] xl:text-[27px]">
 			Gold made Flexible and Tailored For You
@@ -310,34 +329,24 @@
 <!-- ============================About section======================== -->
 <section
 	id="about"
-	class="item-center relative mx-5 flex min-h-screen flex-col justify-center gap-40 py-10 text-center md:mx-20 md:py-20"
+	class="item-center relative flex min-h-screen flex-col justify-center gap-40 py-10 text-center md:py-20 mx-auto max-w-[1728px]"
 >
 	<div class="mx-auto flex flex-col justify-center gap-5">
-		<div
-			class="lg:text[42px] 3xl:text-[64px] mx-auto flex gap-3 text-[30px] uppercase tracking-tighter sm:text-[37px] md:leading-none"
-		>
-			<span>BUY.</span>
-			<span class="text-[#686868]">SPEND.</span>
-			<span class="text-[#686868]"> MORE.</span>
-		</div>
-		<div class="mx-auto flex flex-col gap-2 font-[442] md:w-[400px]">
-			<h2 class="text-[20px] capitalize lg:text-[36px]">Own With Confidence</h2>
-			<p class="textx-[14px] text-[#FFFFFFCC] lg:text-[20px]">
-				Securely purchase and hold physical allocated gold, safely stored in LBMA-certified vaults.
-			</p>
-		</div>
+		<Vision />
+
 		<div>
-			<div class="mx-auto mt-3 flex w-full max-w-[80px] justify-center lg:max-w-[131px]">
+			<div class="mx-auto mt-3 flex w-full max-w-[80px] justify-center lg:max-w-[131px] pb-10">
 				<img src={Gold} alt="gold" class="w-full" />
 			</div>
 		</div>
-		<div class="text-[20px] font-[316] capitalize text-[#E4E4E4] lg:w-[787px] lg:text-[36px]">
+
+		<div class="text-[20px] font-[316] text-[#E4E4E4] capitalize lg:text-[36px]">
 			AULT Is A Concierge Service That Transforms Physical Allocated Gold Into A Liquid Financial
 			Asset. Through Advance Tokenization And Trusted Institutional Partnerships, We Empower You To
 			Buy, Hold, Spend, Lease, And Borrow-Against Gold With Unmatched Freedom And Confidence.
 		</div>
 		<button
-			class="mx-auto block h-[45px] w-[144px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] uppercase text-black md:text-[20px] lg:hidden lg:h-[55px] lg:w-[211px]"
+			class="mx-auto block h-[45px] w-[144px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase md:text-[20px] lg:hidden lg:h-[55px] lg:w-[211px]"
 			>JOIN AULT</button
 		>
 	</div>
@@ -351,7 +360,7 @@
 
 		<!-- Carousel for small screens only -->
 		<div class="relative h-[300px] md:hidden">
-			<div class="absolute left-0 right-0">
+			<div class="absolute right-0 left-0">
 				<div
 					class="no-scrollbar -mx-4 snap-x snap-mandatory overflow-x-auto scroll-smooth px-4 md:hidden"
 				>
@@ -388,30 +397,30 @@
 <!-- ============================How It Works section======================== -->
 <section
 	id="how-it-works"
-	class="item-center relative flex min-h-screen flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:px-20 md:py-20"
+	class="item-center relative flex min-h-screen flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:px-5 md:py-20 mx-auto max-w-[1728px]"
 >
 	<div class="flex flex-col gap-8 font-[316] lg:flex-row lg:justify-between">
 		<h1
-			class="lg:text[42px] text-[32px] uppercase tracking-tighter sm:text-[37px] md:w-[282px] md:leading-none xl:text-[60px]"
+			class="lg:text[42px] text-[32px] tracking-tighter uppercase sm:text-[37px] md:w-[282px] md:leading-none xl:text-[60px]"
 		>
 			How It Works
 		</h1>
-		<p class="text-[24px] font-[300] capitalize text-[#FFFFFFCC] lg:w-[1006px] lg:text-[36px]">
+		<p class="text-[24px] font-[300] text-[#FFFFFFCC] capitalize lg:text-[36px] xl:w-[1200px] 2xl:w-[1006px]">
 			Exceptional service begins with a personal connection. As a member, you are paired with a
 			dedicated Relationship Manager who acts as your trusted advisor — available around the clock
 			to handle your requests with precision and confidentiality.
 		</p>
 	</div>
-	<div class="flex flex-col justify-between gap-[76px] lg:flex-row">
+	<div class="flex flex-row lg:flex-row">
 		<div class="hidden lg:block">
-			<img src={HowItWorksImg} alt="how-it-works-img" />
+			<img src={HowItWorksImg} alt="how-it-works-img" class="w-[518px]" />
 		</div>
-		<div class="flex flex-col gap-10">
+		<div class="flex flex-col gap-10 w-auto pl-10">
 			<!-- Desktop Grid -->
 			<div class="hidden grid-cols-2 gap-[41px] lg:grid">
 				{#each steps as step, i}
 					<div
-						class="flex max-w-[316px] flex-col gap-9 rounded-[4px] bg-[#000000] p-4 lg:bg-transparent"
+						class="flex max-w-[361px] flex-col gap-9 rounded-[4px] bg-[#000000] lg:bg-transparent"
 					>
 						<div class="flex gap-1">
 							{#each Array(step.dots) as _}
@@ -450,7 +459,7 @@
 			</div>
 
 			<button
-				class="mx-auto hidden h-[45px] w-[144px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] uppercase text-black md:text-[20px] lg:block lg:h-[55px] lg:w-[211px]"
+				class="hidden h-[45px] w-[144px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase md:text-[20px] lg:block lg:h-[55px] lg:w-[211px]"
 				>JOIN AULT</button
 			>
 		</div>
@@ -460,14 +469,14 @@
 <!-- ============================Your Card section======================== -->
 <section
 	id="your-card"
-	class="item-center relative flex min-h-[664px] flex-col justify-center gap-20 overflow-hidden px-5 py-10 md:px-20 md:py-0 lg:min-h-screen"
+	class="item-center relative flex min-h-[664px] flex-col justify-center gap-20 overflow-hidden px-5 py-10 md:px-20 md:py-0 lg:min-h-screen mx-auto max-w-[1728px]"
 	style="background-image: url({CardBackground}); background-size: cover; background-position: center; background-repeat: no-repeat;"
 >
 	<div
-	class="absolute bottom-[-1rem] z-10 mx-auto left-0 right-0 max-w-[276px] gap-9 object-contain lg:bottom-[1rem] lg:right-[1rem] lg:left-auto lg:mx-0 xl:max-w-[522.2px]"
->
-	<img src={AultOnGold} alt="ault-on-gold" class="w-full" />
-</div>
+		class="absolute right-0 bottom-[-1rem] left-0 z-10 mx-auto max-w-[276px] gap-9 object-contain lg:right-[1rem] lg:bottom-[1rem] lg:left-auto lg:mx-0 xl:max-w-[522.2px]"
+	>
+		<img src={AultOnGold} alt="ault-on-gold" class="w-full" />
+	</div>
 	<div
 		class="uppecase relative z-0 hidden text-[18vw] font-[200] tracking-[0.03em] text-[#181818] lg:block"
 	>
@@ -475,10 +484,10 @@
 	</div>
 	<div class="relative mx-auto mb-auto lg:mx-0">
 		<div
-			class="lg:pb-50 relative z-20 mb-auto flex flex-col gap-8 p-5 pt-10 text-center capitalize lg:mt-auto lg:p-20 lg:pt-5 lg:text-left"
+			class="relative z-20 mb-auto flex flex-col gap-8 p-5 pt-10 text-center capitalize lg:mt-auto lg:p-20 lg:pt-5 lg:pb-50 lg:text-left"
 		>
 			<h1
-				class="5xl:text-[64px] text-center text-[25px] font-[200] uppercase leading-tight tracking-tight lg:text-left lg:text-[50px] lg:leading-none"
+				class="5xl:text-[64px] text-center text-[25px] leading-tight font-[200] tracking-tight uppercase lg:text-left lg:text-[50px] lg:leading-none"
 			>
 				Gold In Your Hands, <br /> Anytime, Anywhere.
 			</h1>
@@ -487,7 +496,7 @@
 				Anywhere in the World.
 			</p>
 			<button
-				class="mx-auto h-[45px] w-[160px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] uppercase text-black md:text-[20px] lg:mx-0 lg:h-[55px] lg:w-[211px]"
+				class="mx-auto h-[45px] w-[160px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase md:text-[20px] lg:mx-0 lg:h-[55px] lg:w-[211px]"
 				>Get your card</button
 			>
 		</div>
@@ -496,7 +505,7 @@
 
 <!-- ============================Services section======================== -->
 <section
-	class="item-center relative flex min-h-screen flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:py-20"
+	class="item-center relative flex min-h-screen flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:py-20 mx-auto max-w-[1728px]"
 >
 	<div class="flex flex-col gap-20 lg:px-20 xl:px-60">
 		<h1
@@ -514,8 +523,8 @@
 						<img src={item.image} alt="service" class="h-full w-full object-cover object-center" />
 					</div>
 					<div class="text-[14px] lg:text-[20px]">
-						<h3 class="font-semibold capitalize tracking-normal">{item.title}</h3>
-						<p class="font-light capitalize leading-relaxed tracking-normal">{item.description}</p>
+						<h3 class="font-semibold tracking-normal capitalize">{item.title}</h3>
+						<p class="leading-relaxed font-light tracking-normal capitalize">{item.description}</p>
 					</div>
 				</div>
 			{/each}
@@ -529,8 +538,8 @@
 						<img src={item.image} alt="service" class="h-full w-full object-cover object-center" />
 					</div>
 					<div class="text-[14px] lg:text-[20px]">
-						<h3 class="font-semibold capitalize tracking-normal">{item.title}</h3>
-						<p class="font-light capitalize leading-relaxed tracking-normal">{item.description}</p>
+						<h3 class="font-semibold tracking-normal capitalize">{item.title}</h3>
+						<p class="leading-relaxed font-light tracking-normal capitalize">{item.description}</p>
 					</div>
 				</div>
 			{/each}
@@ -541,7 +550,7 @@
 <!-- ============================Benefit section======================== -->
 <section
 	id="benefits"
-	class="item-center relative mx-5 flex min-h-full flex-col justify-center gap-20 overflow-x-hidden py-10 md:mx-20 md:py-20"
+	class="item-center relative flex min-h-full flex-col justify-center gap-20 overflow-x-hidden py-10 md:py-20 mx-auto max-w-[1728px]"
 >
 	<div class="grid place-items-center gap-10 lg:grid-cols-2">
 		<!-- IMAGE SECTION -->
@@ -610,7 +619,7 @@
 
 			<!-- Carousel for small screens -->
 			<div class="relative h-[130px] lg:hidden">
-				<div class="absolute left-0 right-0">
+				<div class="absolute right-0 left-0">
 					<div
 						bind:this={scrollRef}
 						class="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth px-4 lg:hidden"
@@ -643,20 +652,17 @@
 <!-- ============================Our Patner section======================== -->
 <section
 	id="partner"
-	class="item-center relative flex min-h-screen flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:px-20 md:py-20"
+	class="item-center relative flex min-h-screen flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:px-20 md:py-20 mx-auto max-w-[1728px]"
 >
 	<div
 		class="flex min-h-[284px] flex-col justify-center gap-5 rounded-[46px] px-0 py-10 lg:gap-10 lg:px-20"
 	>
-		<h1 class="3xl:text-[60px] text-[32px] font-[316] uppercase lg:text-[35px] xl:text-[50px]">
-			OUR PARTNERS
-		</h1>
 		<p class="3xl:text-[36px] text-[24px] font-[316] lg:w-[907px] lg:text-[25px]">
 			Our commitment to you is founded on trusted partnerships and a shared dedication to managing
 			your assets with the highest standards of security, transparency, and personalized
 			flexibility.
 		</p>
-		<div class="lg:ml-55 ml-5 mt-10 flex flex-col gap-10 lg:mt-0 lg:flex-row lg:gap-20">
+		<div class="mt-10 ml-5 flex flex-col gap-10 lg:mt-0 lg:ml-55 lg:flex-row lg:gap-20">
 			<div class="flex flex-col gap-2 text-[20px] font-[571]">
 				<h3>Emerging Africa</h3>
 				<p class="text-[16px] font-[316] text-[#FFFFFFCC] lg:w-[312px]">
@@ -681,16 +687,16 @@
 <!-- ============================Insight section======================== -->
 <section
 	id="insight"
-	class="item-center md:px-50 relative mx-auto flex min-h-screen flex-col justify-center gap-20 overflow-hidden px-5 py-10 md:py-20"
+	class="item-center relative flex min-h-screen flex-col justify-center gap-20 overflow-hidden px-5 py-10 md:px-50 md:py-20 mx-auto max-w-[1728px]"
 >
 	<!-- Left Glow -->
 	<div
-		class="absolute left-1/2 top-1/2 z-0 h-40 w-40 -translate-y-1/2 rounded-full bg-[#C686014D] blur-[130px] md:left-0 md:h-96 md:w-96"
+		class="absolute top-1/2 left-1/2 z-0 h-40 w-40 -translate-y-1/2 rounded-full bg-[#C686014D] blur-[130px] md:left-0 md:h-96 md:w-96"
 	></div>
 
 	<!-- Right Glow -->
 	<div
-		class="absolute right-0 top-1/3 z-0 hidden h-96 w-96 -translate-y-1/2 rounded-full bg-[#C686014D] blur-[130px] md:block"
+		class="absolute top-1/3 right-0 z-0 hidden h-96 w-96 -translate-y-1/2 rounded-full bg-[#C686014D] blur-[130px] md:block"
 	></div>
 
 	<div class="relative z-10 flex flex-col gap-10">
@@ -723,7 +729,7 @@
 
 <!-- ============================Footer section======================== -->
 <footer
-	class="item-center relative mx-5 flex flex-col gap-3 overflow-x-hidden py-10 md:mx-20 md:gap-10 md:py-10"
+	class="item-center relative flex flex-col gap-3 overflow-x-hidden py-10 md:gap-10 md:py-10 mx-auto max-w-[1728px]"
 >
 	<div class="flex justify-between gap-8 text-[10px] font-[200] uppercase lg:text-[18px]">
 		<div>
