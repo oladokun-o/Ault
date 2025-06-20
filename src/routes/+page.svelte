@@ -330,7 +330,7 @@
 <!-- ============================About section======================== -->
 <section
 	id="about"
-	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-40 py-10 text-center md:py-20"
+	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-40 py-10 px-5 text-center md:py-20"
 >
 	<div class="mx-auto flex flex-col justify-center gap-5">
 		<Vision />

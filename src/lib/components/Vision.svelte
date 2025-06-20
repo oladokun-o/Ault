@@ -71,7 +71,7 @@
 
 <div
 	bind:this={containerElement}
-	class="flex h-[50vh] 2xl:h-auto flex-col items-center gap-3 pt-20 transition-all duration-300"
+	class="flex flex-col items-center gap-3 pt-20 transition-all duration-300"
 >
 	<!-- Vision Titles -->
 	<div
