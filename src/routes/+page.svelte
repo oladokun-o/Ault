@@ -31,6 +31,8 @@
 	import MobileMenu from '$lib/components/MobileMenu.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import PartnerImg from '$lib/assets/partner-image.png';
+	import Insights from '$lib/components/Insights.svelte';
+	import arrow from '$lib/assets/solar_arrow-up-linear.svg';
 
 	const vision = [
 		{
@@ -163,14 +165,6 @@
 	function scrollRight() {
 		scrollRef.scrollBy({ left: 300, behavior: 'smooth' });
 	}
-
-	// =========insight ============
-	let showInsight1 = false;
-	let showInsight2 = false;
-	let showInsight3 = false;
-	let showInsight4 = false;
-	let showInsight5 = false;
-	let showInsight6 = false;
 </script>
 
 <!-- navbar -->
@@ -554,109 +548,22 @@
 
 	<div class="relative z-10 flex flex-col gap-10">
 		<h1 class="lg:text[37px] 3xl:text-[64px] text-[37px] font-[316] uppercase sm:text-[37px]">
-			Insight
+			Insights
 		</h1>
 
-		<div class="flex flex-col gap-3 text-[16px] lg:text-[20px]">
-			<div
-				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
-				on:click={() => (showInsight1 = !showInsight1)}
-			>
-				<p class="p-3 font-[442]">What is AULT?</p>
-				{#if showInsight1}
-					<p class="p-3 font-[442]">
-						AULT is an exclusive concierge service designed to provide seamless access to
-						gold-backed financial services, allowing the purchase, management, and spend of gold
-						assets securely, with flexibility and ease.
-					</p>
-				{/if}
-			</div>
+		<Insights />
 
-			<div
-				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
-				on:click={() => (showInsight6 = !showInsight6)}
-			>
-				<p class="p-3 font-[442]">Why Gold?</p>
-				{#if showInsight6}
-					<p class="p-3 font-[442]">
-						Gold is a stable, long-term asset with a proven track record of preserving value across
-						economic fluctuations. Unlike traditional currencies or investments, gold offers a
-						tangible hedge against uncertainty and market volatility, providing security and
-						liquidity.
-					</p>
-				{/if}
-			</div>
-			<div
-				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
-				on:click={() => (showInsight2 = !showInsight2)}
-			>
-				<p class="p-3 font-[442]">How Do I Fund My AULT Account?</p>
-				{#if showInsight2}
-					<p class="p-3 font-[442]">
-						You can fund your AULT account by transferring fiat currency (USD, EUR, NGN) through our
-						secure platform. Once the funds are received, we will purchase the gold on your behalf.
-						All gold purchased is securely stored in LBMA-certified vaults in London, Zurich, or the
-						UAE.
-					</p>
-				{/if}
-			</div>
-			<div
-				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
-				on:click={() => (showInsight3 = !showInsight3)}
-			>
-				<p class="p-3 font-[442]">How Do I Access My Gold?</p>
-				{#if showInsight3}
-					<p class="p-3 font-[442]">
-						Once your account is active, access your gold via the AULT web app, liquidate it, and
-						spend it using your AULT Mastercard. The entire process of liquidating your allocated
-						gold is supported by robust technology infrastructure and is audited by KPMG LLP for
-						added assurance.
-					</p>
-				{/if}
-			</div>
-			<div
-				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
-				on:click={() => (showInsight4 = !showInsight4)}
-			>
-				<p class="p-3 font-[442]">How Is My Gold Stored?</p>
-				{#if showInsight4}
-					<p class="p-3 font-[442]">
-						Your gold is securely stored in insured vaults in London, Zurich, and the UAE. These
-						vaults meet international standards of security and compliance, ensuring your assets are
-						safe and protected.
-					</p>
-				{/if}
-			</div>
-			<div
-				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
-				on:click={() => (showInsight5 = !showInsight5)}
-			>
-				<p class="p-3 font-[442]">Do I Need To Sell My Gold To Spend It?</p>
-				{#if showInsight5}
-					<p class="p-3 font-[442]">
-						No, you don’t need to sell your gold. AULT has partnered with regulated financial
-						entities, allowing you to spend your gold directly anywhere in the world using the AULT
-						Mastercard.
-					</p>
-				{/if}
-			</div>
-		</div>
-		<div
+		<a
+			href="/insights"
 			class="ml-auto flex cursor-pointer items-center gap-3 text-[14px] font-[200] tracking-tight lg:text-[32px] lg:font-[316]"
 		>
 			Learn more
-			<svg
-				viewBox="0 0 20 12"
-				fill="currentColor"
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-2 w-8 rotate-180 text-white lg:h-5 lg:w-10"
-			>
-				<path
-					d="M9.84281 11.9019C10.1028 11.7642 10.2649 11.5023 10.2649 11.2175V6.7825H19.1841C19.6345 6.7825 20 6.43195 20 6.00003C20 5.56811 19.6345 5.21756 19.1841 5.21756H10.2649V0.782525C10.2649 0.496663 10.1028 0.234796 9.84281 0.0981252C9.58281 -0.0406327 9.26516 -0.0312431 9.01387 0.120034L0.380745 5.33754C0.143595 5.48151 0 5.73086 0 6.00003C0 6.2692 0.143595 6.51854 0.380745 6.66252L9.01387 11.88C9.14659 11.9593 9.2978 12 9.44901 12C9.5839 12 9.71988 11.9666 9.84281 11.9019Z"
-					class="icon-path"
-				/>
-			</svg>
-		</div>
+			<img
+				src={arrow}
+				alt="arrow"
+				class="h-5 w-5 transition-transform duration-300 ease-in-out group-hover:translate-x-1"
+			/>
+		</a>
 	</div>
 </section>
 
