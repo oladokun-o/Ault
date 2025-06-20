@@ -444,13 +444,13 @@
 <section
 	id="your-card"
 	class="relative mx-auto flex w-full max-w-[1728px] flex-col items-center gap-5 px-5 py-10 md:gap-50 md:py-0 lg:min-h-screen lg:flex-row"
-	style="background-image: url({CardBackground}); background-size: contain; background-position: center; background-repeat: no-repeat;"
+	style="background-image: url({CardBackground}); background-size: cover; background-position: center; background-repeat: no-repeat;"
 >
-	<!-- <div
-		class="uppecase relative z-0 hidden text-[18vw] font-[200] tracking-[0.03em] text-[#181818] lg:block"
+	<div
+		class="uppecase absolute top-0 w-full text-center z-0 hidden text-[18vw] font-[200] tracking-[0.03em] text-[#181818] lg:block"
 	>
 		LIMITLESS
-	</div> -->
+	</div>
 	<div class="relative w-full lg:mx-0 lg:w-auto">
 		<div
 			class="relative z-20 mb-auto flex flex-col items-center gap-8 pt-10 text-center capitalize lg:mt-auto lg:items-start lg:text-left"
@@ -472,9 +472,9 @@
 		</div>
 	</div>
 	<div
-		class="relative right-0 bottom-[-1rem] left-0 z-10 mx-auto max-w-[276px] gap-9 object-contain text-center lg:right-[1rem] lg:bottom-[1rem] lg:left-auto lg:mx-0 xl:max-w-[522.2px]"
+		class="relative lg:right-[4rem] lg:bottom-[-4rem]"
 	>
-		<img src={AultOnGold} alt="ault-on-gold" class="w-full" />
+		<img src={AultOnGold} alt="ault-on-gold" class="w-full lg:w-[685px]" />
 		<button
 			class="group relative top-[-70px] mx-auto block h-[45px] w-[160px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase transition-all duration-300 md:text-[20px] lg:mx-0 lg:hidden lg:h-[55px] lg:w-[211px]"
 			><span class="transition-all duration-300 group-hover:tracking-wider">Get your card</span
@@ -697,7 +697,7 @@
 
 <!-- ============================Footer section======================== -->
 <footer
-	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center gap-3 overflow-x-hidden px-5 py-10 md:gap-10 md:py-20"
+	class="relative mx-auto flex min-h-auto max-w-[1728px] flex-col items-center gap-3 overflow-x-hidden px-5 py-10 md:gap-10 md:py-20"
 >
 	<div class="flex w-full justify-between gap-10 text-[10px] font-[200] uppercase lg:text-[18px]">
 		<div>
