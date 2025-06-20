@@ -169,9 +169,6 @@
 	}
 </script>
 
-<!-- navbar -->
-<Navbar />
-
 <!-- Join Ault Form Component -->
 <JoinAultForm />
 
