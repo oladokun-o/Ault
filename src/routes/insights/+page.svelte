@@ -19,8 +19,8 @@
 </script>
 
 <section class="relative mx-auto max-w-[1728px]">
-	<div
-		class="flex h-[101px] w-full flex-col items-center justify-end gap-5 md:h-[376px] lg:px-20 xl:px-[150px]"
+	<div id="hero"
+		class="flex h-[130px] md:h-[200px] w-full flex-col items-center justify-end gap-5 xl:h-[376px] px-5 lg:px-20 xl:px-[150px]"
 	>
 		<img src={InsightsBg} alt="AULT Insights" class="absolute top-0 left-0 w-full" />
 		<div class="relative w-full">
@@ -28,7 +28,7 @@
 		</div>
 	</div>
 
-	<div class="mt-10 grid grid-cols-1 gap-20 py-20 md:grid-cols-2 lg:px-20 xl:px-[150px]">
+	<div class="lg:mt-0 grid grid-cols-1 gap-10 lg:gap-20 px-5 py-10 lg:grid-cols-2 md:px-5 lg:mt-10 lg:px-20 xl:px-[150px]">
 		{#each insights as group}
 			<div class="w-full overflow-hidden border border-[#FFFFFF4D] {openGroups.has(group.title) ? 'h-auto' : 'h-[71px]'}">
 				<!-- Group Header -->

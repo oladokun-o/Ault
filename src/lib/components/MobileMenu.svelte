@@ -99,10 +99,11 @@
 		<!-- Menu Content -->
 		<div class="mt-5 p-6 pt-20">
 			<ul class="text-left">
-				{#each [{ href: '#how-it-works', label: 'Discover', delay: 0 }, { href: '#your-card', label: 'Your Card', delay: 50 }, { href: '#benefits', label: 'Benefits', delay: 100 }, { href: '#insight', label: 'Insight', delay: 150 }] as item, index}
+				{#each [{ href: '/#how-it-works', label: 'Discover', delay: 0 }, { href: '/#your-card', label: 'Your Card', delay: 50 }, { href: '/#benefits', label: 'Benefits', delay: 100 }, { href: '/#insight', label: 'Insight', delay: 150 }] as item, index}
 					<li in:fly={{ x: 100, duration: 300, delay: item.delay, easing: quintOut }}>
 						<a
 							href={item.href}
+							rel="external"
 							class="group block rounded-xl px-2 py-3 text-[16px] font-medium text-white/90 transition-all duration-300 hover:translate-x-2 hover:bg-white/5 hover:text-white active:scale-98"
 							on:click={closeMenu}
 						>

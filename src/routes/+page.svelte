@@ -168,9 +168,6 @@
 	}
 </script>
 
-<!-- Join Ault Form Component -->
-<JoinAultForm />
-
 <!-- ============================Hero section======================== -->
 <section
 	id="hero"

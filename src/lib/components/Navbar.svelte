@@ -35,28 +35,32 @@
 		<ul class="flex gap-10 text-[15px]">
 			<li>
 				<a
-					href="#how-it-works"
+					href="/#how-it-works"
+					rel="external"
 					class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
 					>Discover</a
 				>
 			</li>
 			<li>
 				<a
-					href="#your-card"
+					href="/#your-card"
+					rel="external"
 					class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
 					>Your Card</a
 				>
 			</li>
 			<li>
 				<a
-					href="#benefits"
+					href="/#benefits"
+					rel="external"
 					class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
 					>Benefits</a
 				>
 			</li>
 			<li>
 				<a
-					href="#insight"
+					href="/#insight"
+					rel="external"
 					class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
 					>Insight</a
 				>
