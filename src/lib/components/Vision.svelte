@@ -125,7 +125,7 @@
 	</div> -->
 
 	<!-- Scroll Hint -->
-	{#if !isScrolling && activeIndex === 0}
+	<!-- {#if !isScrolling && activeIndex === 0}
 		<div class="absolute bottom-8 flex animate-bounce flex-col items-center gap-2">
 			<span class="text-sm text-[#FFFFFFCC]">Scroll to explore</span>
 			<svg class="h-6 w-6 text-[#FFFFFFCC]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -137,7 +137,7 @@
 				/>
 			</svg>
 		</div>
-	{/if}
+	{/if} -->
 </div>
 
 <style>

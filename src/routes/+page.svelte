@@ -10,7 +10,7 @@
 	import Card from '$lib/assets/card.png';
 	import Setup from '$lib/assets/setup.png';
 	import AultOnGold from '$lib/assets/ault-on-gold.png';
-	import Service1 from '$lib/assets/service1.jpg';
+	import Service1 from '$lib/assets/service1.png';
 	import Service2 from '$lib/assets/service2.png';
 	import Service3 from '$lib/assets/service3.png';
 	import Partner1 from '$lib/assets/partner1.png';
@@ -22,8 +22,7 @@
 	import Gold from '$lib/assets/golden.png';
 	import HowItWorksImg from '$lib/assets/how-it-works.png';
 	import CardBackground from '$lib/assets/card-bg.png';
-	import BenefitImg from '$lib/assets/benefit.jpg';
-	import BenefitImg2 from '$lib/assets/benefit2.png';
+	import BenefitImg from '$lib/assets/benefit.png';
 	import AultGold from '$lib/assets/ault-gold.png';
 	import Vision from '$lib/components/Vision.svelte';
 
@@ -98,17 +97,17 @@
 	const services = [
 		{
 			title: '24/7 Concierge:',
-			description: `We handle your requests on AULT services and privileges, ensuring that your needs are met whenever.`,
+			description: `Your dedicated Relationship Manager is always available to handle your requests and privileges, ensuring your needs are met with care and precision.`,
 			image: Service1
 		},
 		{
 			title: 'Global Support:',
-			description: `AULT’s global network ensures seamless access to your gold, across borders. AULT ensures your service requirements are met wherever life takes you.`,
+			description: `Our worldwide network provides seamless access to your gold and personalized assistance wherever you are.`,
 			image: Service2
 		},
 		{
 			title: 'Effortless Fund Access:',
-			description: `Managing your allocated gold has never been simpler. With AULT, you can access your gold effortlessly and send instructions securely via the web app.`,
+			description: `Easily manage your allocated gold and securely send instructions through our intuitive web app.`,
 			image: Service3
 		}
 	];
@@ -163,7 +162,9 @@
 </script>
 
 <!-- ============================Hero section======================== -->
-<section class="relative flex h-[900px] flex-col gap-20 overflow-x-hidden py-5 mx-auto max-w-[1728px]">
+<section
+	class="relative mx-auto flex h-[900px] max-w-[1728px] flex-col gap-20 overflow-x-hidden py-5"
+>
 	<!-- Gradient overlay -->
 	<!-- <div class="absolute inset-0 z-0 bg-black opacity-20"></div> -->
 
@@ -259,7 +260,7 @@
 				class="fixed inset-0 z-[90] h-full w-[80%] max-w-[300px] overflow-y-auto bg-black p-5 pt-20 shadow-lg lg:hidden"
 			>
 				<div class="mb-10 cursor-pointer">
-					<a href="#"><img src={Logo} alt="logo" class="w-28 md:w-32" /></a>
+					<a href="/"><img src={Logo} alt="logo" class="w-28 md:w-32" /></a>
 				</div>
 				<ul class="space-y-6 text-left text-[16px] font-medium text-white">
 					<li>
@@ -329,13 +330,13 @@
 <!-- ============================About section======================== -->
 <section
 	id="about"
-	class="item-center relative flex min-h-screen flex-col justify-center gap-40 py-10 text-center md:py-20 mx-auto max-w-[1728px]"
+	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-40 py-10 text-center md:py-20"
 >
 	<div class="mx-auto flex flex-col justify-center gap-5">
 		<Vision />
 
 		<div>
-			<div class="mx-auto mt-3 flex w-full max-w-[80px] justify-center lg:max-w-[131px] pb-10">
+			<div class="mx-auto mt-3 flex w-full max-w-[80px] justify-center pb-10 lg:max-w-[131px]">
 				<img src={Gold} alt="gold" class="w-full" />
 			</div>
 		</div>
@@ -352,19 +353,17 @@
 	</div>
 
 	<div class="mx-auto flex flex-col gap-20">
-		<h1
-			class="lg:text[37px] 3xl:text-[64px] mx-auto text-[32px] font-[316] uppercase sm:text-[37px]"
-		>
+		<h1 class="mx-auto text-[32px] font-[316] uppercase lg:text-[44px] 2xl:text-[64px]">
 			BEYOND WEALTH. BEYOND GOLD.
 		</h1>
 
 		<!-- Carousel for small screens only -->
-		<div class="relative h-[300px] md:hidden">
+		<div class="relative h-[300px] md:hidden w-full">
 			<div class="absolute right-0 left-0">
 				<div
-					class="no-scrollbar -mx-4 snap-x snap-mandatory overflow-x-auto scroll-smooth px-4 md:hidden"
+					class="overflow-hidden px-4 md:hidden"
 				>
-					<div class="flex w-max gap-4">
+					<div class=" w-full flex gap-4 no-scrollbar overflow-x-auto scroll-smooth snap-x snap-mandatory">
 						{#each features as feature}
 							<div class="w-[288px] flex-shrink-0 snap-start rounded-[4px] bg-[#181818] p-4">
 								<img src={feature.image} alt={feature.title} class="mx-auto mb-4 w-[165px]" />
@@ -378,9 +377,9 @@
 		</div>
 
 		<!-- Grid layout for desktop -->
-		<div class="hidden grid-cols-2 gap-8 md:grid lg:grid-cols-3">
+		<div class="hidden grid-cols-2 gap-5 md:grid lg:grid-cols-3">
 			{#each features as feature (feature.title)}
-				<div class="space-y-4 rounded-[4px] bg-[#181818] p-4">
+				<div class="w-[365px] space-y-4 rounded-[4px] bg-[#181818] p-4">
 					<div class="mx-auto max-w-[152px]">
 						<img src={feature.image} alt={feature.title} class="w-full" />
 					</div>
@@ -397,7 +396,7 @@
 <!-- ============================How It Works section======================== -->
 <section
 	id="how-it-works"
-	class="item-center relative flex min-h-screen flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:px-5 md:py-20 mx-auto max-w-[1728px]"
+	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:px-5 md:py-20"
 >
 	<div class="flex flex-col gap-8 font-[316] lg:flex-row lg:justify-between">
 		<h1
@@ -405,7 +404,9 @@
 		>
 			How It Works
 		</h1>
-		<p class="text-[24px] font-[300] text-[#FFFFFFCC] capitalize lg:text-[36px] xl:w-[1200px] 2xl:w-[1006px]">
+		<p
+			class="text-[24px] font-[300] text-[#FFFFFFCC] capitalize lg:text-[36px] xl:w-[1200px] 2xl:w-[1006px]"
+		>
 			Exceptional service begins with a personal connection. As a member, you are paired with a
 			dedicated Relationship Manager who acts as your trusted advisor — available around the clock
 			to handle your requests with precision and confidentiality.
@@ -415,7 +416,7 @@
 		<div class="hidden lg:block">
 			<img src={HowItWorksImg} alt="how-it-works-img" class="w-[518px]" />
 		</div>
-		<div class="flex flex-col gap-10 w-auto pl-10">
+		<div class="flex w-auto flex-col gap-10 pl-10">
 			<!-- Desktop Grid -->
 			<div class="hidden grid-cols-2 gap-[41px] lg:grid">
 				{#each steps as step, i}
@@ -423,13 +424,16 @@
 						class="flex max-w-[361px] flex-col gap-9 rounded-[4px] bg-[#000000] lg:bg-transparent"
 					>
 						<div class="flex gap-1">
-							{#each Array(step.dots) as _}
-								<div class="-mt-1 h-3 w-3 rounded-full bg-[#7D7D7D]"></div>
+							{#each Array(step.dots) as _, index}
+								<div
+									class="relative h-3 w-3 rounded-full bg-[#7D7D7D]"
+									style="top: {index % 2 === 0 ? -1 : 2}px"
+								></div>
 							{/each}
 						</div>
 						<div class="grid gap-2">
 							<h3 class="text-[16px] font-semibold capitalize lg:text-[20px]">{step.title}</h3>
-							<p class="text-[14px] font-light lg:text-[20px]">{step.description}</p>
+							<p class="text-[14px] font-extralight lg:text-[20px]">{step.description}</p>
 						</div>
 					</div>
 				{/each}
@@ -459,8 +463,9 @@
 			</div>
 
 			<button
-				class="hidden h-[45px] w-[144px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase md:text-[20px] lg:block lg:h-[55px] lg:w-[211px]"
-				>JOIN AULT</button
+				class="group hidden h-[45px] w-[144px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase transition-all duration-300 md:text-[20px] lg:block lg:h-[55px] lg:w-[211px]"
+				><span class="transition-all duration-300 group-hover:tracking-wider">JOIN AULT</span
+				></button
 			>
 		</div>
 	</div>
@@ -469,25 +474,20 @@
 <!-- ============================Your Card section======================== -->
 <section
 	id="your-card"
-	class="item-center relative flex min-h-[664px] flex-col justify-center gap-20 overflow-hidden px-5 py-10 md:px-20 md:py-0 lg:min-h-screen mx-auto max-w-[1728px]"
-	style="background-image: url({CardBackground}); background-size: cover; background-position: center; background-repeat: no-repeat;"
+	class="relative mx-auto flex w-full max-w-[1728px] flex-col items-center gap-5 px-5 py-10 md:gap-50 md:py-0 lg:min-h-screen lg:flex-row"
+	style="background-image: url({CardBackground}); background-size: contain; background-position: center; background-repeat: no-repeat;"
 >
-	<div
-		class="absolute right-0 bottom-[-1rem] left-0 z-10 mx-auto max-w-[276px] gap-9 object-contain lg:right-[1rem] lg:bottom-[1rem] lg:left-auto lg:mx-0 xl:max-w-[522.2px]"
-	>
-		<img src={AultOnGold} alt="ault-on-gold" class="w-full" />
-	</div>
-	<div
+	<!-- <div
 		class="uppecase relative z-0 hidden text-[18vw] font-[200] tracking-[0.03em] text-[#181818] lg:block"
 	>
 		LIMITLESS
-	</div>
-	<div class="relative mx-auto mb-auto lg:mx-0">
+	</div> -->
+	<div class="relative w-full lg:mx-0 lg:w-auto">
 		<div
-			class="relative z-20 mb-auto flex flex-col gap-8 p-5 pt-10 text-center capitalize lg:mt-auto lg:p-20 lg:pt-5 lg:pb-50 lg:text-left"
+			class="relative z-20 mb-auto flex flex-col items-center gap-8 pt-10 text-center capitalize lg:mt-auto lg:items-start lg:text-left"
 		>
 			<h1
-				class="5xl:text-[64px] text-center text-[25px] leading-tight font-[200] tracking-tight uppercase lg:text-left lg:text-[50px] lg:leading-none"
+				class="3xl:text-[48px] text-center text-[32px] leading-tight font-[200] tracking-tight capitalize sm:text-[37px] lg:text-left lg:text-[37px] lg:leading-none"
 			>
 				Gold In Your Hands, <br /> Anytime, Anywhere.
 			</h1>
@@ -496,23 +496,37 @@
 				Anywhere in the World.
 			</p>
 			<button
-				class="mx-auto h-[45px] w-[160px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase md:text-[20px] lg:mx-0 lg:h-[55px] lg:w-[211px]"
-				>Get your card</button
+				class="group mx-auto hidden h-[45px] w-[160px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase transition-all duration-300 md:text-[20px] lg:mx-0 lg:block lg:h-[55px] lg:w-[211px]"
+				><span class="transition-all duration-300 group-hover:tracking-wider">Get your card</span
+				></button
 			>
 		</div>
+	</div>
+	<div
+		class="relative right-0 bottom-[-1rem] left-0 z-10 mx-auto max-w-[276px] gap-9 object-contain text-center lg:right-[1rem] lg:bottom-[1rem] lg:left-auto lg:mx-0 xl:max-w-[522.2px]"
+	>
+		<img src={AultOnGold} alt="ault-on-gold" class="w-full" />
+		<button
+			class="group relative top-[-70px] mx-auto block h-[45px] w-[160px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase transition-all duration-300 md:text-[20px] lg:mx-0 lg:hidden lg:h-[55px] lg:w-[211px]"
+			><span class="transition-all duration-300 group-hover:tracking-wider">Get your card</span
+			></button
+		>
 	</div>
 </section>
 
 <!-- ============================Services section======================== -->
 <section
-	class="item-center relative flex min-h-screen flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:py-20 mx-auto max-w-[1728px]"
+	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:py-20"
 >
-	<div class="flex flex-col gap-20 lg:px-20 xl:px-60">
+	<div class="w-full text-start">
 		<h1
-			class="lg:text[37px] 3xl:w-[1138px] 3xl:text-[48px] w-full text-[32px] font-[200] capitalize sm:text-[37px] lg:w-[809px]"
+			class="3xl:text-[48px] 3xl:w-[1138px] w-full text-[32px] font-[200] capitalize sm:text-[37px] lg:w-[809px] lg:text-[37px]"
 		>
 			Unparalleled service that combines security, flexibility, and exclusivity tailored for you.
 		</h1>
+	</div>
+
+	<div class="flex flex-col gap-20">
 		<!-- Carousel (small screens only) -->
 		<div
 			class="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-10 md:hidden"
@@ -531,15 +545,17 @@
 		</div>
 
 		<!-- for desktop -->
-		<div class="hidden grid-cols-1 gap-20 md:grid md:grid-cols-2 md:grid-cols-3">
+		<div class="hidden grid-cols-3 gap-16 md:grid">
 			{#each services as item}
 				<div class="flex h-full w-full flex-col gap-5 overflow-hidden">
-					<div class="h-full max-h-[286px] w-full overflow-hidden">
+					<div class="h-[286px] w-full overflow-hidden">
 						<img src={item.image} alt="service" class="h-full w-full object-cover object-center" />
 					</div>
 					<div class="text-[14px] lg:text-[20px]">
 						<h3 class="font-semibold tracking-normal capitalize">{item.title}</h3>
-						<p class="leading-relaxed font-light tracking-normal capitalize">{item.description}</p>
+						<p class="text-[20px] leading-relaxed font-extralight tracking-normal capitalize">
+							{item.description}
+						</p>
 					</div>
 				</div>
 			{/each}
@@ -550,24 +566,17 @@
 <!-- ============================Benefit section======================== -->
 <section
 	id="benefits"
-	class="item-center relative flex min-h-full flex-col justify-center gap-20 overflow-x-hidden py-10 md:py-20 mx-auto max-w-[1728px]"
+	class="relative mx-auto flex min-h-full max-w-[1728px] flex-col items-center justify-center gap-20 overflow-x-hidden py-10 md:py-20"
 >
-	<div class="grid place-items-center gap-10 lg:grid-cols-2">
+	<div class="flex items-start gap-10 px-5">
 		<!-- IMAGE SECTION -->
-		<div class="order-2 lg:order-1">
-			<div class="relative flex max-h-[470px] w-full lg:h-auto lg:w-[496px]">
-				<img src={BenefitImg} alt="benefit-img" class="w-full lg:w-[367px]" />
-				<img
-					src={BenefitImg2}
-					alt="benefit-img"
-					class="absolute bottom-[-15rem] left-[-5rem] z-10 hidden max-w-[254px] lg:block"
-				/>
-			</div>
+		<div class="order-2 w-[496px] pt-20 lg:order-1 hidden lg:block">
+			<img src={BenefitImg} alt="benefit-img" class="w-full" />
 		</div>
 
 		<!-- TEXT + BENEFITS SECTION -->
 		<div class="order-1 flex w-full flex-col gap-10 md:order-2">
-			<h1 class="3xl:text-[64px] text-[24px] font-[316] capitalize lg:text-[37px] xl:text-[45px]">
+			<h1 class="text-[24px] font-[316] capitalize lg:text-[36px] 2xl:text-[45px]">
 				As a valued member, you unlock a world of personalized travel, lifestyle, and financial
 				privileges, powered by our trusted partnership with Mastercard World Elite.
 			</h1>
@@ -639,9 +648,11 @@
 			<!-- Grid for large screens -->
 			<div class="hidden grid-cols-2 gap-10 lg:grid">
 				{#each benefits as benefit}
-					<div class="flex flex-col space-y-[4px] text-[14px] font-[571] capitalize lg:text-[20px]">
+					<div
+						class="flex w-[330px] flex-col space-y-[4px] text-[14px] font-[571] capitalize lg:text-[20px]"
+					>
 						{benefit.title}
-						<span class="font-[200] normal-case">{benefit.description}</span>
+						<span class="font-extralight normal-case">{benefit.description}</span>
 					</div>
 				{/each}
 			</div>
@@ -652,7 +663,7 @@
 <!-- ============================Our Patner section======================== -->
 <section
 	id="partner"
-	class="item-center relative flex min-h-screen flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:px-20 md:py-20 mx-auto max-w-[1728px]"
+	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:px-20 md:py-20"
 >
 	<div
 		class="flex min-h-[284px] flex-col justify-center gap-5 rounded-[46px] px-0 py-10 lg:gap-10 lg:px-20"
@@ -687,7 +698,7 @@
 <!-- ============================Insight section======================== -->
 <section
 	id="insight"
-	class="item-center relative flex min-h-screen flex-col justify-center gap-20 overflow-hidden px-5 py-10 md:px-50 md:py-20 mx-auto max-w-[1728px]"
+	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-20 overflow-hidden px-5 py-10 md:px-50 md:py-20"
 >
 	<!-- Left Glow -->
 	<div
@@ -729,21 +740,20 @@
 
 <!-- ============================Footer section======================== -->
 <footer
-	class="item-center relative flex flex-col gap-3 overflow-x-hidden py-10 md:gap-10 md:py-10 mx-auto max-w-[1728px]"
+	class="relative min-h-screen mx-auto flex max-w-[1728px] flex-col items-center gap-3 overflow-x-hidden py-10 md:gap-10 md:py-20 px-5"
 >
-	<div class="flex justify-between gap-8 text-[10px] font-[200] uppercase lg:text-[18px]">
+	<div class="flex justify-between gap-10 text-[10px] font-[200] uppercase lg:text-[18px] w-full">
 		<div>
-			AULT 2024.<br />
-			27 OLD GLOUCESTER STREET, LONDON, UNITED KINGDOM, WC1N 3AX
+			27 OLD GLOUCESTER <br/> STREET LONDON, UNITED <br/> KINGDOM, WC1N 3AX
 		</div>
-		<div class="flex flex-col gap-3 lg:flex-row">
+		<div class="flex flex-col gap-10 lg:flex-row">
 			<div>
-				<p>
+				<p class="font-[200]">
 					your Journey to more <br />
 					begins here.
 				</p>
 			</div>
-			<p class="uppercase">BUSINESs@goAULT.COM</p>
+			<p class="uppercase font-[200]">BUSINESs@goAULT.COM</p>
 		</div>
 	</div>
 	<div class="w-full">
