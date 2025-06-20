@@ -27,6 +27,7 @@
 	import Vision from '$lib/components/Vision.svelte';
 	import Beyond from '$lib/components/Beyond.svelte';
 	import Howitworks from '$lib/components/Howitworks.svelte';
+	import Services from '$lib/components/Services.svelte';
 
 	let isOpen = false;
 
@@ -426,7 +427,7 @@
 			</div>
 
 			<!-- Mobile Carousel -->
-			<div class="w-full overflow-hidden lg:hidden flex justify-center items-center">
+			<div class="flex w-full items-center justify-center overflow-hidden lg:hidden">
 				<Howitworks />
 			</div>
 
@@ -484,7 +485,7 @@
 
 <!-- ============================Services section======================== -->
 <section
-	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:py-20"
+	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-0 md:py-20"
 >
 	<div class="w-full text-start">
 		<h1
@@ -494,24 +495,12 @@
 		</h1>
 	</div>
 
-	<div class="flex flex-col gap-20">
+	<div class="flex gap-20 w-full">
 		<!-- Carousel (small screens only) -->
-		<div
-			class="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-10 md:hidden"
-		>
-			{#each services as item}
-				<div class="flex w-[288px] shrink-0 snap-start flex-col gap-5 p-4">
-					<div class="h-[180px] w-full overflow-hidden rounded">
-						<img src={item.image} alt="service" class="h-full w-full object-cover object-center" />
-					</div>
-					<div class="text-[14px] lg:text-[20px]">
-						<h3 class="font-semibold tracking-normal capitalize">{item.title}</h3>
-						<p class="leading-relaxed font-light tracking-normal capitalize">{item.description}</p>
-					</div>
-				</div>
-			{/each}
+		<div class="flex w-full items-center justify-center overflow-hidden md:hidden">
+			<Services />
 		</div>
-
+		
 		<!-- for desktop -->
 		<div class="hidden grid-cols-3 gap-16 md:grid">
 			{#each services as item}

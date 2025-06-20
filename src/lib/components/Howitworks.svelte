@@ -103,14 +103,14 @@
 				<div
 					class="flex w-[288px] flex-shrink-0 snap-start flex-col gap-9 rounded-[16px] bg-[#000000] p-4"
 				>
-					<!-- <div class="flex gap-1">
+					<div class="flex gap-1">
 						{#each Array(step.dots) as _, dotIndex}
 							<div
 								class="relative h-3 w-3 rounded-full bg-[#7D7D7D]"
 								style="top: {dotIndex % 2 === 0 ? -1 : 2}px"
 							></div>
 						{/each}
-					</div> -->
+					</div>
 					<div class="grid gap-2">
 						<h3 class="text-[16px] font-semibold capitalize">{step.title}</h3>
 						<p class="text-[14px] font-light">{step.description}</p>
@@ -142,7 +142,7 @@
 	</button> -->
 
 	<!-- Step Indicators -->
-	<div class="mt-4 flex justify-center gap-2">
+	<!-- <div class="mt-4 flex justify-center gap-2">
 		{#each steps as _, index}
 			<button
 				on:click={() => scrollToStep(index)}
@@ -151,7 +151,7 @@
 					: 'bg-white/30 hover:bg-white/50'}"
 			></button>
 		{/each}
-	</div>
+	</div> -->
 
 	<!-- Step Counter -->
 	<!-- <div class="mt-2 text-center text-sm text-white/60">

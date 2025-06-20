@@ -81,9 +81,9 @@
 </script>
 
 <!-- Carousel for small screens only -->
-<div class="relative h-[300px] w-full md:hidden mx-3">
+<div class="relative h-[300px] w-full md:hidden">
 	<div class="absolute right-0 left-0">
-		<div class="overflow-hidden px-4 md:hidden">
+		<div class="overflow-hidden px- md:hidden">
 			<div
 				bind:this={carouselContainer}
 				on:scroll={handleScroll}
@@ -121,7 +121,7 @@
 		</button> -->
 
 		<!-- Dot Indicators -->
-		<div class="mt-4 flex justify-center gap-2">
+		<!-- <div class="mt-4 flex justify-center gap-2">
 			{#each features as _, index}
 				<button
 					on:click={() => scrollToItem(index)}
@@ -130,7 +130,7 @@
 						: 'bg-white/30 hover:bg-white/50'}"
 				></button>
 			{/each}
-		</div>
+		</div> -->
 	</div>
 </div>
 
