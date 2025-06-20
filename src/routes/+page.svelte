@@ -169,7 +169,8 @@
 
 <!-- ============================Hero section======================== -->
 <section
-	class="relative top-[-88px] mx-auto flex h-[900px] max-w-[1728px] flex-col gap-20 overflow-x-hidden py-5 pt-[100px]"
+	id="hero"
+	class="relative top-[-88px] mx-auto flex h-[900px] max-w-[1728px] flex-col gap-20 overflow-x-hidden py-5 pt-[100px] lg:pt-[160px]"
 >
 	<!-- Gradient overlay -->
 	<!-- <div class="absolute inset-0 z-0 bg-black opacity-20"></div> -->
@@ -184,8 +185,8 @@
 		<div
 			class="3xl:text-[96px] text-[40px] leading-none font-[200] tracking-tighter uppercase sm:text-[45px] lg:text-[60px] xl:text-[70px]"
 		>
-			<span class="lg:block hidden">timeless security,<br />modern liquidity.</span>
-			<span class="block">timeless<br /> security,<br />modern <br/> liquidity.</span>
+			<span class="hidden lg:block">timeless security,<br />modern liquidity.</span>
+			<span class="block lg:hidden">timeless<br /> security,<br />modern <br /> liquidity.</span>
 		</div>
 		<p class="text-[14px] font-[316] lg:text-[20px] xl:text-[27px]">
 			Gold made Flexible <br class="block lg:hidden" /> and Tailored For You
@@ -295,7 +296,7 @@
 			</div>
 
 			<button
-				class="group hidden h-[45px] w-[144px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase transition-all duration-300 md:text-[20px] lg:block lg:h-[55px] lg:w-[211px]"
+				class="group ml-10 hidden h-[45px] w-[144px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase transition-all duration-300 md:text-[20px] lg:block lg:h-[55px] lg:w-[211px]"
 				><span class="transition-all duration-300 group-hover:tracking-wider">JOIN AULT</span
 				></button
 			>
@@ -306,11 +307,11 @@
 <!-- ============================Your Card section======================== -->
 <section
 	id="your-card"
-	class="relative mx-auto flex w-full max-w-[1728px] flex-col items-center gap-5 px-5 py-10 md:gap-50 md:py-0 lg:min-h-screen lg:flex-row"
+	class="relative overflow-hidden mx-auto flex w-full max-w-[1728px] flex-col items-center gap-5 px-5 py-10 md:gap-50 md:py-0 lg:min-h-screen lg:flex-row"
 	style="background-image: url({CardBackground}); background-size: cover; background-position: center; background-repeat: no-repeat;"
 >
 	<div
-		class="uppecase absolute top-0 z-0 hidden w-full text-center text-[18vw] font-[200] tracking-[0.03em] text-[#181818] lg:block"
+		class="uppercase absolute top-0 z-0 hidden w-full text-center text-[18vw] font-[200] tracking-[0.03em] text-[#181818] lg:block"
 	>
 		LIMITLESS
 	</div>
