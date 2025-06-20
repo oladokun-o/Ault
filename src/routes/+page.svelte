@@ -1,4 +1,6 @@
 <script>
+	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
 	import Logo from '$lib/assets/logo.svg';
 	import HeroBackground from '$lib/assets/herobg.png';
 	import Security from '$lib/assets/security.png';
@@ -18,6 +20,7 @@
 	import Partner3 from '$lib/assets/partner3.png';
 	import Partner4 from '$lib/assets/partner4.png';
 	import Partner5 from '$lib/assets/partner5.png';
+	import PartnerImg from '$lib/assets/partner-img.jpg';
 	import FooterLogo from '$lib/assets/footer-logo.png';
 	import Gold from '$lib/assets/golden.png';
 	import HowItWorksImg from '$lib/assets/how-it-works.png';
@@ -30,25 +33,16 @@
 
 	let isOpen = false;
 
-	const vision = [
-		{
-			title: 'BUY',
-			to: 'Own With Confidence',
-			how: 'Securely purchase and hold physical allocated gold, safely stored in LBMA-certified vaults.'
-		},
-		{
-			title: 'SPEND',
-			to: 'Spend Without Limits',
-			how: 'Instantly access your gold or its benefits via the AULT Mastercard, enabling seamless global spending.'
-		},
-		{
-			title: 'MORE',
-			to: 'Unlock Financial Freedom',
-			how: 'Lease, borrow against, or transfer your gold assets with unparalleled flexibility and security.'
+	$: if (browser) {
+		if (isOpen) {
+			document.body.classList.add('overflow-hidden');
+		} else {
+			document.body.classList.remove('overflow-hidden');
 		}
-	];
+	}
 
-	const features = [
+	// =====================features===============
+	export let features = [
 		{
 			title: 'Security',
 			image: Security,
@@ -68,7 +62,42 @@
 				'Seamless Access To Your Funds. Withdraw, Transfer, Or Spend Your Allocated Gold Assets Wherever And Whenever Needed.'
 		}
 	];
+	let currentIndex = 0;
+	let perView = 1;
+	let startX = 0;
+	let slideCount = 1;
 
+	const updatePerView = () => {
+		perView = window.innerWidth >= 640 ? 2 : 1;
+		slideCount = Math.ceil(features.length / perView);
+	};
+
+	const next = () => (currentIndex = (currentIndex + 1) % slideCount);
+	const prev = () => (currentIndex = (currentIndex - 1 + slideCount) % slideCount);
+	const goTo = (i) => (currentIndex = i);
+
+	const handleTouchStart = (e) => (startX = e.touches[0].clientX);
+	const handleTouchEnd = (e) => {
+		let dx = e.changedTouches[0].clientX - startX;
+		if (dx > 50) prev();
+		else if (dx < -50) next();
+	};
+
+	onMount(() => {
+		updatePerView();
+		window.addEventListener('resize', updatePerView);
+
+		updateStepView();
+		window.addEventListener('resize', updateStepView);
+
+		updateServiceView();
+		window.addEventListener('resize', updateServiceView);
+
+		updateBenefitView();
+		window.addEventListener('resize', updateBenefitView);
+	});
+
+	// =======================step carousel ===============
 	const steps = [
 		{
 			title: 'Step 1: Invitation & Consultation',
@@ -96,24 +125,68 @@
 		}
 	];
 
+	let stepsIndex = 0;
+	let stepPerView = 1;
+	let stepSlideCount = 1;
+	let stepStartX = 0;
+
+	const updateStepView = () => {
+		stepPerView = window.innerWidth >= 768 ? 2 : 1;
+		stepSlideCount = Math.ceil(steps.length / stepPerView);
+	};
+
+	const goToStep = (i) => (stepsIndex = i);
+	const nextStep = () => (stepsIndex = (stepsIndex + 1) % stepSlideCount);
+	const prevStep = () => (stepsIndex = (stepsIndex - 1 + stepSlideCount) % stepSlideCount);
+
+	const handleStepStart = (e) => (stepStartX = e.touches[0].clientX);
+	const handleStepEnd = (e) => {
+		let dx = e.changedTouches[0].clientX - stepStartX;
+		if (dx > 50) prevStep();
+		else if (dx < -50) nextStep();
+	};
+
+	// ======================services carousel ===================
 	const services = [
 		{
 			title: '24/7 Concierge:',
-			description: `Your dedicated Relationship Manager is always available to handle your requests and privileges, ensuring your needs are met with care and precision.`,
+			description: `We handle your requests on AULT services and privileges, ensuring that your needs are met whenever.`,
 			image: Service1
 		},
 		{
 			title: 'Global Support:',
-			description: `Our worldwide network provides seamless access to your gold and personalized assistance wherever you are.`,
+			description: `AULT’s global network ensures seamless access to your gold, across borders. AULT ensures your service requirements are met wherever life takes you.`,
 			image: Service2
 		},
 		{
 			title: 'Effortless Fund Access:',
-			description: `Easily manage your allocated gold and securely send instructions through our intuitive web app.`,
+			description: `Managing your allocated gold has never been simpler. With AULT, you can access your gold effortlessly and send instructions securely via the web app.`,
 			image: Service3
 		}
 	];
+	let servicesIndex = 0;
+	let perViewService = 1;
+	let serviceSlideCount = 1;
+	let serviceStartX = 0;
 
+	const updateServiceView = () => {
+		perViewService = window.innerWidth >= 768 ? 2 : 1;
+		serviceSlideCount = Math.ceil(services.length / perViewService);
+	};
+
+	const goToService = (i) => (servicesIndex = i);
+	const nextService = () => (servicesIndex = (servicesIndex + 1) % serviceSlideCount);
+	const prevService = () =>
+		(servicesIndex = (servicesIndex - 1 + serviceSlideCount) % serviceSlideCount);
+
+	const handleServiceStart = (e) => (serviceStartX = e.touches[0].clientX);
+	const handleServiceEnd = (e) => {
+		let dx = e.changedTouches[0].clientX - serviceStartX;
+		if (dx > 50) prevService();
+		else if (dx < -50) nextService();
+	};
+
+	// ===============benefits carousel=====================
 	const benefits = [
 		{
 			title: 'Concierge Services:',
@@ -151,6 +224,24 @@
 				'Benefit from expedited VAT refunds at select international airports, making your travels smoother.'
 		}
 	];
+	let benefitIndex = 0;
+	let benefitStartX = 0;
+
+	const nextBenefit = () => {
+		benefitIndex = (benefitIndex + 1) % benefits.length;
+	};
+
+	const prevBenefit = () => {
+		benefitIndex = (benefitIndex - 1 + benefits.length) % benefits.length;
+	};
+
+	const handleBenefitStart = (e) => (benefitStartX = e.touches[0].clientX);
+
+	const handleBenefitEnd = (e) => {
+		let dx = e.changedTouches[0].clientX - benefitStartX;
+		if (dx > 50) prevBenefit();
+		else if (dx < -50) nextBenefit();
+	};
 
 	let scrollRef;
 
@@ -161,6 +252,16 @@
 	function scrollRight() {
 		scrollRef.scrollBy({ left: 300, behavior: 'smooth' });
 	}
+
+	let showForm = false;
+
+	// =========insight ============
+	let showInsight1 = false;
+	let showInsight2 = false;
+	let showInsight3 = false;
+	let showInsight4 = false;
+	let showInsight5 = false;
+	let showInsight6 = false;
 </script>
 
 <!-- ============================Hero section======================== -->
@@ -216,12 +317,12 @@
 			</ul>
 			<div class="flex gap-7">
 				<a
-					href="#log-in"
+					on:click={() => (showForm = true)}
 					class="group grid h-[55px] w-[150px] place-items-center rounded-[10px] border-3 border-[#D9D9D9] bg-transparent text-center text-[14px] font-[700] text-white uppercase transition-all duration-300 hover:bg-[#D9D9D9] hover:text-black hover:shadow-lg"
 					><span class="transition-all duration-300 group-hover:tracking-wider">LOG IN</span></a
 				>
 				<a
-					href="#about"
+					on:click={() => (showForm = true)}
 					class="group grid h-[55px] w-[150px] place-items-center rounded-[10px] bg-[#D9D9D9] text-center text-[14px] font-[700] text-black uppercase transition-all duration-300"
 					><span class="transition-all duration-300 group-hover:tracking-wider">Get Started</span
 					></a
@@ -256,65 +357,168 @@
 			</svg>
 		</button>
 
-		<!-- Mobile Menu -->
-		{#if isOpen}
-			<div
-				class="fixed inset-0 z-[90] h-full w-[80%] max-w-[300px] overflow-y-auto bg-black p-5 pt-20 shadow-lg lg:hidden"
-			>
-				<div class="mb-10 cursor-pointer">
-					<a href="/"><img src={Logo} alt="logo" class="w-28 md:w-32" /></a>
-				</div>
-				<ul class="space-y-6 text-left text-[16px] font-medium text-white">
-					<li>
-						<a
-							href="#how-it-works"
-							class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-[#D9D9D9] after:transition-all after:duration-300 hover:text-white/80 hover:after:w-full"
-							on:click={() => (isOpen = false)}>Discover</a
-						>
-					</li>
-					<li>
-						<a
-							href="#your-card"
-							class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-[#D9D9D9] after:transition-all after:duration-300 hover:text-white/80 hover:after:w-full"
-							on:click={() => (isOpen = false)}>Your Card</a
-						>
-					</li>
-					<li>
-						<a
-							href="#benefits"
-							class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-[#D9D9D9] after:transition-all after:duration-300 hover:text-white/80 hover:after:w-full"
-							on:click={() => (isOpen = false)}>Benefits</a
-						>
-					</li>
-					<li>
-						<a
-							href="#insight"
-							class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-[#D9D9D9] after:transition-all after:duration-300 hover:text-white/80 hover:after:w-full"
-							on:click={() => (isOpen = false)}>Insight</a
-						>
-					</li>
-					<li>
-						<a
-							href="#log-in"
-							class="group mx-auto block w-full max-w-[300px] rounded-[10px] bg-[#D9D9D9] px-4 py-2 text-center font-bold text-black uppercase transition-all duration-300 hover:scale-105 hover:opacity-95 hover:shadow-lg"
-							on:click={() => (isOpen = false)}
-							><span class="transition-all duration-300 group-hover:tracking-wider">LOG-IN</span></a
-						>
-					</li>
-					<li>
-						<a
-							href="#about"
-							class="group mx-auto block w-full max-w-[300px] rounded-[10px] bg-[#D9D9D9] px-4 py-2 text-center font-bold text-black uppercase transition-all duration-300 hover:scale-105 hover:opacity-95 hover:shadow-lg"
-							on:click={() => (isOpen = false)}
-							><span class="transition-all duration-300 group-hover:tracking-wider"
-								>Get Started</span
-							></a
-						>
-					</li>
-				</ul>
-			</div>
-		{/if}
 	</nav>
+
+	<!-- =====================form section================================= -->
+	{#if showForm}
+		<div
+			class="max-w-screen no-scrollbar fixed left-0 top-0 z-[90] h-full w-full translate-x-0 transform overflow-y-auto bg-black px-8 py-10 shadow-lg transition-transform duration-300 lg:px-[20%]"
+		>
+			<!-- Close Button -->
+			<div class="mb-4 flex justify-end">
+				<button
+					on:click={() => (showForm = false)}
+					class="rounded-full border border-[#7C7C7C] p-3 text-[#7C7C7C] hover:border-white hover:text-white"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="h-6 w-6"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M6 18L18 6M6 6l12 12"
+						/>
+					</svg>
+				</button>
+			</div>
+			<div class="leading-none">
+				<h1 class="text-[64px] font-[316px] capitalize tracking-tight">Join ault</h1>
+				<p class="text-[16px] font-[442] capitalize text-[#A5A5A5]">
+					The journey to more start here
+				</p>
+			</div>
+
+			<div class="mt-10 grid grid-cols-1 gap-5 lg:grid-cols-2">
+				<div class="flex flex-col gap-2">
+					<label class="font-[442]" for="name">Full name</label>
+					<input
+						type="text"
+						placeholder="Gabriel onanosanya"
+						required
+						class="boder-[#FFFFFF2E] border bg-[#0B0C0E] text-[#FFFFFF75]"
+					/>
+				</div>
+				<div class="flex flex-col gap-2">
+					<label class="font-[442]" for="email">Email Address</label>
+					<input
+						type="text"
+						placeholder="david@blank.design"
+						required
+						class="boder-[#FFFFFF2E] border bg-[#0B0C0E] text-[#FFFFFF75]"
+					/>
+				</div>
+				<div class="flex flex-col gap-2">
+					<label class="font-[442]" for="number">Phone Number</label>
+					<input
+						type="text"
+						placeholder="0123456789"
+						required
+						class="boder-[#FFFFFF2E] border bg-[#0B0C0E] text-[#FFFFFF75]"
+					/>
+				</div>
+			</div>
+
+			<div class="flex flex-col gap-8 py-8">
+				<div class="flex flex-col gap-5">
+					<div class="flex gap-3 text-[14px] font-[442] capitalize tracking-tight">
+						<div>what are you interested in ?</div>
+						<div class="text-[#E9E9E9CC]">(Select all that apply)</div>
+					</div>
+					<div class="ml-3 space-y-3">
+						<div class="flex items-center gap-2">
+							<input
+								type="checkbox"
+								class="rounded-[4px] bg-transparent outline-black transition-all duration-300 checked:border-transparent checked:bg-[#FFCC00] checked:text-black focus:ring-0"
+							/>
+							<div class="text-[14px] font-[316] text-[#E9E9E9CC]">Buying and Holding Gold</div>
+						</div>
+						<div class="flex items-center gap-2">
+							<input
+								type="checkbox"
+								class="rounded-[4px] bg-transparent outline-black transition-all duration-300 checked:border-transparent checked:bg-[#FFCC00] checked:text-black focus:ring-0"
+							/>
+							<div class="text-[14px] font-[316] text-[#E9E9E9CC]">Leasing Gold</div>
+						</div>
+						<div class="flex items-center gap-2">
+							<input
+								type="checkbox"
+								class="rounded-[4px] bg-transparent outline-black transition-all duration-300 checked:border-transparent checked:bg-[#FFCC00] checked:text-black focus:ring-0"
+							/>
+							<div class="text-[14px] font-[316] text-[#E9E9E9CC]">Credit Solutions</div>
+						</div>
+						<div class="flex items-center gap-2">
+							<input
+								type="checkbox"
+								class="rounded-[4px] bg-transparent outline-black transition-all duration-300 checked:border-transparent checked:bg-[#FFCC00] checked:text-black focus:ring-0"
+							/>
+							<div class="text-[14px] font-[316] text-[#E9E9E9CC]">AULT Mastercard</div>
+						</div>
+					</div>
+				</div>
+				<div class="flex flex-col gap-5">
+					<div class="text-[14px] font-[442] capitalize tracking-tight">
+						Do You Already Own Physical or Tokenized Gold?
+					</div>
+					<div class="ml-3 flex gap-10">
+						<div class="flex items-center gap-2">
+							<input
+								type="radio"
+								name="own_gold"
+								value="yes"
+								class="rounded-[4px] bg-transparent outline-black transition-all duration-300 checked:border-transparent checked:bg-[#FFCC00] checked:text-black focus:ring-0"
+							/>
+							<div class="text-[14px] font-[316] text-[#E9E9E9CC]">Yes</div>
+						</div>
+						<div class="flex items-center gap-2">
+							<input
+								type="radio"
+								name="own_gold"
+								value="no"
+								class="rounded-[4px] bg-transparent outline-black transition-all duration-300 checked:border-transparent checked:bg-[#FFCC00] checked:text-black focus:ring-0"
+							/>
+							<div class="text-[14px] font-[316] text-[#E9E9E9CC]">No</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="flex flex-col gap-5">
+					<div class="text-[14px] font-[442] capitalize tracking-tight">
+						Do You Have A ProvidusBank Account?
+					</div>
+					<div class="ml-3 flex gap-10">
+						<div class="flex items-center gap-2">
+							<input
+								type="radio"
+								name="providus_account"
+								value="yes"
+								class="rounded-[4px] bg-transparent outline-black transition-all duration-300 checked:border-transparent checked:bg-[#FFCC00] checked:text-black focus:ring-0"
+							/>
+							<div class="text-[14px] font-[316] text-[#E9E9E9CC]">Yes</div>
+						</div>
+						<div class="flex items-center gap-2">
+							<input
+								type="radio"
+								name="providus_account"
+								value="no"
+								class="rounded-[4px] bg-transparent outline-black transition-all duration-300 checked:border-transparent checked:bg-[#FFCC00] checked:text-black focus:ring-0"
+							/>
+							<div class="text-[14px] font-[316] text-[#E9E9E9CC]">No</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button
+				class="mx-auto h-[40px] w-full max-w-[350px] bg-white text-center font-bold uppercase text-black"
+				on:click={() => (showForm = false)}>REQUEST YOUR INVITATION</button
+			>
+		</div>
+	{/if}
+
 
 	<!-- hero content -->
 	<div class="relative z-[1] mx-5 flex flex-col gap-5 text-center">
@@ -629,7 +833,7 @@
 </section>
 
 <!-- ============================Our Patner section======================== -->
-<section
+<!-- <section
 	id="partner"
 	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:px-20 md:py-20"
 >
@@ -661,12 +865,61 @@
 			<img src={AultGold} alt="ault-gold" class="w-full" />
 		</div>
 	</div>
+</section> -->
+
+<!-- ============================Our Patner section======================== -->
+<section
+	id="partner"
+	class="item-center relative flex min-h-screen flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:px-20 md:py-20 max-w-[1728px]"
+>
+	<div
+		class="flex min-h-[284px] flex-col justify-between gap-5 px-0 py-10 lg:flex-row lg:gap-20 lg:px-0"
+	>
+		<div class="flex flex-col justify-between gap-7">
+			<p class="3xl:text-[36px] text-[24px] font-[316] lg:max-w-[907px] lg:text-[25px]">
+				Our commitment to you is founded on trusted partnerships and a shared dedication to managing
+				your assets with the highest standards of security, transparency, and personalized
+				flexibility.
+			</p>
+			<div class="hidden max-h-[294px] max-w-[908px] lg:block">
+				<img src={PartnerImg} alt="Partner-img" class="h-full w-full" />
+			</div>
+		</div>
+		<div
+			class="ml-5 mt-10 flex flex-col justify-between gap-10 md:flex-row lg:ml-0 lg:mt-0 lg:flex-col lg:gap-2"
+		>
+			<div class="flex max-w-[378px] flex-col gap-5 text-[20px] font-[571]">
+				<div class="max-w-[159px]">
+					<img src={Partner4} alt="partner" class="w-full" />
+				</div>
+				<h3>
+					Emerging Africa
+					<span class="ml-1 text-[16px] font-[316] text-[#FFFFFFCC] lg:w-[312px]">
+						Oversees fiduciary responsibilities, safeguarding your gold assets with exceptional care
+						and strict regulatory compliance.
+					</span>
+				</h3>
+			</div>
+			<div class="flex max-w-[378px] flex-col gap-5 text-[20px] font-[571]">
+				<div class="max-w-[132px] opacity-[60%]">
+					<img src={Partner1} alt="partner" class="w-full" />
+				</div>
+				<h3>
+					Providus Bank
+					<span class="ml-1 text-[16px] font-[316] text-[#FFFFFFCC] lg:w-[312px]">
+						Provides reliable and efficient card solutions, ensuring your funds remain secure,
+						accessible, and available whenever you need them.
+					</span>
+				</h3>
+			</div>
+		</div>
+	</div>
 </section>
 
 <!-- ============================Insight section======================== -->
 <section
 	id="insight"
-	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-20 overflow-hidden px-5 py-10 md:px-50 md:py-20"
+	class="item-center md:px-50 relative mx-auto flex min-h-screen flex-col justify-center gap-20 overflow-hidden px-5 py-10 md:py-20 max-w-[1728px]"
 >
 	<!-- Left Glow -->
 	<div
@@ -682,26 +935,105 @@
 		<h1 class="lg:text[37px] 3xl:text-[64px] text-[37px] font-[316] uppercase sm:text-[37px]">
 			Insight
 		</h1>
-
 		<div class="flex flex-col gap-3 text-[16px] lg:text-[20px]">
-			<div class="cursor-pointer rounded-[8px] border border-white">
+			<div
+				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
+				on:click={() => (showInsight1 = !showInsight1)}
+			>
 				<p class="p-3 font-[442]">What is AULT?</p>
+				{#if showInsight1}
+					<p class="p-3 font-[442]">
+						AULT is an exclusive concierge service designed to provide seamless access to
+						gold-backed financial services, allowing the purchase, management, and spend of gold
+						assets securely, with flexibility and ease.
+					</p>
+				{/if}
 			</div>
-			<div class="cursor-pointer rounded-[8px] border border-white">
-				<p class="p-3 font-[442]">What do I need to get started?</p>
+
+			<div
+				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
+				on:click={() => (showInsight6 = !showInsight6)}
+			>
+				<p class="p-3 font-[442]">Why Gold?</p>
+				{#if showInsight6}
+					<p class="p-3 font-[442]">
+						Gold is a stable, long-term asset with a proven track record of preserving value across
+						economic fluctuations. Unlike traditional currencies or investments, gold offers a
+						tangible hedge against uncertainty and market volatility, providing security and
+						liquidity.
+					</p>
+				{/if}
 			</div>
-			<div class="cursor-pointer rounded-[8px] border border-white">
-				<p class="p-3 font-[442]">Do I need to sell my gold to spend it?</p>
+			<div
+				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
+				on:click={() => (showInsight2 = !showInsight2)}
+			>
+				<p class="p-3 font-[442]">How Do I Fund My AULT Account?</p>
+				{#if showInsight2}
+					<p class="p-3 font-[442]">
+						You can fund your AULT account by transferring fiat currency (USD, EUR, NGN) through our
+						secure platform. Once the funds are received, we will purchase the gold on your behalf.
+						All gold purchased is securely stored in LBMA-certified vaults in London, Zurich, or the
+						UAE.
+					</p>
+				{/if}
 			</div>
-			<div class="cursor-pointer rounded-[8px] border border-white">
-				<p class="p-3 font-[442]">What are the benefits of the AULT Mastercard?</p>
+			<div
+				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
+				on:click={() => (showInsight3 = !showInsight3)}
+			>
+				<p class="p-3 font-[442]">How Do I Access My Gold?</p>
+				{#if showInsight3}
+					<p class="p-3 font-[442]">
+						Once your account is active, access your gold via the AULT web app, liquidate it, and
+						spend it using your AULT Mastercard. The entire process of liquidating your allocated
+						gold is supported by robust technology infrastructure and is audited by KPMG LLP for
+						added assurance.
+					</p>
+				{/if}
 			</div>
-			<div class="cursor-pointer rounded-[8px] border border-white">
-				<p class="p-3 font-[442]">What are the benefits of the AULT Mastercard?</p>
+			<div
+				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
+				on:click={() => (showInsight4 = !showInsight4)}
+			>
+				<p class="p-3 font-[442]">How Is My Gold Stored?</p>
+				{#if showInsight4}
+					<p class="p-3 font-[442]">
+						Your gold is securely stored in insured vaults in London, Zurich, and the UAE. These
+						vaults meet international standards of security and compliance, ensuring your assets are
+						safe and protected.
+					</p>
+				{/if}
 			</div>
-			<div class="cursor-pointer rounded-[8px] border border-white">
-				<p class="p-3 font-[442]">What are the benefits of the AULT Mastercard?</p>
+			<div
+				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
+				on:click={() => (showInsight5 = !showInsight5)}
+			>
+				<p class="p-3 font-[442]">Do I Need To Sell My Gold To Spend It?</p>
+				{#if showInsight5}
+					<p class="p-3 font-[442]">
+						No, you don’t need to sell your gold. AULT has partnered with regulated financial
+						entities, allowing you to spend your gold directly anywhere in the world using the AULT
+						Mastercard.
+					</p>
+				{/if}
 			</div>
+		</div>
+		<div
+			class="ml-auto flex cursor-pointer items-center gap-3 text-[14px] font-[200] tracking-tight lg:text-[32px] lg:font-[316]"
+		>
+			Learn more
+			<svg
+				viewBox="0 0 20 12"
+				fill="currentColor"
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-2 w-8 rotate-180 text-white lg:h-5 lg:w-10"
+			>
+				<path
+					d="M9.84281 11.9019C10.1028 11.7642 10.2649 11.5023 10.2649 11.2175V6.7825H19.1841C19.6345 6.7825 20 6.43195 20 6.00003C20 5.56811 19.6345 5.21756 19.1841 5.21756H10.2649V0.782525C10.2649 0.496663 10.1028 0.234796 9.84281 0.0981252C9.58281 -0.0406327 9.26516 -0.0312431 9.01387 0.120034L0.380745 5.33754C0.143595 5.48151 0 5.73086 0 6.00003C0 6.2692 0.143595 6.51854 0.380745 6.66252L9.01387 11.88C9.14659 11.9593 9.2978 12 9.44901 12C9.5839 12 9.71988 11.9666 9.84281 11.9019Z"
+					class="icon-path"
+				/>
+			</svg>
 		</div>
 	</div>
 </section>
