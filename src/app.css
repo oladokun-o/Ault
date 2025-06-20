@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'ABC Arizona Flare';
+  src: url('/fonts/ABCArizonaFlare.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+
+body {
+  font-family: 'ABC Arizona Flare', serif;
+  color: white;
+  background: black;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
