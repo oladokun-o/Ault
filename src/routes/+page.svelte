@@ -28,8 +28,8 @@
 	import Beyond from '$lib/components/Beyond.svelte';
 	import Howitworks from '$lib/components/Howitworks.svelte';
 	import Services from '$lib/components/Services.svelte';
-
-	let isOpen = false;
+	import MobileMenu from '$lib/components/MobileMenu.svelte';
+	import Navbar from '$lib/components/Navbar.svelte';
 
 	const vision = [
 		{
@@ -164,9 +164,12 @@
 	}
 </script>
 
+<!-- navbar -->
+<Navbar />
+
 <!-- ============================Hero section======================== -->
 <section
-	class="relative mx-auto flex h-[900px] max-w-[1728px] flex-col gap-20 overflow-x-hidden py-5"
+	class="relative top-[-88px] mx-auto flex h-[900px] max-w-[1728px] flex-col gap-20 overflow-x-hidden py-5 pt-[100px]"
 >
 	<!-- Gradient overlay -->
 	<!-- <div class="absolute inset-0 z-0 bg-black opacity-20"></div> -->
@@ -176,156 +179,16 @@
 		<img src={HeroBackground} alt="hero-bg" class="h-full w-full object-cover" />
 	</div>
 
-	<!-- navbar -->
-	<nav class="relative z-10 flex items-center justify-between px-8 py-4 md:py-0">
-		<!-- Logo -->
-		<div class="cursor-pointer">
-			<a href="/"><img src={Logo} alt="logo" class="w-[86px] md:w-[149px]" /></a>
-		</div>
-
-		<!-- Desktop Links -->
-		<div class="hidden items-center gap-20 font-[442] lg:flex">
-			<ul class="flex gap-10 text-[15px]">
-				<li>
-					<a
-						href="#how-it-works"
-						class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
-						>Discover</a
-					>
-				</li>
-				<li>
-					<a
-						href="#your-card"
-						class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
-						>Your Card</a
-					>
-				</li>
-				<li>
-					<a
-						href="#benefits"
-						class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
-						>Benefits</a
-					>
-				</li>
-				<li>
-					<a
-						href="#insight"
-						class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
-						>Insight</a
-					>
-				</li>
-			</ul>
-			<div class="flex gap-7">
-				<a
-					href="#log-in"
-					class="group grid h-[55px] w-[150px] place-items-center rounded-[10px] border-3 border-[#D9D9D9] bg-transparent text-center text-[14px] font-[700] text-white uppercase transition-all duration-300 hover:bg-[#D9D9D9] hover:text-black hover:shadow-lg"
-					><span class="transition-all duration-300 group-hover:tracking-wider">LOG IN</span></a
-				>
-				<a
-					href="#about"
-					class="group grid h-[55px] w-[150px] place-items-center rounded-[10px] bg-[#D9D9D9] text-center text-[14px] font-[700] text-black uppercase transition-all duration-300"
-					><span class="transition-all duration-300 group-hover:tracking-wider">Get Started</span
-					></a
-				>
-			</div>
-		</div>
-
-		<!-- Mobile Hamburger -->
-		<button class="block focus:outline-none lg:hidden" on:click={() => (isOpen = !isOpen)}>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
-				class="h-8 w-8 cursor-pointer text-white"
-			>
-				{#if isOpen}
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M6 18L18 6M6 6l12 12"
-					/>
-				{:else}
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M4 6h16M4 12h16M4 18h16"
-					/>
-				{/if}
-			</svg>
-		</button>
-
-		<!-- Mobile Menu -->
-		{#if isOpen}
-			<div
-				class="fixed inset-0 z-[90] h-full w-[80%] max-w-[300px] overflow-y-auto bg-black p-5 pt-20 shadow-lg lg:hidden"
-			>
-				<div class="mb-10 cursor-pointer">
-					<a href="/"><img src={Logo} alt="logo" class="w-28 md:w-32" /></a>
-				</div>
-				<ul class="space-y-6 text-left text-[16px] font-medium text-white">
-					<li>
-						<a
-							href="#how-it-works"
-							class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-[#D9D9D9] after:transition-all after:duration-300 hover:text-white/80 hover:after:w-full"
-							on:click={() => (isOpen = false)}>Discover</a
-						>
-					</li>
-					<li>
-						<a
-							href="#your-card"
-							class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-[#D9D9D9] after:transition-all after:duration-300 hover:text-white/80 hover:after:w-full"
-							on:click={() => (isOpen = false)}>Your Card</a
-						>
-					</li>
-					<li>
-						<a
-							href="#benefits"
-							class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-[#D9D9D9] after:transition-all after:duration-300 hover:text-white/80 hover:after:w-full"
-							on:click={() => (isOpen = false)}>Benefits</a
-						>
-					</li>
-					<li>
-						<a
-							href="#insight"
-							class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-[#D9D9D9] after:transition-all after:duration-300 hover:text-white/80 hover:after:w-full"
-							on:click={() => (isOpen = false)}>Insight</a
-						>
-					</li>
-					<li>
-						<a
-							href="#log-in"
-							class="group mx-auto block w-full max-w-[300px] rounded-[10px] bg-[#D9D9D9] px-4 py-2 text-center font-bold text-black uppercase transition-all duration-300 hover:scale-105 hover:opacity-95 hover:shadow-lg"
-							on:click={() => (isOpen = false)}
-							><span class="transition-all duration-300 group-hover:tracking-wider">LOG-IN</span></a
-						>
-					</li>
-					<li>
-						<a
-							href="#about"
-							class="group mx-auto block w-full max-w-[300px] rounded-[10px] bg-[#D9D9D9] px-4 py-2 text-center font-bold text-black uppercase transition-all duration-300 hover:scale-105 hover:opacity-95 hover:shadow-lg"
-							on:click={() => (isOpen = false)}
-							><span class="transition-all duration-300 group-hover:tracking-wider"
-								>Get Started</span
-							></a
-						>
-					</li>
-				</ul>
-			</div>
-		{/if}
-	</nav>
-
 	<!-- hero content -->
 	<div class="relative z-[1] mx-5 flex flex-col gap-5 text-center">
 		<div
 			class="3xl:text-[96px] text-[40px] leading-none font-[200] tracking-tighter uppercase sm:text-[45px] lg:text-[60px] xl:text-[70px]"
 		>
-			timeless security,<br />modern liquidity
+			<span class="lg:block hidden">timeless security,<br />modern liquidity.</span>
+			<span class="block">timeless<br /> security,<br />modern <br/> liquidity.</span>
 		</div>
 		<p class="text-[14px] font-[316] lg:text-[20px] xl:text-[27px]">
-			Gold made Flexible and Tailored For You
+			Gold made Flexible <br class="block lg:hidden" /> and Tailored For You
 		</p>
 	</div>
 </section>
@@ -447,7 +310,7 @@
 	style="background-image: url({CardBackground}); background-size: cover; background-position: center; background-repeat: no-repeat;"
 >
 	<div
-		class="uppecase absolute top-0 w-full text-center z-0 hidden text-[18vw] font-[200] tracking-[0.03em] text-[#181818] lg:block"
+		class="uppecase absolute top-0 z-0 hidden w-full text-center text-[18vw] font-[200] tracking-[0.03em] text-[#181818] lg:block"
 	>
 		LIMITLESS
 	</div>
@@ -471,9 +334,7 @@
 			>
 		</div>
 	</div>
-	<div
-		class="relative lg:right-[4rem] lg:bottom-[-4rem]"
-	>
+	<div class="relative lg:right-[4rem] lg:bottom-[-4rem]">
 		<img src={AultOnGold} alt="ault-on-gold" class="w-full lg:w-[685px]" />
 		<button
 			class="group relative top-[-70px] mx-auto block h-[45px] w-[160px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase transition-all duration-300 md:text-[20px] lg:mx-0 lg:hidden lg:h-[55px] lg:w-[211px]"
@@ -495,12 +356,12 @@
 		</h1>
 	</div>
 
-	<div class="flex gap-20 w-full">
+	<div class="flex w-full gap-20">
 		<!-- Carousel (small screens only) -->
 		<div class="flex w-full items-center justify-center overflow-hidden md:hidden">
 			<Services />
 		</div>
-		
+
 		<!-- for desktop -->
 		<div class="hidden grid-cols-3 gap-16 md:grid">
 			{#each services as item}
