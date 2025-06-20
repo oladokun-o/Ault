@@ -25,6 +25,7 @@
 	import BenefitImg from '$lib/assets/benefit.png';
 	import AultGold from '$lib/assets/ault-gold.png';
 	import Vision from '$lib/components/Vision.svelte';
+	import Beyond from '$lib/components/Beyond.svelte';
 
 	let isOpen = false;
 
@@ -330,7 +331,7 @@
 <!-- ============================About section======================== -->
 <section
 	id="about"
-	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-40 py-10 px-5 text-center md:py-20"
+	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-40 px-5 py-10 text-center md:py-20"
 >
 	<div class="mx-auto flex flex-col justify-center gap-5">
 		<Vision />
@@ -358,23 +359,7 @@
 		</h1>
 
 		<!-- Carousel for small screens only -->
-		<div class="relative h-[300px] md:hidden w-full">
-			<div class="absolute right-0 left-0">
-				<div
-					class="overflow-hidden px-4 md:hidden"
-				>
-					<div class=" w-full flex gap-4 no-scrollbar overflow-x-auto scroll-smooth snap-x snap-mandatory">
-						{#each features as feature}
-							<div class="w-[288px] flex-shrink-0 snap-start rounded-[4px] bg-[#181818] p-4">
-								<img src={feature.image} alt={feature.title} class="mx-auto mb-4 w-[165px]" />
-								<h3 class="text-[25px] font-bold text-white">{feature.title}</h3>
-								<p class="text-sm text-white/80">{feature.description}</p>
-							</div>
-						{/each}
-					</div>
-				</div>
-			</div>
-		</div>
+		<Beyond />
 
 		<!-- Grid layout for desktop -->
 		<div class="hidden grid-cols-2 gap-5 md:grid lg:grid-cols-3">
@@ -570,7 +555,7 @@
 >
 	<div class="flex items-start gap-10 px-5">
 		<!-- IMAGE SECTION -->
-		<div class="order-2 w-[496px] pt-20 lg:order-1 hidden lg:block">
+		<div class="order-2 hidden w-[496px] pt-20 lg:order-1 lg:block">
 			<img src={BenefitImg} alt="benefit-img" class="w-full" />
 		</div>
 
@@ -740,11 +725,11 @@
 
 <!-- ============================Footer section======================== -->
 <footer
-	class="relative min-h-screen mx-auto flex max-w-[1728px] flex-col items-center gap-3 overflow-x-hidden py-10 md:gap-10 md:py-20 px-5"
+	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center gap-3 overflow-x-hidden px-5 py-10 md:gap-10 md:py-20"
 >
-	<div class="flex justify-between gap-10 text-[10px] font-[200] uppercase lg:text-[18px] w-full">
+	<div class="flex w-full justify-between gap-10 text-[10px] font-[200] uppercase lg:text-[18px]">
 		<div>
-			27 OLD GLOUCESTER <br/> STREET LONDON, UNITED <br/> KINGDOM, WC1N 3AX
+			27 OLD GLOUCESTER <br /> STREET LONDON, UNITED <br /> KINGDOM, WC1N 3AX
 		</div>
 		<div class="flex flex-col gap-10 lg:flex-row">
 			<div>
@@ -753,7 +738,7 @@
 					begins here.
 				</p>
 			</div>
-			<p class="uppercase font-[200]">BUSINESs@goAULT.COM</p>
+			<p class="font-[200] uppercase">BUSINESs@goAULT.COM</p>
 		</div>
 	</div>
 	<div class="w-full">
