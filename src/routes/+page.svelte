@@ -361,7 +361,7 @@
 </section>
 
 <!-- ============================Services section======================== -->
-<section class="relative min-h-screen w-full overflow-x-hidden bg-[#181818] px-5 py-0 md:py-20">
+<section class="relative min-h-screen w-full overflow-x-hidden bg-[#181818] px-5 py-10 md:py-20">
 	<div
 		class="mx-auto flex w-full max-w-[1728px] flex-col items-center justify-center gap-10 gap-20 lg:px-20 xl:px-[150px]"
 	>
@@ -556,7 +556,7 @@
 <!-- ============================Insight section======================== -->
 <section
 	id="insight"
-	class="item-center relative flex min-h-screen w-full flex-col justify-center gap-20 overflow-hidden py-10 md:py-20"
+	class="item-center relative flex min-h-screen w-full flex-col justify-center gap-20 overflow-hidden px-5 py-10 md:py-20"
 >
 	<div class="mx-auto max-w-[1728px] lg:px-20 xl:px-[150px]">
 		<!-- Left Glow -->
