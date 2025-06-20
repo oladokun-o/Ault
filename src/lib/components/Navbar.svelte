@@ -2,9 +2,10 @@
 	import { onMount } from 'svelte';
 	import Logo from '$lib/assets/logo.svg';
 	import MobileMenu from './MobileMenu.svelte';
+	import { openJoinForm } from '$lib/stores/formStore';
 
 	let scrolled = false;
-
+	
 	onMount(() => {
 		const handleScroll = () => {
 			const hero = document.querySelector('#hero'); // Your hero section ID
@@ -20,7 +21,7 @@
 </script>
 
 <nav
-	class={`sticky top-0 z-[999] flex items-center w-full justify-between px-8 py-4 transition-all duration-300 lg:px-10 xl:px-[150px] md:pt-5 ${
+	class={`sticky top-0 z-[999] flex w-full items-center justify-between px-5 py-4 transition-all duration-300 md:pt-5 lg:px-10 xl:px-[150px] ${
 		scrolled ? 'bg-[#181818]' : ''
 	}`}
 >
@@ -30,7 +31,7 @@
 	</div>
 
 	<!-- Desktop Links -->
-	<div class="hidden items-center gap-5 xl:gap-20 font-[442] lg:flex">
+	<div class="hidden items-center gap-5 font-[442] lg:flex xl:gap-20">
 		<ul class="flex gap-10 text-[15px]">
 			<li>
 				<a
@@ -67,8 +68,10 @@
 				class="group grid h-[55px] w-[189px] place-items-center rounded-[10px] border-3 border-[#D9D9D9] bg-transparent text-center text-[14px] font-[700] text-white uppercase transition-all duration-300 hover:bg-[#D9D9D9] hover:text-black hover:shadow-lg"
 				><span class="transition-all duration-300 group-hover:tracking-wider">LOG IN</span></a
 			>
+			<!-- svelte-ignore a11y_invalid_attribute -->
 			<a
-				href="#about"
+				href="javaScript:void(0)"
+				on:click={openJoinForm}
 				class="group grid h-[55px] w-[189px] place-items-center rounded-[10px] bg-[#D9D9D9] text-center text-[14px] font-[700] text-black uppercase transition-all duration-300"
 				><span class="transition-all duration-300 group-hover:tracking-wider">Get Started</span></a
 			>

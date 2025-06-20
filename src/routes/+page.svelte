@@ -33,6 +33,8 @@
 	import PartnerImg from '$lib/assets/partner-image.png';
 	import Insights from '$lib/components/Insights.svelte';
 	import arrow from '$lib/assets/solar_arrow-up-linear.svg';
+	import JoinAultForm from '$lib/components/JoinAultForm.svelte';
+	import { openJoinForm } from '$lib/stores/formStore';
 
 	const vision = [
 		{
@@ -170,6 +172,9 @@
 <!-- navbar -->
 <Navbar />
 
+<!-- Join Ault Form Component -->
+<JoinAultForm />
+
 <!-- ============================Hero section======================== -->
 <section
 	id="hero"
@@ -217,6 +222,7 @@
 			Buy, Hold, Spend, Lease, And Borrow-Against Gold With Unmatched Freedom And Confidence.
 		</div>
 		<button
+			on:click={openJoinForm}
 			class="mx-auto block h-[45px] w-[144px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase md:text-[20px] lg:hidden lg:h-[55px] lg:w-[211px]"
 			>JOIN AULT</button
 		>
@@ -299,6 +305,7 @@
 			</div>
 
 			<button
+				on:click={openJoinForm}
 				class="group ml-10 hidden h-[45px] w-[144px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase transition-all duration-300 md:text-[20px] lg:block lg:h-[55px] lg:w-[211px]"
 				><span class="transition-all duration-300 group-hover:tracking-wider">JOIN AULT</span
 				></button

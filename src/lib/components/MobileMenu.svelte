@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { fly, fade } from 'svelte/transition';
 	import { quintOut, backOut } from 'svelte/easing';
+	import { openJoinForm } from '$lib/stores/formStore';
 
 	let isOpen = false;
 	let mounted = false;
@@ -52,7 +53,7 @@
 
 <!-- Mobile Hamburger -->
 <button
-	class="hamburger-btn relative z-[500] block rounded-lg p-2 transition-all duration-300 hover:bg-white/10 focus:outline-none active:scale-95 lg:hidden"
+	class="hamburger-btn relative z-[500] block rounded-lg p-0 transition-all duration-300 hover:bg-white/10 focus:outline-none active:scale-95 lg:hidden"
 	on:click={toggleMenu}
 	aria-label="Toggle menu"
 	aria-expanded={isOpen}
@@ -96,7 +97,7 @@
 		aria-label="Mobile navigation"
 	>
 		<!-- Menu Content -->
-		<div class="p-6 pt-20 mt-5">
+		<div class="mt-5 p-6 pt-20">
 			<ul class="text-left">
 				{#each [{ href: '#how-it-works', label: 'Discover', delay: 0 }, { href: '#your-card', label: 'Your Card', delay: 50 }, { href: '#benefits', label: 'Benefits', delay: 100 }, { href: '#insight', label: 'Insight', delay: 150 }] as item, index}
 					<li in:fly={{ x: 100, duration: 300, delay: item.delay, easing: quintOut }}>
@@ -141,10 +142,14 @@
 					</a>
 				</div>
 				<div in:fly={{ y: 50, duration: 400, delay: 200, easing: backOut }}>
+					<!-- svelte-ignore a11y_invalid_attribute -->
 					<a
-						href="#log-in"
+						href="javaScript:void(0)"
+						on:click={() => {
+							closeMenu();
+							openJoinForm();
+						}}
 						class="group flex w-full items-center justify-center gap-3 rounded-[10px] bg-gradient-to-r from-white to-gray-100 px-6 py-4 font-bold text-black transition-all duration-300 hover:scale-105 hover:from-gray-100 hover:to-white hover:shadow-lg"
-						on:click={closeMenu}
 					>
 						<span class="transition-all duration-300 group-hover:tracking-wider">GET STARTED</span>
 					</a>
