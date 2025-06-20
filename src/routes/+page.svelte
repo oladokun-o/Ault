@@ -26,6 +26,7 @@
 	import AultGold from '$lib/assets/ault-gold.png';
 	import Vision from '$lib/components/Vision.svelte';
 	import Beyond from '$lib/components/Beyond.svelte';
+	import Howitworks from '$lib/components/Howitworks.svelte';
 
 	let isOpen = false;
 
@@ -401,9 +402,9 @@
 		<div class="hidden lg:block">
 			<img src={HowItWorksImg} alt="how-it-works-img" class="w-[518px]" />
 		</div>
-		<div class="flex w-auto flex-col gap-10 pl-10">
+		<div class="flex w-full flex-col gap-10">
 			<!-- Desktop Grid -->
-			<div class="hidden grid-cols-2 gap-[41px] lg:grid">
+			<div class="hidden grid-cols-2 gap-[41px] pl-10 lg:grid">
 				{#each steps as step, i}
 					<div
 						class="flex max-w-[361px] flex-col gap-9 rounded-[4px] bg-[#000000] lg:bg-transparent"
@@ -425,26 +426,8 @@
 			</div>
 
 			<!-- Mobile Carousel -->
-			<div
-				class="no-scrollbar mx-2 snap-x snap-mandatory overflow-x-auto scroll-smooth px-4 lg:hidden"
-			>
-				<div class="flex w-max gap-4">
-					{#each steps as step}
-						<div
-							class="flex w-[288px] flex-shrink-0 snap-start flex-col gap-9 rounded-[16px] bg-[#000000] p-4"
-						>
-							<div class="flex gap-1">
-								{#each Array(step.dots) as _}
-									<div class="-mt-1 h-3 w-3 rounded-full bg-[#7D7D7D]"></div>
-								{/each}
-							</div>
-							<div class="grid gap-2">
-								<h3 class="text-[16px] font-semibold capitalize">{step.title}</h3>
-								<p class="text-[14px] font-light">{step.description}</p>
-							</div>
-						</div>
-					{/each}
-				</div>
+			<div class="w-full overflow-hidden lg:hidden flex justify-center items-center">
+				<Howitworks />
 			</div>
 
 			<button
