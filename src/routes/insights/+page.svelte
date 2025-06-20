@@ -1,57 +1,64 @@
-<script>
-	import InsightsBg from '$lib/assets/insights.png';
+<script lang="ts">
+	import { insights } from '$lib/data/insights';
 	import ChevronSvg from '$lib/assets/chevron.svg';
+	import InsightsBg from '$lib/assets/insights.png';
+
+	let openGroups = new Set<string>(
+		insights.map(group => group.title)
+	); // Initialize with all groups open
+
+	function toggleGroup(title: string) {
+		if (openGroups.has(title)) {
+			openGroups.delete(title);
+		} else {
+			openGroups.add(title);
+		}
+		// To trigger reactivity
+		openGroups = new Set(openGroups);
+	}
 </script>
 
-<section class="max-w-[1728px] relative mx-auto">
-	<div class="w-full h-[101px] md:h-[376px] flex flex-col items-center justify-end gap-5 lg:px-20 xl:px-[150px]">
-		<img src={InsightsBg} alt="AULT Insights" class="w-full absolute top-0 left-0" />
-
-		<div class="w-full relative">
-			<h1 class="text-[24px] font-[442] uppercase lg:text-[64px] pb-10">insights</h1>
+<section class="relative mx-auto max-w-[1728px]">
+	<div
+		class="flex h-[101px] w-full flex-col items-center justify-end gap-5 md:h-[376px] lg:px-20 xl:px-[150px]"
+	>
+		<img src={InsightsBg} alt="AULT Insights" class="absolute top-0 left-0 w-full" />
+		<div class="relative w-full">
+			<h1 class="pb-10 text-[24px] font-[442] uppercase lg:text-[64px]">insights</h1>
 		</div>
 	</div>
 
-	<div class="grid grid-cols-1 md:grid-cols-2 gap-20 py-20 mt-10 lg:px-20 xl:px-[150px]">
-		<div class="mx-auto w-full border border-[#FFFFFF4D]">
-			<div class="flex flex-col justify-center border-b-1 border-[#FFFFFF4D]">
-				<div class="text-[16px] font-[200]">AULT Overview</div>
-				<span><span> </span></span>
-			</div>
-			<div class="flex flex-col border-b-1 border-[#FFFFFF4D] px-3 py-5 font-[442] text-[14x]">
-				Q: What Is AULT?
-				<span class="font-[316]">
-					AULT is an exclusive concierge service designed to provide seamless access to gold-backed
-					financial services, allowing the  purchase, management, and spend of  gold assets
-					securely, with flexibility and ease.</span
+	<div class="mt-10 grid grid-cols-1 gap-20 py-20 md:grid-cols-2 lg:px-20 xl:px-[150px]">
+		{#each insights as group}
+			<div class="w-full overflow-hidden border border-[#FFFFFF4D] {openGroups.has(group.title) ? 'h-auto' : 'h-[71px]'}">
+				<!-- Group Header -->
+				<button
+				style="cursor: pointer;"
+					class="flex w-full items-center justify-between px-4 py-3 transition-all duration-300 hover:bg-[#1a1a1a] border-b border-[#FFFFFF4D]"
+					on:click={() => toggleGroup(group.title)}
 				>
+					<h2 class="text-left text-[18px] font-[442]">{group.title}</h2>
+					<img
+						src={ChevronSvg}
+						alt="Toggle"
+						class="transition-transform duration-300 {!openGroups.has(group.title)
+							? 'rotate-180'
+							: ''}"
+					/>
+				</button>
+
+				<!-- Group Content -->
+				{#if openGroups.has(group.title)}
+					<div class="divide-y divide-[#FFFFFF20] bg-black/20">
+						{#each group.items as item}
+							<div class="px-4 py-5 text-[15px]">
+								<p class="mb-2 font-[442] text-white">Q: {item.question}</p>
+								<p class="leading-relaxed font-[316] text-[#cfcfcf]">{item.answer}</p>
+							</div>
+						{/each}
+					</div>
+				{/if}
 			</div>
-			<div class="flex flex-col border-b-1 border-[#FFFFFF4D] px-3 py-5 font-[442] text-[14x]">
-				Q: Why Gold?
-				<span class="font-[316]">
-					Gold is a stable, long-term asset with a proven track record of preserving value across
-					economic fluctuations. Unlike traditional currencies or investments, gold offers a
-					tangible hedge against uncertainty and market volatility, providing security and
-					liquidity.</span
-				>
-			</div>
-			<div class="flex flex-col border-b-1 border-[#FFFFFF4D] px-3 py-5 font-[442] text-[14x]">
-				Is AULT an Investment Product?
-				<span class="font-[316]">
-					No, AULT does not offer investment services. It provides means to convert your fiat
-					currency into gold and gives you real-time access to your gold assets whenever you need
-					them.
-				</span>
-			</div>
-			<div class="flex flex-col border-b-1 border-[#FFFFFF4D] px-3 py-5 font-[442] text-[14x]">
-				What Are The Benefits Of AULT’s Gold-Backed Services?
-				<span class="font-[316]">
-					Gold is a stable, long-term asset with a proven track record of preserving value across
-					economic fluctuations. Unlike traditional currencies or investments, gold offers a
-					tangible hedge against uncertainty and market volatility, providing security and
-					liquidity.
-				</span>
-			</div>
-		</div>
+		{/each}
 	</div>
 </section>
