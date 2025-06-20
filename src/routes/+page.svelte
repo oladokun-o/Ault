@@ -30,6 +30,7 @@
 	import Services from '$lib/components/Services.svelte';
 	import MobileMenu from '$lib/components/MobileMenu.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
+	import PartnerImg from '$lib/assets/partner-image.png';
 
 	const vision = [
 		{
@@ -162,6 +163,14 @@
 	function scrollRight() {
 		scrollRef.scrollBy({ left: 300, behavior: 'smooth' });
 	}
+
+	// =========insight ============
+	let showInsight1 = false;
+	let showInsight2 = false;
+	let showInsight3 = false;
+	let showInsight4 = false;
+	let showInsight5 = false;
+	let showInsight6 = false;
 </script>
 
 <!-- navbar -->
@@ -170,7 +179,7 @@
 <!-- ============================Hero section======================== -->
 <section
 	id="hero"
-	class="relative top-[-88px] mx-auto flex h-[900px] max-w-[1728px] flex-col gap-20 overflow-x-hidden py-5 pt-[100px] lg:pt-[160px]"
+	class="relative top-[-88px] mx-auto flex h-[900px] max-w-[1728px] flex-col gap-20 overflow-x-hidden py-5 pt-[100px] lg:px-20 lg:pt-[160px] xl:px-[150px]"
 >
 	<!-- Gradient overlay -->
 	<!-- <div class="absolute inset-0 z-0 bg-black opacity-20"></div> -->
@@ -197,7 +206,7 @@
 <!-- ============================About section======================== -->
 <section
 	id="about"
-	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-40 px-5 py-10 text-center md:py-20"
+	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-40 px-5 py-10 text-center md:py-20 lg:px-20 xl:px-[150px]"
 >
 	<div class="mx-auto flex flex-col justify-center gap-5">
 		<Vision />
@@ -247,7 +256,7 @@
 <!-- ============================How It Works section======================== -->
 <section
 	id="how-it-works"
-	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:px-5 md:py-20"
+	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:px-5 md:py-20 lg:px-20 xl:px-[150px]"
 >
 	<div class="flex flex-col gap-8 font-[316] lg:flex-row lg:justify-between">
 		<h1
@@ -307,11 +316,11 @@
 <!-- ============================Your Card section======================== -->
 <section
 	id="your-card"
-	class="relative overflow-hidden mx-auto flex w-full max-w-[1728px] flex-col items-center gap-5 px-5 py-10 md:gap-50 md:py-0 lg:min-h-screen lg:flex-row"
+	class="relative mx-auto flex w-full max-w-[1728px] flex-col items-center gap-5 overflow-hidden px-5 py-10 md:gap-50 md:py-0 lg:min-h-screen lg:flex-row lg:px-20 xl:px-[150px]"
 	style="background-image: url({CardBackground}); background-size: cover; background-position: center; background-repeat: no-repeat;"
 >
 	<div
-		class="uppercase absolute top-0 z-0 hidden w-full text-center text-[18vw] font-[200] tracking-[0.03em] text-[#181818] lg:block"
+		class="absolute top-0 left-0 z-0 hidden w-full text-center text-[18vw] font-[200] tracking-[0.03em] text-[#181818] uppercase lg:block"
 	>
 		LIMITLESS
 	</div>
@@ -347,7 +356,7 @@
 
 <!-- ============================Services section======================== -->
 <section
-	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-0 md:py-20"
+	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-0 md:py-20 lg:px-20 xl:px-[150px]"
 >
 	<div class="w-full text-start">
 		<h1
@@ -385,7 +394,7 @@
 <!-- ============================Benefit section======================== -->
 <section
 	id="benefits"
-	class="relative mx-auto flex min-h-full max-w-[1728px] flex-col items-center justify-center gap-20 overflow-x-hidden py-10 md:py-20"
+	class="relative mx-auto flex min-h-full max-w-[1728px] flex-col items-center justify-center gap-20 overflow-x-hidden py-10 md:py-20 lg:px-20 xl:px-[150px]"
 >
 	<div class="flex items-start gap-10 px-5">
 		<!-- IMAGE SECTION -->
@@ -482,34 +491,48 @@
 <!-- ============================Our Patner section======================== -->
 <section
 	id="partner"
-	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:px-20 md:py-20"
+	class="relative mx-auto flex min-h-screen w-full max-w-[1728px] flex-col items-center justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:py-20 lg:px-20 xl:px-[150px]"
 >
 	<div
-		class="flex min-h-[284px] flex-col justify-center gap-5 rounded-[46px] px-0 py-10 lg:gap-10 lg:px-20"
+		class="flex min-h-[284px] w-full flex-col justify-between gap-5 px-0 py-10 lg:flex-row lg:gap-20 lg:px-0"
 	>
-		<p class="3xl:text-[36px] text-[24px] font-[316] lg:w-[907px] lg:text-[25px]">
-			Our commitment to you is founded on trusted partnerships and a shared dedication to managing
-			your assets with the highest standards of security, transparency, and personalized
-			flexibility.
-		</p>
-		<div class="mt-10 ml-5 flex flex-col gap-10 lg:mt-0 lg:ml-55 lg:flex-row lg:gap-20">
-			<div class="flex flex-col gap-2 text-[20px] font-[571]">
-				<h3>Emerging Africa</h3>
-				<p class="text-[16px] font-[316] text-[#FFFFFFCC] lg:w-[312px]">
-					Oversees fiduciary responsibilities, safeguarding your gold assets with exceptional care
-					and strict regulatory compliance.
-				</p>
-			</div>
-			<div class="flex flex-col gap-2 text-[20px] font-[571]">
-				<h3>Providus Bank</h3>
-				<p class="font-[316] text-[#FFFFFFCC] lg:w-[312px]">
-					Provides reliable and efficient card solutions, ensuring your funds remain secure,
-					accessible, and available whenever you need them.
-				</p>
+		<div class="flex flex-col justify-between gap-7">
+			<p class="3xl:text-[36px] text-[24px] font-[316] lg:max-w-[907px] lg:text-[25px]">
+				Our commitment to you is founded on trusted partnerships and a shared dedication to managing
+				your assets with the highest standards of security, transparency, and personalized
+				flexibility.
+			</p>
+			<div class="hidden max-h-[294px] max-w-[908px] lg:block">
+				<img src={PartnerImg} alt="Partner-img" class="h-full w-full" />
 			</div>
 		</div>
-		<div class="ml-auto max-w-[677px]">
-			<img src={AultGold} alt="ault-gold" class="w-full" />
+		<div
+			class="mt-10 ml-5 flex flex-col justify-between gap-10 md:flex-row lg:mt-0 lg:ml-0 lg:flex-col lg:gap-2"
+		>
+			<div class="flex max-w-[378px] flex-col gap-5 text-[20px] font-[571]">
+				<div class="max-w-[159px]">
+					<img src={Partner4} alt="partner" class="w-full" />
+				</div>
+				<h3>
+					Emerging Africa
+					<span class="ml-1 text-[16px] font-[316] text-[#FFFFFFCC] lg:w-[312px]">
+						Oversees fiduciary responsibilities, safeguarding your gold assets with exceptional care
+						and strict regulatory compliance.
+					</span>
+				</h3>
+			</div>
+			<div class="flex max-w-[378px] flex-col gap-5 text-[20px] font-[571]">
+				<div class="max-w-[132px] opacity-[60%]">
+					<img src={Partner1} alt="partner" class="w-full" />
+				</div>
+				<h3>
+					Providus Bank
+					<span class="ml-1 text-[16px] font-[316] text-[#FFFFFFCC] lg:w-[312px]">
+						Provides reliable and efficient card solutions, ensuring your funds remain secure,
+						accessible, and available whenever you need them.
+					</span>
+				</h3>
+			</div>
 		</div>
 	</div>
 </section>
@@ -517,7 +540,7 @@
 <!-- ============================Insight section======================== -->
 <section
 	id="insight"
-	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-20 overflow-hidden px-5 py-10 md:px-50 md:py-20"
+	class="item-center relative mx-auto flex min-h-screen flex-col justify-center gap-20 overflow-hidden px-5 py-10 md:px-50 md:py-20"
 >
 	<!-- Left Glow -->
 	<div
@@ -535,31 +558,111 @@
 		</h1>
 
 		<div class="flex flex-col gap-3 text-[16px] lg:text-[20px]">
-			<div class="cursor-pointer rounded-[8px] border border-white">
+			<div
+				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
+				on:click={() => (showInsight1 = !showInsight1)}
+			>
 				<p class="p-3 font-[442]">What is AULT?</p>
+				{#if showInsight1}
+					<p class="p-3 font-[442]">
+						AULT is an exclusive concierge service designed to provide seamless access to
+						gold-backed financial services, allowing the purchase, management, and spend of gold
+						assets securely, with flexibility and ease.
+					</p>
+				{/if}
 			</div>
-			<div class="cursor-pointer rounded-[8px] border border-white">
-				<p class="p-3 font-[442]">What do I need to get started?</p>
+
+			<div
+				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
+				on:click={() => (showInsight6 = !showInsight6)}
+			>
+				<p class="p-3 font-[442]">Why Gold?</p>
+				{#if showInsight6}
+					<p class="p-3 font-[442]">
+						Gold is a stable, long-term asset with a proven track record of preserving value across
+						economic fluctuations. Unlike traditional currencies or investments, gold offers a
+						tangible hedge against uncertainty and market volatility, providing security and
+						liquidity.
+					</p>
+				{/if}
 			</div>
-			<div class="cursor-pointer rounded-[8px] border border-white">
-				<p class="p-3 font-[442]">Do I need to sell my gold to spend it?</p>
+			<div
+				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
+				on:click={() => (showInsight2 = !showInsight2)}
+			>
+				<p class="p-3 font-[442]">How Do I Fund My AULT Account?</p>
+				{#if showInsight2}
+					<p class="p-3 font-[442]">
+						You can fund your AULT account by transferring fiat currency (USD, EUR, NGN) through our
+						secure platform. Once the funds are received, we will purchase the gold on your behalf.
+						All gold purchased is securely stored in LBMA-certified vaults in London, Zurich, or the
+						UAE.
+					</p>
+				{/if}
 			</div>
-			<div class="cursor-pointer rounded-[8px] border border-white">
-				<p class="p-3 font-[442]">What are the benefits of the AULT Mastercard?</p>
+			<div
+				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
+				on:click={() => (showInsight3 = !showInsight3)}
+			>
+				<p class="p-3 font-[442]">How Do I Access My Gold?</p>
+				{#if showInsight3}
+					<p class="p-3 font-[442]">
+						Once your account is active, access your gold via the AULT web app, liquidate it, and
+						spend it using your AULT Mastercard. The entire process of liquidating your allocated
+						gold is supported by robust technology infrastructure and is audited by KPMG LLP for
+						added assurance.
+					</p>
+				{/if}
 			</div>
-			<div class="cursor-pointer rounded-[8px] border border-white">
-				<p class="p-3 font-[442]">What are the benefits of the AULT Mastercard?</p>
+			<div
+				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
+				on:click={() => (showInsight4 = !showInsight4)}
+			>
+				<p class="p-3 font-[442]">How Is My Gold Stored?</p>
+				{#if showInsight4}
+					<p class="p-3 font-[442]">
+						Your gold is securely stored in insured vaults in London, Zurich, and the UAE. These
+						vaults meet international standards of security and compliance, ensuring your assets are
+						safe and protected.
+					</p>
+				{/if}
 			</div>
-			<div class="cursor-pointer rounded-[8px] border border-white">
-				<p class="p-3 font-[442]">What are the benefits of the AULT Mastercard?</p>
+			<div
+				class="cursor-pointer rounded-[8px] border-[3px] border-[#FFFFFF24]"
+				on:click={() => (showInsight5 = !showInsight5)}
+			>
+				<p class="p-3 font-[442]">Do I Need To Sell My Gold To Spend It?</p>
+				{#if showInsight5}
+					<p class="p-3 font-[442]">
+						No, you don’t need to sell your gold. AULT has partnered with regulated financial
+						entities, allowing you to spend your gold directly anywhere in the world using the AULT
+						Mastercard.
+					</p>
+				{/if}
 			</div>
+		</div>
+		<div
+			class="ml-auto flex cursor-pointer items-center gap-3 text-[14px] font-[200] tracking-tight lg:text-[32px] lg:font-[316]"
+		>
+			Learn more
+			<svg
+				viewBox="0 0 20 12"
+				fill="currentColor"
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-2 w-8 rotate-180 text-white lg:h-5 lg:w-10"
+			>
+				<path
+					d="M9.84281 11.9019C10.1028 11.7642 10.2649 11.5023 10.2649 11.2175V6.7825H19.1841C19.6345 6.7825 20 6.43195 20 6.00003C20 5.56811 19.6345 5.21756 19.1841 5.21756H10.2649V0.782525C10.2649 0.496663 10.1028 0.234796 9.84281 0.0981252C9.58281 -0.0406327 9.26516 -0.0312431 9.01387 0.120034L0.380745 5.33754C0.143595 5.48151 0 5.73086 0 6.00003C0 6.2692 0.143595 6.51854 0.380745 6.66252L9.01387 11.88C9.14659 11.9593 9.2978 12 9.44901 12C9.5839 12 9.71988 11.9666 9.84281 11.9019Z"
+					class="icon-path"
+				/>
+			</svg>
 		</div>
 	</div>
 </section>
 
 <!-- ============================Footer section======================== -->
 <footer
-	class="relative mx-auto flex min-h-auto max-w-[1728px] flex-col items-center gap-3 overflow-x-hidden px-5 py-10 md:gap-10 md:py-20"
+	class="relative mx-auto flex min-h-auto max-w-[1728px] flex-col items-center gap-3 overflow-x-hidden px-5 py-10 md:gap-10 md:py-20 lg:px-20 xl:px-[150px]"
 >
 	<div class="flex w-full justify-between gap-10 text-[10px] font-[200] uppercase lg:text-[18px]">
 		<div>
@@ -575,7 +678,10 @@
 			<p class="font-[200] uppercase">BUSINESs@goAULT.COM</p>
 		</div>
 	</div>
-	<div class="w-full">
+	<div class="mt-10 w-full opacity-0">
+		<img src={FooterLogo} alt="footer-logo" class="w-full" />
+	</div>
+	<div class="absolute right-0 bottom-0 left-0 w-full p-10">
 		<img src={FooterLogo} alt="footer-logo" class="w-full" />
 	</div>
 </footer>

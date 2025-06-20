@@ -20,7 +20,7 @@
 </script>
 
 <nav
-	class={`sticky top-0 z-[999] flex items-center w-full justify-between px-8 py-4 transition-all duration-300 md:pt-5 ${
+	class={`sticky top-0 z-[999] flex items-center w-full justify-between px-8 py-4 transition-all duration-300 lg:px-10 xl:px-[150px] md:pt-5 ${
 		scrolled ? 'bg-[#181818]' : ''
 	}`}
 >
@@ -30,7 +30,7 @@
 	</div>
 
 	<!-- Desktop Links -->
-	<div class="hidden items-center gap-20 font-[442] lg:flex">
+	<div class="hidden items-center gap-5 xl:gap-20 font-[442] lg:flex">
 		<ul class="flex gap-10 text-[15px]">
 			<li>
 				<a
