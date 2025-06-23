@@ -10,19 +10,19 @@
 			title: 'Step 2: Account Setup & Verification',
 			dots: 2,
 			description:
-				'Our team guides you through verification and sets up your AULT account. Once funded, your gold is purchased and securely stored within three business days.'
+				'Our team guides you through verification and sets up your AULT account. Once funded, your gold is purchased and securely stored, all within three business days.'
 		},
 		{
 			title: 'Step 3: Platform Access',
 			dots: 3,
 			description:
-				'You receive secure access to the AULT web app. Your Relationship Manager helps you navigate the platform to manage assets and access exclusive services.'
+				'You receive secure access to the AULT app. Your Relationship Manager helps you navigate the platform to manage assets and access exclusive services.'
 		},
 		{
 			title: 'Step 4: AULT Card Issuance',
 			dots: 4,
 			description:
-				'An exclusive AULT Mastercard is issued, providing seamless global access to your gold for spending anytime, anywhere.'
+				'An exclusive AULT Mastercard is issued by a patner bank. You can also link existing Mastercard to gain seamless global access to your gold anytime, anywhere.'
 		}
 	];
 
@@ -112,7 +112,7 @@
 						{/each}
 					</div>
 					<div class="grid gap-2">
-						<h3 class="text-[16px] font-semibold capitalize">{step.title}</h3>
+						<h3 class="text-[16px] font-normal capitalize">{step.title}</h3>
 						<p class="text-[14px] font-light">{step.description}</p>
 					</div>
 				</div>

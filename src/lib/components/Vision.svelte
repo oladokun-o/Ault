@@ -10,12 +10,12 @@
 		{
 			title: 'SPEND',
 			to: 'Spend Without Limits',
-			how: 'Instantly access your gold or its benefits via the AULT Mastercard, enabling seamless global spending.'
+			how: 'Enjoy seamless global Spending with instant access to your gold and exclusive benefits through your Mastercard.'
 		},
 		{
 			title: 'MORE',
-			to: 'Unlock Financial Freedom',
-			how: 'Lease, borrow against, or transfer your gold assets with unparalleled flexibility and security.'
+			to: 'Unlock Returns and Credit',
+			how: 'Lease and borrow-against your gold assets with unparalleled flexibility and security.'
 		}
 	];
 
@@ -81,7 +81,7 @@
 			<button
 				class="cursor-pointer transition-all duration-500 ease-out hover:scale-105 {index ===
 				activeIndex
-					? 'font-bold text-white'
+					? 'font-[370] text-white'
 					: 'text-[#686868] hover:text-[#888888]'}"
 				on:click={() => setActiveIndex(index)}
 			>
@@ -92,7 +92,7 @@
 
 	<!-- Active Content -->
 	<div
-		class="mx-auto mt-5 flex flex-col gap-2 font-[442] transition-all duration-700 ease-out md:w-[400px]"
+		class="mx-auto mt-5 flex flex-col gap-2 font-[400] transition-all duration-700 ease-out md:w-[400px]"
 	>
 		{#key activeIndex}
 			<h2

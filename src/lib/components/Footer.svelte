@@ -23,7 +23,7 @@
 	<div class="mt-10 w-full opacity-0">
 		<img src={FooterLogo} alt="footer-logo" class="w-full" />
 	</div>
-	<div class="absolute right-0 bottom-0 left-0 w-full p-10">
+	<div class="absolute right-0 bottom-0 left-0 w-full p-5 lg:p-15">
 		<img src={FooterLogo} alt="footer-logo" class="w-full" />
 	</div>
 </footer>

@@ -31,8 +31,8 @@
 	</div>
 
 	<!-- Desktop Links -->
-	<div class="hidden items-center gap-5 font-[442] lg:flex xl:gap-20">
-		<ul class="flex gap-10 text-[15px]">
+	<div class="hidden items-center gap-5 font-[400] lg:flex xl:gap-20">
+		<ul class="flex gap-10 text-[20px]">
 			<li>
 				<a
 					href="/#how-it-works"
@@ -62,22 +62,22 @@
 					href="/#insight"
 					rel="external"
 					class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
-					>Insight</a
+					>Insights</a
 				>
 			</li>
 		</ul>
 		<div class="flex gap-7">
 			<a
 				href="#log-in"
-				class="group grid h-[55px] w-[189px] place-items-center rounded-[10px] border-3 border-[#D9D9D9] bg-transparent text-center text-[14px] font-[700] text-white uppercase transition-all duration-300 hover:bg-[#D9D9D9] hover:text-black hover:shadow-lg"
+				class="group grid h-[55px] w-[189px] place-items-center rounded-[10px] border-3 border-[#D9D9D9] bg-transparent text-center text-[20px] font-[400] text-white uppercase transition-all duration-300 hover:bg-[#D9D9D9] hover:text-black hover:shadow-lg"
 				><span class="transition-all duration-300 group-hover:tracking-wider">LOG IN</span></a
 			>
 			<!-- svelte-ignore a11y_invalid_attribute -->
 			<a
 				href="javaScript:void(0)"
 				on:click={openJoinForm}
-				class="group grid h-[55px] w-[189px] place-items-center rounded-[10px] bg-[#D9D9D9] text-center text-[14px] font-[700] text-black uppercase transition-all duration-300"
-				><span class="transition-all duration-300 group-hover:tracking-wider">Get Started</span></a
+				class="group grid h-[55px] w-[189px] place-items-center rounded-[10px] bg-[#D9D9D9] text-center text-[20px] font-[400] text-black uppercase transition-all duration-300"
+				><span class="transition-all duration-300 group-hover:tracking-wider">JOIN AULT</span></a
 			>
 		</div>
 	</div>

@@ -1,4 +1,7 @@
 <script lang="ts">
+	import { slide } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+
 	let activeItem: number | null = 1;
 
 	const faqItems = [
@@ -20,7 +23,7 @@
 		{
 			id: 4,
 			question: "How Do I Access My Gold?",
-			answer: "Once your account is active, access your gold via the AULT web app, liquidate it, and spend it using your AULT Mastercard. The entire process of liquidating your allocated gold is supported by robust technology infrastructure and is audited by KPMG LLP for added assurance."
+			answer: "Once your account is active, access your gold via the AULT app, liquidate it, and spend it using your AULT Mastercard. The entire process of liquidating your allocated gold is supported by robust technology infrastructure and is audited by KPMG LLP for added assurance."
 		},
 		{
 			id: 5,
@@ -39,24 +42,27 @@
 	}
 </script>
 
-<div class="flex flex-col gap-3 text-[16px] lg:text-[20px]">
+<div class="flex flex-col gap-3 text-[16px] lg:text-[20px] w-full">
 	{#each faqItems as item}
 		<div
-			class="overflow-hidden rounded-[10px] border-[3px] border-[#FFFFFF24] transition-all duration-300 hover:border-[#FFFFFF40] hover:shadow-lg"
+			class="w-full overflow-hidden rounded-[10px] border-[3px] border-[#FFFFFF24] transition-all duration-300 hover:border-[#FFFFFF40] hover:shadow-lg"
 		>
 			<button
 				class="w-full cursor-pointer p-3 text-left focus:outline-none"
 				on:click={() => toggleItem(item.id)}
 			>
 				<div class="flex items-center justify-between">
-					<span class="font-[442] pr-4">{item.question}</span>
+					<span class="font-[400] pr-4">{item.question}</span>
+					<span class="text-[#FFFFFFCC] transition-transform duration-300 {activeItem === item.id ? 'rotate-180' : 'rotate-0'}">
+						<!-- <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg> -->
+					</span>
 				</div>
 			</button>
 			
 			{#if activeItem === item.id}
-				<div
-					class="animate-slideDown"
-				>
+				<div transition:slide={{ duration: 400, easing: quintOut }}>
 					<p class="p-3 pt-0 font-[200] text-[#FFFFFFCC]">
 						{item.answer}
 					</p>
@@ -67,25 +73,6 @@
 </div>
 
 <style>
-	/* Smooth accordion animation */
-	.animate-slideDown {
-		animation: slideDown 0.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-		overflow: hidden;
-	}
-
-	@keyframes slideDown {
-		from {
-			opacity: 0;
-			max-height: 0;
-			transform: translateY(-10px);
-		}
-		to {
-			opacity: 1;
-			max-height: 200px;
-			transform: translateY(0);
-		}
-	}
-
 	button:focus {
 		outline: none;
 	}

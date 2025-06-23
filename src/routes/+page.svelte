@@ -1,4 +1,6 @@
 <script>
+	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
 	import Logo from '$lib/assets/logo.svg';
 	import HeroBackground from '$lib/assets/herobg.png';
 	import Security from '$lib/assets/security.png';
@@ -58,7 +60,7 @@
 			title: 'Security',
 			image: Security,
 			description:
-				'All Deposits Are Automatically Converted To Physical Allocated Gold Which Are Stored In LBMA-Certified Vaults In Zurich, London And Dubai.'
+				'All Deposits Are Stored As Physical Allocated Gold Vaulted In LBMA-Certified London Vault.'
 		},
 		{
 			title: 'Exclusivity',
@@ -85,19 +87,19 @@
 			title: 'Step 2: Account Setup & Verification',
 			dots: 2,
 			description:
-				'Our team guides you through verification and sets up your AULT account. Once funded, your gold is purchased and securely stored within three business days.'
+				'Our team guides you through verification and sets up your AULT account. Once funded, your gold is purchased and securely stored, all within three business days.'
 		},
 		{
 			title: 'Step 3: Platform Access',
 			dots: 3,
 			description:
-				'You receive secure access to the AULT web app. Your Relationship Manager helps you navigate the platform to manage assets and access exclusive services.'
+				'You receive secure access to the AULT app. Your Relationship Manager helps you navigate the platform to manage assets and access exclusive services.'
 		},
 		{
 			title: 'Step 4: AULT Card Issuance',
 			dots: 4,
 			description:
-				'An exclusive AULT Mastercard is issued, providing seamless global access to your gold for spending anytime, anywhere.'
+				'An exclusive AULT Mastercard is issued by a partner bank. You can also link existing Mastercard to gain seamless global access to your gold anytime, anywhere.'
 		}
 	];
 
@@ -136,9 +138,9 @@
 				'Access exclusive offers at premier hotels and resorts, including renowned brands like Soneva and IHG'
 		},
 		{
-			title: 'Visa & Booking Discounts:',
+			title: 'Global Blue VIP Services:',
 			description:
-				'Take advantage of exclusive deals on flights and hotels via partners like Booking.com and Cleartrip, with expert visa support from Fulfill Visa Services.'
+				'Benefit from expedited VAT refunds at select international airports, making your travels smoother.'
 		},
 		{
 			title: 'Airport Lounge Access:',
@@ -151,9 +153,9 @@
 				'Travel in style with complimentary vehicle upgrades at Hertz and Avis, enhancing your journey from start to finish.'
 		},
 		{
-			title: 'Global Blue VIP Services:',
+			title: 'Visa & Booking Discounts:',
 			description:
-				'Benefit from expedited VAT refunds at select international airports, making your travels smoother.'
+				'Take advantage of exclusive deals on flights and hotels via partners like Booking.com and Cleartrip, with expert visa support from Fulfill Visa Services.'
 		}
 	];
 
@@ -171,9 +173,9 @@
 <!-- ============================Hero section======================== -->
 <section
 	id="hero"
-	class="relative w-full top-[-88px] h-[900px] overflow-x-hidden py-5 pt-[100px] lg:px-20 lg:pt-[160px]"
+	class="relative top-[-88px] h-[900px] w-full overflow-x-hidden py-5 pt-[100px] lg:px-20 lg:pt-[160px]"
 >
-	<div class="w-full mx-auto max-w-[1728px] lg:px-20 xl:px-[150px] flex flex-col gap-20 ">
+	<div class="mx-auto flex w-full max-w-[1728px] flex-col gap-20 lg:px-20 xl:px-[150px]">
 		<!-- Gradient overlay -->
 		<!-- <div class="absolute inset-0 z-0 bg-black opacity-20"></div> -->
 
@@ -188,9 +190,11 @@
 				class="3xl:text-[96px] text-[40px] leading-none font-[200] tracking-tighter uppercase sm:text-[45px] lg:text-[60px] xl:text-[70px]"
 			>
 				<span class="hidden lg:block">timeless security,<br />modern liquidity.</span>
-				<span class="block lg:hidden">timeless<br /> security,<br />modern <br /> liquidity.</span>
+				<span class="block pt-20 leading-tight lg:hidden"
+					>timeless<br /> security,<br />modern <br /> liquidity.</span
+				>
 			</div>
-			<p class="text-[14px] font-[316] lg:text-[20px] xl:text-[27px]">
+			<p class="text-[15px] font-[200]">
 				Gold made Flexible <br class="block lg:hidden" /> and Tailored For You
 			</p>
 		</div>
@@ -211,20 +215,20 @@
 			</div>
 		</div>
 
-		<div class="text-[20px] font-[316] text-[#E4E4E4] capitalize lg:text-[36px]">
+		<div class="text-[24px] font-[200] text-[#E4E4E4] capitalize lg:text-[36px]">
 			AULT Is A Concierge Service That Transforms Physical Allocated Gold Into A Liquid Financial
-			Asset. Through Advance Tokenization And Trusted Institutional Partnerships, We Empower You To
-			Buy, Hold, Spend, Lease, And Borrow-Against Gold With Unmatched Freedom And Confidence.
+			Asset. Through Cutting Edge Technology And Trusted Institutional Partnerships, We Empower You
+			To Buy, Hold, Spend, Lease, And Borrow-Against Gold With Unmatched Freedom And Confidence.
 		</div>
 		<button
 			on:click={openJoinForm}
-			class="mx-auto block h-[45px] w-[144px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase md:text-[20px] lg:hidden lg:h-[55px] lg:w-[211px]"
+			class="mx-auto block h-[45px] w-[144px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] text-black uppercase md:text-[20px] lg:hidden lg:h-[55px] lg:w-[211px]"
 			>JOIN AULT</button
 		>
 	</div>
 
 	<div class="mx-auto flex flex-col gap-20">
-		<h1 class="mx-auto text-[32px] font-[316] uppercase lg:text-[44px] 2xl:text-[64px]">
+		<h1 class="mx-auto text-[32px] font-[200] uppercase lg:text-[44px] 2xl:text-[64px]">
 			BEYOND WEALTH. BEYOND GOLD.
 		</h1>
 
@@ -256,18 +260,18 @@
 	<div
 		class="mx-auto flex w-full max-w-[1728px] flex-col justify-center gap-20 lg:px-20 xl:px-[150px]"
 	>
-		<div class="flex flex-col gap-8 font-[316] lg:flex-row lg:justify-between">
+		<div class="flex flex-col gap-8 font-[200] lg:flex-row lg:justify-between lg:gap-30">
 			<h1
 				class="lg:text[42px] text-[32px] tracking-tighter uppercase sm:text-[37px] md:w-[282px] md:leading-none xl:text-[60px]"
 			>
 				How It Works
 			</h1>
 			<p
-				class="text-[24px] font-[300] text-[#FFFFFFCC] capitalize lg:text-[36px] xl:w-[1200px] 2xl:w-[1006px]"
+				class="text-[24px] font-[200] text-[#FFFFFFCC] lg:text-[36px] xl:w-[1200px] 2xl:w-[1006px]"
 			>
-				Exceptional service begins with a personal connection. As a member, you are paired with a
-				dedicated Relationship Manager who acts as your trusted advisor — available around the clock
-				to handle your requests with precision and confidentiality.
+				The AULT experience is structured for ease and precision. From first contact to activation,
+				each step is guided by your able assistant and powered by systems built to anticipate your
+				needs.
 			</p>
 		</div>
 		<div class="flex flex-row lg:flex-row">
@@ -302,12 +306,12 @@
 					<Howitworks />
 				</div>
 
-				<button
+				<!-- <button
 					on:click={openJoinForm}
-					class="group ml-10 hidden h-[45px] w-[144px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase transition-all duration-300 md:text-[20px] lg:block lg:h-[55px] lg:w-[211px]"
+					class="group ml-10 hidden h-[45px] w-[144px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] text-black uppercase transition-all duration-300 md:text-[20px] lg:block lg:h-[55px] lg:w-[211px]"
 					><span class="transition-all duration-300 group-hover:tracking-wider">JOIN AULT</span
 					></button
-				>
+				> -->
 			</div>
 		</div>
 	</div>
@@ -316,20 +320,20 @@
 <!-- ============================Your Card section======================== -->
 <section
 	id="your-card"
-	class="relative w-full overflow-hidden px-5 py-10 md:py-0 lg:min-h-screen"
+	class="relative w-full overflow-hidden px-5 py-10 md:py-0 lg:my-auto lg:min-h-screen"
 	style="background-image: url({CardBackground}); background-size: cover; background-position: center; background-repeat: no-repeat;"
 >
 	<div
-		class="mx-auto flex w-full max-w-[1728px] flex-col items-center gap-5 md:gap-50 lg:flex-row lg:px-20 xl:px-[150px]"
+		class="mx-auto flex w-full max-w-[1728px] flex-col items-center gap-5 md:gap-50 lg:mt-auto lg:mb-20 lg:min-h-screen lg:flex-row lg:px-20 xl:px-[150px]"
 	>
 		<div
 			class="absolute top-0 left-0 z-0 hidden w-full text-center text-[18vw] font-[200] tracking-[0.03em] text-[#181818] uppercase lg:block"
 		>
 			LIMITLESS
 		</div>
-		<div class="relative w-full lg:mx-0 lg:w-auto">
+		<div class="relative w-full pb-20 lg:mx-0 lg:mt-auto lg:w-auto">
 			<div
-				class="relative z-20 mb-auto flex flex-col items-center gap-8 pt-10 text-center capitalize lg:mt-auto lg:items-start lg:text-left"
+				class="relative z-20 mb-auto flex flex-col items-center gap-8 pt-10 text-center capitalize lg:mb-0 lg:items-start lg:text-left"
 			>
 				<h1
 					class="3xl:text-[48px] text-center text-[32px] leading-tight font-[200] tracking-tight capitalize sm:text-[37px] lg:text-left lg:text-[37px] lg:leading-none"
@@ -337,22 +341,22 @@
 					Gold In Your Hands, <br /> Anytime, Anywhere.
 				</h1>
 				<p
-					class="w-[272px] text-sm font-[200] capitalize md:w-[572px] lg:text-[20px] lg:font-[300]"
+					class="w-[272px] text-sm font-[200] capitalize md:w-[572px] lg:text-[20px] lg:font-[200]"
 				>
 					Experience True Freedom. With Your AULT Mastercard, You Can Spend Your Gold as Currency
 					Anywhere in the World.
 				</p>
 				<button
-					class="group mx-auto hidden h-[45px] w-[160px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase transition-all duration-300 md:text-[20px] lg:mx-0 lg:block lg:h-[55px] lg:w-[211px]"
+					class="group mx-auto hidden h-[45px] w-[160px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] text-black uppercase transition-all duration-300 md:text-[20px] lg:mx-0 lg:block lg:h-[55px] lg:w-[211px]"
 					><span class="transition-all duration-300 group-hover:tracking-wider">Get your card</span
 					></button
 				>
 			</div>
 		</div>
-		<div class="relative lg:right-[4rem] lg:bottom-[-4rem]">
+		<div class="relative lg:right-[4rem] lg:bottom-[-4rem] lg:mt-auto">
 			<img src={AultOnGold} alt="ault-on-gold" class="w-full lg:w-[685px]" />
 			<button
-				class="group relative top-[-70px] mx-auto block h-[45px] w-[160px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[442] text-black uppercase transition-all duration-300 md:text-[20px] lg:mx-0 lg:hidden lg:h-[55px] lg:w-[211px]"
+				class="group relative top-[-70px] mx-auto block h-[45px] w-[170px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] text-black uppercase transition-all duration-300 md:text-[20px] lg:mx-0 lg:hidden lg:h-[55px] lg:w-[211px]"
 				><span class="transition-all duration-300 group-hover:tracking-wider">Get your card</span
 				></button
 			>
@@ -416,7 +420,7 @@
 
 		<!-- TEXT + BENEFITS SECTION -->
 		<div class="order-1 flex w-full flex-col gap-10 md:order-2">
-			<h1 class="text-[24px] font-[316] capitalize lg:text-[36px] 2xl:text-[45px]">
+			<h1 class="text-[24px] font-[200] capitalize lg:text-[36px] 2xl:text-[45px]">
 				As a valued member, you unlock a world of personalized travel, lifestyle, and financial
 				privileges, powered by our trusted partnership with Mastercard World Elite.
 			</h1>
@@ -488,9 +492,7 @@
 			<!-- Grid for large screens -->
 			<div class="hidden grid-cols-2 gap-10 lg:grid">
 				{#each benefits as benefit}
-					<div
-						class="flex w-[330px] flex-col space-y-[4px] text-[14px] font-[571] capitalize lg:text-[20px]"
-					>
+					<div class="flex w-[330px] flex-col text-[14px] font-[571] capitalize lg:text-[20px]">
 						{benefit.title}
 						<span class="font-extralight normal-case">{benefit.description}</span>
 					</div>
@@ -500,54 +502,50 @@
 	</div>
 </section>
 
-<!-- ============================Our Patner section======================== -->
+<!-- ============================Our Partner section======================== -->
 <section
 	id="partner"
-	class="relative min-h-screen w-full overflow-x-hidden bg-[#181818] px-5 py-10 md:py-20"
+	class="item-center relative flex min-h-screen w-full flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:py-20"
 >
 	<div
-		class="mx-auto flex w-full max-w-[1728px] flex-col items-center justify-center gap-20 lg:px-20 xl:px-[150px]"
+		class="mx-auto flex min-h-[284px] max-w-[1728px] flex-col justify-between gap-5 px-0 py-10 lg:flex-row lg:gap-20 lg:px-20 xl:px-[150px] w-full"
 	>
-		<div
-			class="flex min-h-[284px] w-full flex-col justify-between gap-5 px-0 py-10 lg:flex-row lg:gap-20 lg:px-0"
-		>
-			<div class="flex flex-col justify-between gap-7">
-				<p class="3xl:text-[36px] text-[24px] font-[316] lg:max-w-[907px] lg:text-[25px]">
-					Our commitment to you is founded on trusted partnerships and a shared dedication to
-					managing your assets with the highest standards of security, transparency, and
-					personalized flexibility.
-				</p>
-				<div class="hidden max-h-[294px] max-w-[908px] lg:block">
-					<img src={PartnerImg} alt="Partner-img" class="h-full w-full" />
-				</div>
+		<div class="flex flex-col justify-between gap-7">
+			<p class="3xl:text-[36px] text-[24px] font-[200] lg:max-w-[907px] lg:text-[25px]">
+				Our commitment to you is founded on trusted partnerships and a shared dedication to managing
+				your assets with the highest standards of security, transparency, and personalized
+				flexibility.
+			</p>
+			<div class="hidden max-h-[294px] max-w-[908px] lg:block">
+				<img src={PartnerImg} alt="Partner-img" class="h-full w-full" />
 			</div>
-			<div
-				class="mt-10 ml-5 flex flex-col justify-between gap-10 md:flex-row lg:mt-0 lg:ml-0 lg:flex-col lg:gap-2"
-			>
-				<div class="flex max-w-[378px] flex-col gap-5 text-[20px] font-[571]">
-					<div class="max-w-[159px]">
-						<img src={Partner4} alt="partner" class="w-full" />
-					</div>
-					<h3>
-						Emerging Africa
-						<span class="ml-1 text-[16px] font-[316] text-[#FFFFFFCC] lg:w-[312px]">
-							Oversees fiduciary responsibilities, safeguarding your gold assets with exceptional
-							care and strict regulatory compliance.
-						</span>
-					</h3>
+		</div>
+		<div
+			class="mt-10 ml-5 flex flex-col justify-between gap-10 md:flex-row lg:mt-0 lg:ml-0 lg:flex-col lg:gap-2"
+		>
+			<div class="flex max-w-[378px] flex-col gap-5 text-[20px] font-[571]">
+				<div class="max-w-[159px]">
+					<img src={Partner4} alt="partner" class="w-full" />
 				</div>
-				<div class="flex max-w-[378px] flex-col gap-5 text-[20px] font-[571]">
-					<div class="max-w-[132px] opacity-[60%]">
-						<img src={Partner1} alt="partner" class="w-full" />
-					</div>
-					<h3>
-						Providus Bank
-						<span class="ml-1 text-[16px] font-[316] text-[#FFFFFFCC] lg:w-[312px]">
-							Provides reliable and efficient card solutions, ensuring your funds remain secure,
-							accessible, and available whenever you need them.
-						</span>
-					</h3>
+				<h3>
+					Emerging Africa
+					<span class="ml-1 text-[16px] font-[200] text-[#FFFFFFCC] lg:w-[312px]">
+						Our Trustee partner playing its role as a regulated fiduciary, safeguarding your gold
+						assets with exceptional care and strict regulatory compliance.
+					</span>
+				</h3>
+			</div>
+			<div class="flex max-w-[378px] flex-col gap-5 text-[20px] font-[571]">
+				<div class="max-w-[132px] opacity-[60%]">
+					<img src={Partner1} alt="partner" class="w-full" />
 				</div>
+				<h3>
+					ProvidusBank
+					<span class="ml-1 text-[16px] font-[200] text-[#FFFFFFCC] lg:w-[312px]">
+						The spotlight bank in our network providing efficient card solutions, ensuring you
+						maximise all of AULT’s offerings, anywhere, anytime.
+					</span>
+				</h3>
 			</div>
 		</div>
 	</div>
@@ -558,7 +556,7 @@
 	id="insight"
 	class="item-center relative flex min-h-screen w-full flex-col justify-center gap-20 overflow-hidden px-5 py-10 md:py-20"
 >
-	<div class="mx-auto max-w-[1728px] lg:px-20 xl:px-[150px]">
+	<div class="mx-auto max-w-[1728px] lg:px-20 xl:px-[150px] w-full">
 		<!-- Left Glow -->
 		<div
 			class="absolute top-1/2 left-1/2 z-0 h-40 w-40 -translate-y-1/2 rounded-full bg-[#C686014D] blur-[130px] md:left-0 md:h-96 md:w-96"
@@ -569,8 +567,8 @@
 			class="absolute top-1/3 right-0 z-0 hidden h-96 w-96 -translate-y-1/2 rounded-full bg-[#C686014D] blur-[130px] md:block"
 		></div>
 
-		<div class="relative z-10 flex flex-col gap-10">
-			<h1 class="lg:text[37px] 3xl:text-[64px] text-[37px] font-[316] uppercase sm:text-[37px]">
+		<div class="relative z-10 flex flex-col gap-10 w-full">
+			<h1 class="lg:text[37px] 3xl:text-[64px] text-[37px] font-[200] uppercase sm:text-[37px] w-full">
 				Insights
 			</h1>
 
@@ -578,7 +576,7 @@
 
 			<a
 				href="/insights"
-				class="ml-auto flex cursor-pointer items-center gap-3 text-[14px] font-[200] tracking-tight lg:text-[32px] lg:font-[316]"
+				class="ml-auto flex cursor-pointer items-center gap-3 text-[14px] font-[200] tracking-tight lg:text-[32px] lg:font-[200] w-full"
 			>
 				Learn more
 				<img

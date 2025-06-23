@@ -99,12 +99,12 @@
 		<!-- Menu Content -->
 		<div class="mt-5 p-6 pt-20">
 			<ul class="text-left">
-				{#each [{ href: '/#how-it-works', label: 'Discover', delay: 0 }, { href: '/#your-card', label: 'Your Card', delay: 50 }, { href: '/#benefits', label: 'Benefits', delay: 100 }, { href: '/#insight', label: 'Insight', delay: 150 }] as item, index}
+				{#each [{ href: '/#how-it-works', label: 'Discover', delay: 0 }, { href: '/#your-card', label: 'Your Card', delay: 50 }, { href: '/#benefits', label: 'Benefits', delay: 100 }, { href: '/#insight', label: 'Insights', delay: 150 }] as item, index}
 					<li in:fly={{ x: 100, duration: 300, delay: item.delay, easing: quintOut }}>
 						<a
 							href={item.href}
 							rel="external"
-							class="group block rounded-xl px-2 py-3 text-[16px] font-medium text-white/90 transition-all duration-300 hover:translate-x-2 hover:bg-white/5 hover:text-white active:scale-98"
+							class="group block rounded-xl px-2 py-3 text-[20px] font-[400] text-white/90 transition-all duration-300 hover:translate-x-2 hover:bg-white/5 hover:text-white active:scale-98"
 							on:click={closeMenu}
 						>
 							<span class="flex items-center justify-between lowercase">
@@ -132,11 +132,11 @@
 			</ul>
 
 			<!-- CTA Buttons -->
-			<div class="mt-8 space-y-4 px-2">
+			<div class="mt-8 space-y-4 px-2 text-[20px]">
 				<div in:fly={{ y: 50, duration: 400, delay: 250, easing: backOut }}>
 					<a
 						href="#about"
-						class="group flex w-full items-center justify-center gap-3 rounded-[10px] border border-white bg-transparent px-6 py-4 font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black hover:shadow-lg"
+						class="group flex w-full items-center justify-center gap-3 rounded-[10px] border border-white bg-transparent px-6 py-4 font-[400] text-white transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black hover:shadow-lg"
 						on:click={closeMenu}
 					>
 						<span class="transition-all duration-300 group-hover:tracking-wider">LOG IN</span>
@@ -150,9 +150,9 @@
 							closeMenu();
 							openJoinForm();
 						}}
-						class="group flex w-full items-center justify-center gap-3 rounded-[10px] bg-gradient-to-r from-white to-gray-100 px-6 py-4 font-bold text-black transition-all duration-300 hover:scale-105 hover:from-gray-100 hover:to-white hover:shadow-lg"
+						class="group flex w-full items-center justify-center gap-3 rounded-[10px] bg-gradient-to-r from-white to-gray-100 px-6 py-4 font-[400] text-black transition-all duration-300 hover:scale-105 hover:from-gray-100 hover:to-white hover:shadow-lg"
 					>
-						<span class="transition-all duration-300 group-hover:tracking-wider">GET STARTED</span>
+						<span class="transition-all duration-300 group-hover:tracking-wider">JOIN AULT</span>
 					</a>
 				</div>
 			</div>
