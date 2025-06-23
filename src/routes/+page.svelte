@@ -264,7 +264,7 @@
 			<h1
 				class="lg:text[42px] text-[32px] tracking-tighter text-nowrap uppercase sm:text-[37px] md:w-[282px] md:leading-none xl:text-[60px]"
 			>
-				How It <br /> Works
+				How It <br class="hidden lg:block" /> Works
 			</h1>
 			<p
 				class="text-[24px] font-[200] text-[#FFFFFFCC] lg:text-[36px] xl:w-[1200px] 2xl:w-[1006px]"
