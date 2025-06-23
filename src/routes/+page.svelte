@@ -181,18 +181,18 @@
 
 		<!-- Hero Image -->
 		<div class="absolute inset-0 z-0">
-			<img src={HeroBackground} alt="hero-bg" class="h-full w-full object-cover" />
+			<img src={HeroBackground} alt="hero-bg" class="h-full w-full object-cover relative top-[-50px]" />
 		</div>
 
 		<!-- hero content -->
-		<div class="relative z-[1] mx-5 flex flex-col gap-5 text-center">
+		<div class="relative z-[1] mx-5 flex flex-col gap-5 text-center top-[-50px] lg:top-0 lg:text-left items-center justify-center">
 			<div
-				class="3xl:text-[96px] text-[40px] leading-none font-[200] tracking-tighter uppercase sm:text-[45px] lg:text-[60px] xl:text-[70px]"
+				class="3xl:text-[96px] text-[40px] lg:top-0 leading-none font-[200] tracking-tighter uppercase sm:text-[45px] lg:text-[60px] xl:text-[70px]"
 			>
-				<span class="hidden lg:block">timeless security,<br />modern liquidity.</span>
-				<span class="block pt-20 leading-tight lg:hidden"
+				<span class="hidden lg:block tracking-normal">timeless security,<br />modern liquidity.</span>
+				<span class="block pt-20 leading-tight tracking-normal lg:hidden"
 					>timeless<br /> security,<br />modern <br /> liquidity.</span
-				>
+				>	
 			</div>
 			<p class="text-[15px] font-[200]">
 				Gold made Flexible <br class="block lg:hidden" /> and Tailored For You
@@ -243,7 +243,7 @@
 						<img src={feature.image} alt={feature.title} class="w-full" />
 					</div>
 					<div>
-						<h3 class="text-[25px] font-bold text-white">{feature.title}</h3>
+						<h3 class="font-nromal text-[25px] text-white">{feature.title}</h3>
 						<p class="text-[15px] text-white/80">{feature.description}</p>
 					</div>
 				</div>
@@ -262,9 +262,9 @@
 	>
 		<div class="flex flex-col gap-8 font-[200] lg:flex-row lg:justify-between lg:gap-30">
 			<h1
-				class="lg:text[42px] text-[32px] tracking-tighter uppercase sm:text-[37px] md:w-[282px] md:leading-none xl:text-[60px]"
+				class="lg:text[42px] text-[32px] tracking-tighter text-nowrap uppercase sm:text-[37px] md:w-[282px] md:leading-none xl:text-[60px]"
 			>
-				How It Works
+				How It <br /> Works
 			</h1>
 			<p
 				class="text-[24px] font-[200] text-[#FFFFFFCC] lg:text-[36px] xl:w-[1200px] 2xl:w-[1006px]"
@@ -294,7 +294,7 @@
 								{/each}
 							</div>
 							<div class="grid gap-2">
-								<h3 class="text-[16px] font-semibold capitalize lg:text-[20px]">{step.title}</h3>
+								<h3 class="text-[16px] font-normal capitalize lg:text-[20px]">{step.title}</h3>
 								<p class="text-[14px] font-extralight lg:text-[20px]">{step.description}</p>
 							</div>
 						</div>
@@ -395,7 +395,7 @@
 							/>
 						</div>
 						<div class="text-[14px] lg:text-[20px]">
-							<h3 class="font-semibold tracking-normal capitalize">{item.title}</h3>
+							<h3 class="font-normal tracking-normal capitalize">{item.title}</h3>
 							<p class="text-[20px] leading-relaxed font-extralight tracking-normal capitalize">
 								{item.description}
 							</p>
@@ -493,7 +493,7 @@
 			<div class="hidden grid-cols-2 gap-10 lg:grid">
 				{#each benefits as benefit}
 					<div class="flex w-[330px] flex-col text-[14px] font-[571] capitalize lg:text-[20px]">
-						{benefit.title}
+						<span class="font-normal">{benefit.title}</span>
 						<span class="font-extralight normal-case">{benefit.description}</span>
 					</div>
 				{/each}
@@ -508,7 +508,7 @@
 	class="item-center relative flex min-h-screen w-full flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:py-20"
 >
 	<div
-		class="mx-auto flex min-h-[284px] max-w-[1728px] flex-col justify-between gap-5 px-0 py-10 lg:flex-row lg:gap-20 lg:px-20 xl:px-[150px] w-full"
+		class="mx-auto flex min-h-[284px] w-full max-w-[1728px] flex-col justify-between gap-5 px-0 py-10 lg:flex-row lg:gap-20 lg:px-20 xl:px-[150px]"
 	>
 		<div class="flex flex-col justify-between gap-7">
 			<p class="3xl:text-[36px] text-[24px] font-[200] lg:max-w-[907px] lg:text-[25px]">
@@ -527,25 +527,19 @@
 				<div class="max-w-[159px]">
 					<img src={Partner4} alt="partner" class="w-full" />
 				</div>
-				<h3>
-					Emerging Africa
-					<span class="ml-1 text-[16px] font-[200] text-[#FFFFFFCC] lg:w-[312px]">
-						Our Trustee partner playing its role as a regulated fiduciary, safeguarding your gold
-						assets with exceptional care and strict regulatory compliance.
-					</span>
-				</h3>
+				<span class="ml-1 text-[16px] font-[200] text-[#FFFFFFCC] lg:w-[312px]">
+					<span class="font-normal">Emerging Africa</span> Our Trustee partner playing its role as a regulated fiduciary,
+					safeguarding your gold assets with exceptional care and strict regulatory compliance.
+				</span>
 			</div>
 			<div class="flex max-w-[378px] flex-col gap-5 text-[20px] font-[571]">
 				<div class="max-w-[132px] opacity-[60%]">
 					<img src={Partner1} alt="partner" class="w-full" />
 				</div>
-				<h3>
-					ProvidusBank
-					<span class="ml-1 text-[16px] font-[200] text-[#FFFFFFCC] lg:w-[312px]">
-						The spotlight bank in our network providing efficient card solutions, ensuring you
-						maximise all of AULT’s offerings, anywhere, anytime.
-					</span>
-				</h3>
+				<span class="ml-1 text-[16px] font-[200] text-[#FFFFFFCC] lg:w-[312px]">
+					<span class="font-normal">ProvidusBank</span> The spotlight bank in our network providing efficient card solutions,
+					ensuring you maximise all of AULT’s offerings, anywhere, anytime.
+				</span>
 			</div>
 		</div>
 	</div>
@@ -556,7 +550,7 @@
 	id="insight"
 	class="item-center relative flex min-h-screen w-full flex-col justify-center gap-20 overflow-hidden px-5 py-10 md:py-20"
 >
-	<div class="mx-auto max-w-[1728px] lg:px-20 xl:px-[150px] w-full">
+	<div class="mx-auto w-full max-w-[1728px] lg:px-20 xl:px-[150px]">
 		<!-- Left Glow -->
 		<div
 			class="absolute top-1/2 left-1/2 z-0 h-40 w-40 -translate-y-1/2 rounded-full bg-[#C686014D] blur-[130px] md:left-0 md:h-96 md:w-96"
@@ -567,8 +561,10 @@
 			class="absolute top-1/3 right-0 z-0 hidden h-96 w-96 -translate-y-1/2 rounded-full bg-[#C686014D] blur-[130px] md:block"
 		></div>
 
-		<div class="relative z-10 flex flex-col gap-10 w-full">
-			<h1 class="lg:text[37px] 3xl:text-[64px] text-[37px] font-[200] uppercase sm:text-[37px] w-full">
+		<div class="relative z-10 flex w-full flex-col gap-10">
+			<h1
+				class="lg:text[37px] 3xl:text-[64px] w-full text-[37px] font-[200] uppercase sm:text-[37px]"
+			>
 				Insights
 			</h1>
 
@@ -576,7 +572,7 @@
 
 			<a
 				href="/insights"
-				class="ml-auto flex cursor-pointer items-center gap-3 text-[14px] font-[200] tracking-tight lg:text-[32px] lg:font-[200] w-full"
+				class="ml-auto flex w-full cursor-pointer items-center gap-3 text-[14px] font-[200] tracking-tight lg:text-[32px] lg:font-[200]"
 			>
 				Learn more
 				<img
