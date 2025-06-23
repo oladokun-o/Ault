@@ -20,7 +20,7 @@
 		{
 			id: 4,
 			question: "How Do I Access My Gold?",
-			answer: "Once your account is active, access your gold via the AULT web app, liquidate it, and spend it using your AULT Mastercard. The entire process of liquidating your allocated gold is supported by robust technology infrastructure and is audited by KPMG LLP for added assurance."
+			answer: "Once your account is active, access your gold via the AULT app, liquidate it, and spend it using your AULT Mastercard. The entire process of liquidating your allocated gold is supported by robust technology infrastructure and is audited by KPMG LLP for added assurance."
 		},
 		{
 			id: 5,
@@ -49,7 +49,7 @@
 				on:click={() => toggleItem(item.id)}
 			>
 				<div class="flex items-center justify-between">
-					<span class="font-[442] pr-4">{item.question}</span>
+					<span class="font-[400] pr-4">{item.question}</span>
 				</div>
 			</button>
 			
@@ -69,7 +69,7 @@
 <style>
 	/* Smooth accordion animation */
 	.animate-slideDown {
-		animation: slideDown 0.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+		animation: slideDown 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 		overflow: hidden;
 	}
 

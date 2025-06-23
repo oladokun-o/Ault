@@ -81,7 +81,7 @@
 
 {#if showToast}
 	<div
-		class="fixed top-6 left-1/2 z-[9999] w-[90%] max-w-md -translate-x-1/2 transform rounded-xl px-6 py-4 text-sm font-medium text-white shadow-lg transition-all duration-300
+		class="fixed top-6 left-1/2 z-[9999] w-[90%] max-w-md -translate-x-1/2 transform rounded-xl px-6 py-4 text-sm font-normal text-black shadow-lg transition-all duration-300
 		{toastType === 'success' ? 'bg-green-600' : ''}
 		{toastType === 'error' ? 'bg-red-600' : ''}"
 		in:fade
@@ -103,17 +103,17 @@
 	>
 		<!-- Form Container -->
 		<div
-			class="no-scrollbar fixed inset-0 z-[90] flex items-start justify-center overflow-y-auto md:items-center md:px-10 md:py-20"
+			class="no-scrollbar fixed inset-0 z-[90] flex items-start justify-center overflow-y-auto md:px-10 md:py-20"
 			transition:fly={{ y: 50, duration: 400, easing: quintOut }}
 		>
 			<div
-				class="w-full max-w-4xl border border-[#FFFFFF24] bg-black p-5 md:px-10 md:py-20 lg:py-10 shadow-2xl md:rounded-2xl"
+				class="w-full max-w-4xl border border-[#00000024] bg-[#F5F5F5] p-5 md:px-10 md:py-20 lg:py-10 shadow-2xl md:rounded-2xl"
 			>
 				<!-- Close Button -->
 				<div class="flex justify-end">
 					<button
 						on:click={closeJoinForm}
-						class="group rounded-full border border-[#7C7C7C] p-3 text-[#7C7C7C] transition-all duration-300 hover:scale-110 hover:border-white hover:text-white"
+						class="group rounded-full border border-[#838383] p-3 text-[#838383] transition-all duration-300 hover:scale-110 hover:border-black hover:text-black"
 						aria-label="Close form"
 					>
 						<svg
@@ -135,46 +135,46 @@
 
 				<!-- Header -->
 				<div class="mb-20 text-start">
-					<h1 id="form-title" class="mb-0 text-[42px] font-light tracking-tight md:text-[64px]">
+					<h1 id="form-title" class="mb-0 text-[42px] font-light tracking-tight md:text-[64px] text-black">
 						Join Ault
 					</h1>
-					<p class="text-lg text-[#A5A5A5] capitalize">The journey to more starts here</p>
+					<p class="text-lg text-[#5A5A5A] capitalize">The journey to more starts here</p>
 				</div>
 
-				<form on:submit|preventDefault={handleSubmit} class="space-y-8">
+				<form on:submit|preventDefault={handleSubmit} class="space-y-8 text-black">
 					<!-- Personal Information -->
 					<div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
 						<div class="form-group">
-							<label for="fullName" class="mb-2 block text-[14px] font-medium">Full Name</label>
+							<label for="fullName" class="mb-2 block text-[14px] font-normal">Full Name</label>
 							<input
 								id="fullName"
 								type="text"
 								bind:value={formData.fullName}
 								placeholder="Gabriel David"
 								required
-								class="w-full border border-[#FFFFFF2E] bg-[#0B0C0E] px-4 py-3 text-white placeholder-[#FFFFFF75] transition-all duration-300 focus:border-[#FFF] focus:ring-1 focus:ring-[#FFF]"
+								class="w-full border border-[#0000002E] bg-[#F4F3F1] px-4 py-3 text-black placeholder-[#00000075] transition-all duration-300 focus:border-[#000] focus:ring-1 focus:ring-[#000]"
 							/>
 						</div>
 						<div class="form-group">
-							<label for="email" class="mb-2 block text-sm font-medium">Email Address</label>
+							<label for="email" class="mb-2 block text-sm font-normal">Email Address</label>
 							<input
 								id="email"
 								type="email"
 								bind:value={formData.email}
 								placeholder="david@blank.design"
 								required
-								class="w-full border border-[#FFFFFF2E] bg-[#0B0C0E] px-4 py-3 text-white placeholder-[#FFFFFF75] transition-all duration-300 focus:border-[#FFF] focus:ring-1 focus:ring-[#FFF]"
+								class="w-full border border-[#0000002E] bg-[#F4F3F1] px-4 py-3 text-black placeholder-[#00000075] transition-all duration-300 focus:border-[#000] focus:ring-1 focus:ring-[#000]"
 							/>
 						</div>
 						<div class="form-group lg:col-span-1">
-							<label for="phone" class="mb-2 block text-sm font-medium">Phone Number</label>
+							<label for="phone" class="mb-2 block text-sm font-normal">Phone Number</label>
 							<input
 								id="phone"
 								type="tel"
 								bind:value={formData.phone}
 								placeholder="+444 1234 567890"
 								required
-								class="w-full border border-[#FFFFFF2E] bg-[#0B0C0E] px-4 py-3 text-white placeholder-[#FFFFFF75] transition-all duration-300 focus:border-[#FFF] focus:ring-1 focus:ring-[#FFF]"
+								class="w-full border border-[#0000002E] bg-[#F4F3F1] px-4 py-3 text-black placeholder-[#00000075] transition-all duration-300 focus:border-[#000] focus:ring-1 focus:ring-[#000]"
 							/>
 						</div>
 					</div>
@@ -182,9 +182,9 @@
 					<!-- Interests Section -->
 					<div class="space-y-4">
 						<div class="flex flex-col gap-2 sm:flex-row sm:items-center">
-							<h3 class="text-sm font-medium">
+							<h3 class="text-sm font-normal">
 								What are you interested in?
-								<span class="pl-2 text-sm text-[#E9E9E9CC]">(Select all that apply)</span>
+								<span class="pl-2 text-sm text-[#161616CC]">(Select all that apply)</span>
 							</h3>
 						</div>
 						<div class="ml-0 grid grid-cols-1 gap-3 sm:ml-6 sm:grid-cols-2">
@@ -197,7 +197,7 @@
 											handleInterestChange(interest, (e.target as HTMLInputElement).checked)}
 									/>
 									<span
-										class="text-sm text-[#E9E9E9CC] transition-colors duration-300 group-hover:text-white"
+										class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
 									>
 										{interest}
 									</span>
@@ -210,7 +210,7 @@
 					<div class="space-y-6">
 						<!-- Gold Ownership -->
 						<div class="space-y-3">
-							<h3 class="text-sm font-medium">Do You Already Own Physical or Tokenized Gold?</h3>
+							<h3 class="text-sm font-normal">Do You Already Own Physical or Tokenized Gold?</h3>
 							<div class="ml-0 flex gap-8 sm:ml-6">
 								<label class="group flex cursor-pointer items-center gap-2">
 									<input
@@ -221,7 +221,7 @@
 										class="custom-radio"
 									/>
 									<span
-										class="text-sm text-[#E9E9E9CC] transition-colors duration-300 group-hover:text-white"
+										class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
 										>Yes</span
 									>
 								</label>
@@ -234,7 +234,7 @@
 										class="custom-radio"
 									/>
 									<span
-										class="text-sm text-[#E9E9E9CC] transition-colors duration-300 group-hover:text-white"
+										class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
 										>No</span
 									>
 								</label>
@@ -243,7 +243,7 @@
 
 						<!-- Providus Account -->
 						<div class="space-y-3">
-							<h3 class="text-sm font-medium">Do You Have A ProvidusBank Account?</h3>
+							<h3 class="text-sm font-normal">Do You Have A ProvidusBank Account?</h3>
 							<div class="ml-0 flex gap-8 sm:ml-6">
 								<label class="group flex cursor-pointer items-center gap-2">
 									<input
@@ -254,7 +254,7 @@
 										class="custom-radio"
 									/>
 									<span
-										class="text-sm text-[#E9E9E9CC] transition-colors duration-300 group-hover:text-white"
+										class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
 										>Yes</span
 									>
 								</label>
@@ -267,7 +267,7 @@
 										class="custom-radio"
 									/>
 									<span
-										class="text-sm text-[#E9E9E9CC] transition-colors duration-300 group-hover:text-white"
+										class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
 										>No</span
 									>
 								</label>
@@ -279,7 +279,7 @@
 					<div class="flex justify-start pt-6">
 						<button
 							type="submit"
-							class="w-full max-w-md transform rounded-[10px] bg-[#FFF] px-8 py-4 font-bold tracking-wide text-black uppercase transition-all duration-300 hover:scale-105 hover:bg-[#FFD700] hover:shadow-lg focus:ring-2 focus:ring-[#FFF] focus:ring-offset-2 focus:ring-offset-black focus:outline-none"
+							class="w-full max-w-md transform rounded-[10px] bg-[#000] px-8 py-4 font-normal tracking-wide text-white hover:text-black uppercase transition-all duration-300 hover:scale-105 hover:bg-[#FFD700] hover:shadow-lg focus:ring-2 focus:ring-[#000] focus:ring-offset-2 focus:ring-offset-black focus:outline-none"
 						>
 							{!submitting ? 'Request Your Invitation' : 'Submitting...'}
 						</button>
@@ -330,7 +330,7 @@
 		appearance: none;
 		width: 1rem;
 		height: 1rem;
-		border: 2px solid #ffffff2e;
+		border: 2px solid #00000075;
 		border-radius: 0.25rem;
 		background-color: transparent;
 		cursor: pointer;
@@ -340,8 +340,8 @@
 
 	.custom-checkbox:checked,
 	.custom-radio:checked {
-		background-color: #ffcc00;
-		border-color: #ffcc00;
+		background-color: #000;
+		border-color: #000;
 	}
 
 	.custom-checkbox:checked::before,
@@ -353,7 +353,7 @@
 		width: 100%;
 		height: 100%;
 		border-radius: 0.25rem;
-		background-color: #ffcc00;
+		background-color: #000;
 	}
 
 	.custom-checkbox:checked::after,
@@ -364,7 +364,7 @@
 		left: 3.5px;
 		width: 4px;
 		height: 8px;
-		border: solid black;
+		border: solid white;
 		border-width: 0 2px 2px 0;
 		transform: rotate(45deg);
 	}

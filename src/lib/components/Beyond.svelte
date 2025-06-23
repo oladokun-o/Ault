@@ -8,7 +8,7 @@
 			title: 'Security',
 			image: Security,
 			description:
-				'All Deposits Are Automatically Converted To Physical Allocated Gold Which Are Stored In LBMA-Certified Vaults In Zurich, London And Dubai.'
+				'All Deposits Are Stored As Physical Allocated Gold Vaulted In LBMA-Certified London Vault.'
 		},
 		{
 			title: 'Exclusivity',
@@ -94,7 +94,7 @@
 				{#each features as feature, index}
 					<div class="w-[288px] flex-shrink-0 snap-start rounded-[4px] bg-[#181818] p-4">
 						<img src={feature.image} alt={feature.title} class="mx-auto mb-4 w-[165px]" />
-						<h3 class="text-[25px] font-bold text-white">{feature.title}</h3>
+						<h3 class="text-[25px] font-[400] text-white">{feature.title}</h3>
 						<p class="text-sm text-white/80">{feature.description}</p>
 					</div>
 				{/each}

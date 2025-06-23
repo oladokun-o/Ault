@@ -63,9 +63,9 @@ export const insights = [
 					'When you lease your gold, it is used within trusted financial markets, and you receive interest or income from that arrangement — all while your gold remains securely stored.'
 			},
 			{
-				question: 'Can I access credit using my leased gold?',
+				question: 'Can I access credit using my gold?',
 				answer:
-					'Yes. Leasing your gold opens access to flexible credit facilities, enabling you to borrow against your assets without selling them.'
+					'Yes. You can access flexible credit by using your gold as collateral. Empowering you to borrow up to 50% the value of your assets instead of spending it.'
 			}
 		]
 	},

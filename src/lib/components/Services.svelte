@@ -144,8 +144,8 @@
 					/>
 				</div>
 				<div class="text-[14px] lg:text-[20px]">
-					<h3 class="font-semibold tracking-normal capitalize">{item.title}</h3>
-					<p class="leading-relaxed font-light tracking-normal capitalize">{item.description}</p>
+					<h3 class="font-normal tracking-normal capitalize">{item.title}</h3>
+					<p class="leading-relaxed font-[200] tracking-normal capitalize">{item.description}</p>
 				</div>
 			</div>
 		{/each}
