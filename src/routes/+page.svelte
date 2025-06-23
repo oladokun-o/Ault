@@ -173,7 +173,7 @@
 <!-- ============================Hero section======================== -->
 <section
 	id="hero"
-	class="relative top-[-88px] h-[900px] w-full overflow-x-hidden py-5 pt-[100px] lg:px-20 lg:pt-[160px]"
+	class="relative top-[-88px] min-h-screen w-full overflow-x-hidden py-5 pt-[100px] lg:px-20 lg:pt-[160px]"
 >
 	<div class="mx-auto flex w-full max-w-[1728px] flex-col gap-20 lg:px-20 xl:px-[150px]">
 		<!-- Gradient overlay -->
@@ -181,7 +181,7 @@
 
 		<!-- Hero Image -->
 		<div class="absolute inset-0 z-0">
-			<img src={HeroBackground} alt="hero-bg" class="h-full w-full object-cover relative top-[-50px]" />
+			<img src={HeroBackground} alt="hero-bg" class="h-full w-full object-cover relative" />
 		</div>
 
 		<!-- hero content -->
