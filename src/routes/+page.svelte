@@ -338,9 +338,9 @@
 		>
 			LIMITLESS
 		</div>
-		<div class="relative w-full pb-20 lg:pt-20 lg:pb-0 lg:mx-0 lg:mt-auto lg:w-1/2">
+		<div class="relative w-full pb-20 lg:pt-20 lg:pb-0 xl:pt-0 xl:pb-20 lg:mx-0 lg:mt-auto lg:w-1/2">
 			<div
-				class="relative z-20 mb-auto flex flex-col items-center gap-5 pt-10 text-center capitalize lg:mb-0 lg:items-start lg:text-left w-full"
+				class="relative z-20 mb-auto flex flex-col items-center gap-5 pt-10 xl:pt-0 xl:pb-20 text-center capitalize lg:mb-0 lg:items-start lg:text-left w-full"
 			>
 				<h1
 					class="3xl:text-[48px] text-center text-[32px] leading-tight font-[200] tracking-tight capitalize sm:text-[37px] lg:text-left lg:text-[37px] lg:leading-none"
