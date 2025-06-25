@@ -222,7 +222,7 @@
 				</div>
 
 				<!-- Header -->
-				<div class="mb-20 text-start">
+				<div class="mb-10 text-start">
 					<h1
 						id="form-title"
 						class="mb-0 text-[42px] font-light tracking-tight text-black md:text-[64px]"
