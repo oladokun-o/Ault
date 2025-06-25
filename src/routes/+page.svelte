@@ -320,18 +320,18 @@
 <!-- ============================Your Card section======================== -->
 <section
 	id="your-card"
-	class="relative w-full overflow-hidden px-5 py-10 md:py-0 lg:my-auto lg:min-h-screen"
+	class="relative w-full overflow-hidden px-5 md:py-0 lg:my-auto lg:min-h-screen"
 	style="background-image: url({CardBackground}); background-size: cover; background-position: center; background-repeat: no-repeat;"
 >
 	<div
-		class="mx-auto flex w-full max-w-[1728px] flex-col items-center gap-5 md:gap-50 lg:mt-auto lg:mb-20 lg:min-h-screen lg:flex-row lg:px-20 xl:px-[150px]"
+		class="mx-auto flex w-full max-w-[1728px] flex-col justify-center items-center gap-0 md:gap-50 lg:mt-auto lg:mb-20 lg:min-h-screen lg:flex-row lg:px-20 xl:px-[150px]"
 	>
 		<div
 			class="absolute top-0 left-0 z-0 hidden w-full text-center text-[18vw] font-[200] tracking-[0.03em] text-[#181818] uppercase lg:block"
 		>
 			LIMITLESS
 		</div>
-		<div class="relative w-full pb-20 lg:mx-0 lg:mt-auto lg:w-auto">
+		<div class="relative w-full lg:mx-0 lg:mt-auto lg:w-auto">
 			<div
 				class="relative z-20 mb-auto flex flex-col items-center gap-8 pt-10 text-center capitalize lg:mb-0 lg:items-start lg:text-left"
 			>
@@ -353,10 +353,10 @@
 				>
 			</div>
 		</div>
-		<div class="relative lg:right-[4rem] lg:bottom-[-4rem] lg:mt-auto">
-			<img src={AultOnGold} alt="ault-on-gold" class="w-full lg:w-[685px]" />
+		<div class="relative bottom-[-2rem] lg:right-[4rem] lg:bottom-[-4rem] lg:mt-auto">
+			<img src={AultOnGold} alt="ault-on-gold" class="w-full max-w-[300px] sm:max-w-full lg:w-[685px]" />
 			<button
-				class="group relative top-[-70px] mx-auto block h-[45px] w-[170px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] text-black uppercase transition-all duration-300 md:text-[20px] lg:mx-0 lg:hidden lg:h-[55px] lg:w-[211px]"
+				class="group relative top-[-70px] mx-auto block h-[45px] w-[170px] md:w-[200px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] text-black uppercase transition-all duration-300 md:text-[20px] lg:mx-0 lg:hidden lg:h-[55px] lg:w-[211px]"
 				><span class="transition-all duration-300 group-hover:tracking-wider">Get your card</span
 				></button
 			>
