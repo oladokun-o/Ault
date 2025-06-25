@@ -169,13 +169,17 @@
 
 {#if showToast}
 	<div
-		class="fixed top-6 left-1/2 z-[9999] w-[90%] max-w-md -translate-x-1/2 transform rounded-xl px-6 py-4 text-sm font-normal text-black shadow-lg transition-all duration-300
-		{toastType === 'success' ? 'bg-green-600' : ''}
-		{toastType === 'error' ? 'bg-red-600' : ''}"
+		class="fixed top-6 right-0 z-[9999] w-full transform px-6 text-sm font-normal text-black shadow-lg transition-all duration-300 md:w-auto
+		"
 		in:fade
 		out:fade
 	>
-		{toastMessage}
+		<div
+			class="w-full px-6 py-4 rounded-[10px] {toastType === 'success' ? 'bg-green-600' : ''}
+		{toastType === 'error' ? 'bg-red-600' : ''}"
+		>
+			{toastMessage}
+		</div>
 	</div>
 {/if}
 
