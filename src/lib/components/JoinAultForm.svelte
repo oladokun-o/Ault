@@ -20,86 +20,78 @@
 		'AULT Mastercard'
 	];
 
-	// Sample locations - replace with API data later
-	const locations = [
-		'Lagos, Nigeria',
-		'Abuja, Nigeria',
-		'Port Harcourt, Nigeria',
-		'Kano, Nigeria',
-		'Ibadan, Nigeria',
-		'Benin City, Nigeria',
-		'Kaduna, Nigeria',
-		'Jos, Nigeria',
-		'Ilorin, Nigeria',
-		'Enugu, Nigeria',
-		'Aba, Nigeria',
-		'Onitsha, Nigeria',
-		'Warri, Nigeria',
-		'Calabar, Nigeria',
-		'Uyo, Nigeria',
-		'Akure, Nigeria',
-		'Abeokuta, Nigeria',
-		'Sokoto, Nigeria',
-		'Katsina, Nigeria',
-		'Bauchi, Nigeria',
-		'London, United Kingdom',
-		'Manchester, United Kingdom',
-		'Birmingham, United Kingdom',
-		'Liverpool, United Kingdom',
-		'Leeds, United Kingdom',
-		'Glasgow, Scotland',
-		'Edinburgh, Scotland',
-		'Cardiff, Wales',
-		'Belfast, Northern Ireland',
-		'New York, United States',
-		'Los Angeles, United States',
-		'Chicago, United States',
-		'Houston, United States',
-		'Phoenix, United States',
-		'Philadelphia, United States',
-		'San Antonio, United States',
-		'San Diego, United States',
-		'Dallas, United States',
-		'San Jose, United States',
-		'Toronto, Canada',
-		'Vancouver, Canada',
-		'Montreal, Canada',
-		'Calgary, Canada',
-		'Ottawa, Canada',
-		'Edmonton, Canada',
-		'Mississauga, Canada',
-		'Winnipeg, Canada',
-		'Quebec City, Canada',
-		'Hamilton, Canada'
-	];
-
 	// Location dropdown state
 	let locationDropdownOpen = false;
 	let locationSearchTerm = '';
-	let filteredLocations = locations;
+	let locationSuggestions = [];
+	let isLoadingLocations = false;
+	let searchTimeout;
 
-	// Filter locations based on search term
-	$: {
-		if (locationSearchTerm) {
-			filteredLocations = locations.filter((location) =>
-				location.toLowerCase().includes(locationSearchTerm.toLowerCase())
-			);
-		} else {
-			filteredLocations = locations;
+	// Fetch location suggestions from API
+	const fetchLocationSuggestions = async (query) => {
+		if (!query || query.length < 2) {
+			locationSuggestions = [];
+			return;
 		}
-	}
+
+		isLoadingLocations = true;
+
+		try {
+			// Using OpenStreetMap Nominatim API (free, no API key required)
+			// You can replace this with your preferred geocoding service
+			const response = await fetch(
+				`https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&limit=8&q=${encodeURIComponent(query)}`
+			);
+
+			if (response.ok) {
+				const data = await response.json();
+				locationSuggestions = data.map((item) => {
+					// Format the display name to show city, state/region, country
+					const parts = item.display_name.split(', ');
+					if (parts.length >= 3) {
+						const city = parts[0];
+						const country = parts[parts.length - 1];
+						const region = parts[parts.length - 2];
+						return `${city}, ${region}, ${country}`;
+					}
+					return item.display_name;
+				});
+			}
+		} catch (error) {
+			console.error('Error fetching location suggestions:', error);
+			locationSuggestions = [];
+		} finally {
+			isLoadingLocations = false;
+		}
+	};
+
+	// Debounced search function
+	const debouncedLocationSearch = (query) => {
+		clearTimeout(searchTimeout);
+		searchTimeout = setTimeout(() => {
+			fetchLocationSuggestions(query);
+		}, 300); // 300ms delay
+	};
 
 	const handleLocationSelect = (location: string) => {
 		formData.location = location;
 		locationSearchTerm = location;
 		locationDropdownOpen = false;
+		locationSuggestions = [];
 	};
 
 	const handleLocationInput = (e: Event) => {
 		const target = e.target as HTMLInputElement;
 		locationSearchTerm = target.value;
 		formData.location = target.value;
-		locationDropdownOpen = true;
+
+		if (target.value.length >= 2) {
+			locationDropdownOpen = true;
+			debouncedLocationSearch(target.value);
+		} else {
+			locationDropdownOpen = false;
+			locationSuggestions = [];
+		}
 	};
 
 	const handleLocationFocus = () => {
@@ -240,7 +232,11 @@
 					<p class="text-lg text-[#5A5A5A] capitalize">The journey to more starts here</p>
 				</div>
 
-				<form on:submit|preventDefault={handleSubmit} class="space-y-8 text-black" autocomplete="off">
+				<form
+					on:submit|preventDefault={handleSubmit}
+					class="space-y-8 text-black"
+					autocomplete="off"
+				>
 					<!-- Personal Information -->
 					<div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
 						<div class="form-group">
@@ -293,7 +289,9 @@
 									class="w-full border border-[#0000002E] bg-[#F4F3F1] px-4 py-3 pr-10 text-black placeholder-[#00000075] transition-all duration-300 focus:border-[#000] focus:ring-1 focus:ring-[#000]"
 								/>
 								<!-- Dropdown Arrow -->
-								<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 z-10">
+								<div
+									class="pointer-events-none absolute inset-y-0 right-0 z-10 flex items-center pr-3"
+								>
 									<svg
 										class="h-4 w-4 text-gray-500 transition-transform duration-200 {locationDropdownOpen
 											? 'rotate-180'
@@ -312,140 +310,157 @@
 								</div>
 
 								<!-- Dropdown List -->
-								{#if locationDropdownOpen && filteredLocations.length > 0}
+								{#if locationDropdownOpen}
 									<div
-										class="absolute z-[999] mt-1 max-h-60 w-full overflow-y-auto rounded-lg border border-[#0000002E] bg-white shadow-lg"
+										class="absolute z-10 mt-1 max-h-60 w-full overflow-y-auto rounded-lg border border-[#0000002E] bg-white shadow-lg"
 										transition:fade={{ duration: 200 }}
 									>
-										{#each filteredLocations.slice(0, 50) as location}
-											<button
-												type="button"
-												class="cursor-pointer w-full border-b border-gray-100 px-4 py-3 text-left text-black transition-colors duration-200 last:border-b-0 hover:bg-gray-100"
-												on:click={() => handleLocationSelect(location)}
+										{#if isLoadingLocations}
+											<div
+												class="flex items-center justify-center gap-2 px-4 py-3 text-center text-gray-500"
 											>
-												{location}
-											</button>
-										{/each}
+												<svg class="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
+													<circle
+														class="opacity-25"
+														cx="12"
+														cy="12"
+														r="10"
+														stroke="currentColor"
+														stroke-width="4"
+													></circle>
+													<path
+														class="opacity-75"
+														fill="currentColor"
+														d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+													></path>
+												</svg>
+												Searching locations...
+											</div>
+										{:else if locationSuggestions.length > 0}
+											{#each locationSuggestions as location}
+												<button
+													type="button"
+													class="w-full border-b border-gray-100 px-4 py-3 text-left text-black transition-colors duration-200 last:border-b-0 hover:bg-gray-100"
+													on:click={() => handleLocationSelect(location)}
+												>
+													{location}
+												</button>
+											{/each}
+										{:else if locationSearchTerm.length >= 2}
+											<div class="px-4 py-3 text-sm text-gray-500">
+												No suggestions found. You can continue typing your location.
+											</div>
+										{/if}
 									</div>
 								{/if}
-
-								<!-- No results message -->
-								{#if locationDropdownOpen && filteredLocations.length === 0 && locationSearchTerm}
-									<div
-										class="absolute z-[999] mt-1 w-full rounded-lg border border-[#0000002E] bg-white px-4 py-3 text-gray-500 shadow-lg"
-										transition:fade={{ duration: 200 }}
-									>
-										No locations found. You can still type your custom location.
-									</div>
-								{/if}
-							</div>
-						</div>
-					</div>
-
-					<!-- Interests Section -->
-					<div class="space-y-4">
-						<div class="flex flex-col gap-2 sm:flex-row sm:items-center">
-							<h3 class="text-sm font-normal">
-								What are you interested in?
-								<span class="pl-2 text-sm text-[#161616CC]">(Select all that apply)</span>
-							</h3>
-						</div>
-						<div class="ml-0 grid grid-cols-1 gap-3 sm:ml-6 sm:grid-cols-2">
-							{#each interests as interest}
-								<label class="group flex cursor-pointer items-center gap-3">
-									<input
-										type="checkbox"
-										class="custom-checkbox"
-										on:change={(e) =>
-											handleInterestChange(interest, (e.target as HTMLInputElement).checked)}
-									/>
-									<span
-										class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
-									>
-										{interest}
-									</span>
-								</label>
-							{/each}
-						</div>
-					</div>
-
-					<!-- Radio Button Sections -->
-					<div class="space-y-6">
-						<!-- Gold Ownership -->
-						<div class="space-y-3">
-							<h3 class="text-sm font-normal">Do You Already Own Physical or Tokenized Gold?</h3>
-							<div class="ml-0 flex gap-8 sm:ml-6">
-								<label class="group flex cursor-pointer items-center gap-2">
-									<input
-										type="radio"
-										name="ownsGold"
-										value="yes"
-										bind:group={formData.ownsGold}
-										class="custom-radio"
-									/>
-									<span
-										class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
-										>Yes</span
-									>
-								</label>
-								<label class="group flex cursor-pointer items-center gap-2">
-									<input
-										type="radio"
-										name="ownsGold"
-										value="no"
-										bind:group={formData.ownsGold}
-										class="custom-radio"
-									/>
-									<span
-										class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
-										>No</span
-									>
-								</label>
 							</div>
 						</div>
 
-						<!-- Providus Account -->
-						<div class="space-y-3">
-							<h3 class="text-sm font-normal">Do You Have A ProvidusBank Account?</h3>
-							<div class="ml-0 flex gap-8 sm:ml-6">
-								<label class="group flex cursor-pointer items-center gap-2">
-									<input
-										type="radio"
-										name="providusAccount"
-										value="yes"
-										bind:group={formData.providusAccount}
-										class="custom-radio"
-									/>
-									<span
-										class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
-										>Yes</span
-									>
-								</label>
-								<label class="group flex cursor-pointer items-center gap-2">
-									<input
-										type="radio"
-										name="providusAccount"
-										value="no"
-										bind:group={formData.providusAccount}
-										class="custom-radio"
-									/>
-									<span
-										class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
-										>No</span
-									>
-								</label>
+						<!-- Interests Section -->
+						<div class="space-y-4">
+							<div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+								<h3 class="text-sm font-normal">
+									What are you interested in?
+									<span class="pl-2 text-sm text-[#161616CC]">(Select all that apply)</span>
+								</h3>
+							</div>
+							<div class="ml-0 grid grid-cols-1 gap-3 sm:ml-6 sm:grid-cols-2">
+								{#each interests as interest}
+									<label class="group flex cursor-pointer items-center gap-3">
+										<input
+											type="checkbox"
+											class="custom-checkbox"
+											on:change={(e) =>
+												handleInterestChange(interest, (e.target as HTMLInputElement).checked)}
+										/>
+										<span
+											class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
+										>
+											{interest}
+										</span>
+									</label>
+								{/each}
 							</div>
 						</div>
-					</div>
 
-					<!-- Submit Button -->
-					<div class="flex justify-start pt-6">
-						<button
-							type="submit"
-							class="w-full max-w-md transform rounded-[10px] bg-[#000] px-8 py-4 font-normal tracking-wide text-white uppercase transition-all duration-300 hover:scale-105 hover:bg-[#FFD700] hover:text-black hover:shadow-lg focus:ring-2 focus:ring-[#000] focus:ring-offset-2 focus:ring-offset-black focus:outline-none"
-						>
-							{!submitting ? 'Request Your Invitation' : 'Submitting...'}
-						</button>
+						<!-- Radio Button Sections -->
+						<div class="space-y-6">
+							<!-- Gold Ownership -->
+							<div class="space-y-3">
+								<h3 class="text-sm font-normal">Do You Already Own Physical or Tokenized Gold?</h3>
+								<div class="ml-0 flex gap-8 sm:ml-6">
+									<label class="group flex cursor-pointer items-center gap-2">
+										<input
+											type="radio"
+											name="ownsGold"
+											value="yes"
+											bind:group={formData.ownsGold}
+											class="custom-radio"
+										/>
+										<span
+											class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
+											>Yes</span
+										>
+									</label>
+									<label class="group flex cursor-pointer items-center gap-2">
+										<input
+											type="radio"
+											name="ownsGold"
+											value="no"
+											bind:group={formData.ownsGold}
+											class="custom-radio"
+										/>
+										<span
+											class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
+											>No</span
+										>
+									</label>
+								</div>
+							</div>
+
+							<!-- Providus Account -->
+							<div class="space-y-3">
+								<h3 class="text-sm font-normal">Do You Have A ProvidusBank Account?</h3>
+								<div class="ml-0 flex gap-8 sm:ml-6">
+									<label class="group flex cursor-pointer items-center gap-2">
+										<input
+											type="radio"
+											name="providusAccount"
+											value="yes"
+											bind:group={formData.providusAccount}
+											class="custom-radio"
+										/>
+										<span
+											class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
+											>Yes</span
+										>
+									</label>
+									<label class="group flex cursor-pointer items-center gap-2">
+										<input
+											type="radio"
+											name="providusAccount"
+											value="no"
+											bind:group={formData.providusAccount}
+											class="custom-radio"
+										/>
+										<span
+											class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
+											>No</span
+										>
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<!-- Submit Button -->
+						<div class="flex justify-start pt-6">
+							<button
+								type="submit"
+								class="w-full max-w-md transform rounded-[10px] bg-[#000] px-8 py-4 font-normal tracking-wide text-white uppercase transition-all duration-300 hover:scale-105 hover:bg-[#FFD700] hover:text-black hover:shadow-lg focus:ring-2 focus:ring-[#000] focus:ring-offset-2 focus:ring-offset-black focus:outline-none"
+							>
+								{!submitting ? 'Request Your Invitation' : 'Submitting...'}
+							</button>
+						</div>
 					</div>
 				</form>
 			</div>
