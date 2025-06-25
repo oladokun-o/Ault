@@ -9,7 +9,8 @@
 		phone: '',
 		interests: [],
 		ownsGold: '',
-		providusAccount: ''
+		providusAccount: '',
+		location: ''
 	};
 
 	const interests = [
@@ -19,7 +20,100 @@
 		'AULT Mastercard'
 	];
 
-	const handleInterestChange = (interest, checked) => {
+	// Sample locations - replace with API data later
+	const locations = [
+		'Lagos, Nigeria',
+		'Abuja, Nigeria',
+		'Port Harcourt, Nigeria',
+		'Kano, Nigeria',
+		'Ibadan, Nigeria',
+		'Benin City, Nigeria',
+		'Kaduna, Nigeria',
+		'Jos, Nigeria',
+		'Ilorin, Nigeria',
+		'Enugu, Nigeria',
+		'Aba, Nigeria',
+		'Onitsha, Nigeria',
+		'Warri, Nigeria',
+		'Calabar, Nigeria',
+		'Uyo, Nigeria',
+		'Akure, Nigeria',
+		'Abeokuta, Nigeria',
+		'Sokoto, Nigeria',
+		'Katsina, Nigeria',
+		'Bauchi, Nigeria',
+		'London, United Kingdom',
+		'Manchester, United Kingdom',
+		'Birmingham, United Kingdom',
+		'Liverpool, United Kingdom',
+		'Leeds, United Kingdom',
+		'Glasgow, Scotland',
+		'Edinburgh, Scotland',
+		'Cardiff, Wales',
+		'Belfast, Northern Ireland',
+		'New York, United States',
+		'Los Angeles, United States',
+		'Chicago, United States',
+		'Houston, United States',
+		'Phoenix, United States',
+		'Philadelphia, United States',
+		'San Antonio, United States',
+		'San Diego, United States',
+		'Dallas, United States',
+		'San Jose, United States',
+		'Toronto, Canada',
+		'Vancouver, Canada',
+		'Montreal, Canada',
+		'Calgary, Canada',
+		'Ottawa, Canada',
+		'Edmonton, Canada',
+		'Mississauga, Canada',
+		'Winnipeg, Canada',
+		'Quebec City, Canada',
+		'Hamilton, Canada'
+	];
+
+	// Location dropdown state
+	let locationDropdownOpen = false;
+	let locationSearchTerm = '';
+	let filteredLocations = locations;
+
+	// Filter locations based on search term
+	$: {
+		if (locationSearchTerm) {
+			filteredLocations = locations.filter((location) =>
+				location.toLowerCase().includes(locationSearchTerm.toLowerCase())
+			);
+		} else {
+			filteredLocations = locations;
+		}
+	}
+
+	const handleLocationSelect = (location: string) => {
+		formData.location = location;
+		locationSearchTerm = location;
+		locationDropdownOpen = false;
+	};
+
+	const handleLocationInput = (e: Event) => {
+		const target = e.target as HTMLInputElement;
+		locationSearchTerm = target.value;
+		formData.location = target.value;
+		locationDropdownOpen = true;
+	};
+
+	const handleLocationFocus = () => {
+		locationDropdownOpen = true;
+	};
+
+	const handleLocationBlur = () => {
+		// Delay closing to allow for click on dropdown items
+		setTimeout(() => {
+			locationDropdownOpen = false;
+		}, 200);
+	};
+
+	const handleInterestChange = (interest: string, checked: boolean) => {
 		if (checked) {
 			formData.interests = [...formData.interests, interest];
 		} else {
@@ -53,8 +147,10 @@
 				phone: '',
 				interests: [],
 				ownsGold: '',
-				providusAccount: ''
+				providusAccount: '',
+				location: ''
 			};
+			locationSearchTerm = '';
 
 			// Close modal after short delay
 			setTimeout(() => {
@@ -107,13 +203,13 @@
 			transition:fly={{ x: 300, duration: 400, easing: quintOut }}
 		>
 			<div
-				class="w-full max-w-4xl border border-[#00000024] bg-[#F5F5F5] p-5 md:px-10 md:py-20 lg:py-10 shadow-2xl md:rounded-2xl"
+				class="w-full max-w-4xl border border-[#00000024] bg-[#F5F5F5] p-5 shadow-2xl md:rounded-2xl md:px-10 md:py-20 lg:py-10"
 			>
 				<!-- Close Button -->
 				<div class="flex justify-end">
 					<button
 						on:click={closeJoinForm}
-						class="group rounded-full cursor-pointer border border-[#838383] p-3 text-[#838383] transition-all duration-300 hover:scale-110 hover:border-black hover:text-black"
+						class="group cursor-pointer rounded-full border border-[#838383] p-3 text-[#838383] transition-all duration-300 hover:scale-110 hover:border-black hover:text-black"
 						aria-label="Close form"
 					>
 						<svg
@@ -135,13 +231,16 @@
 
 				<!-- Header -->
 				<div class="mb-20 text-start">
-					<h1 id="form-title" class="mb-0 text-[42px] font-light tracking-tight md:text-[64px] text-black">
+					<h1
+						id="form-title"
+						class="mb-0 text-[42px] font-light tracking-tight text-black md:text-[64px]"
+					>
 						Join Ault
 					</h1>
 					<p class="text-lg text-[#5A5A5A] capitalize">The journey to more starts here</p>
 				</div>
 
-				<form on:submit|preventDefault={handleSubmit} class="space-y-8 text-black">
+				<form on:submit|preventDefault={handleSubmit} class="space-y-8 text-black" autocomplete="off">
 					<!-- Personal Information -->
 					<div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
 						<div class="form-group">
@@ -176,6 +275,70 @@
 								required
 								class="w-full border border-[#0000002E] bg-[#F4F3F1] px-4 py-3 text-black placeholder-[#00000075] transition-all duration-300 focus:border-[#000] focus:ring-1 focus:ring-[#000]"
 							/>
+						</div>
+						<!-- Location Dropdown -->
+						<div class="form-group relative z-[999] lg:col-span-1">
+							<label for="location" class="mb-2 block text-sm font-normal">Location</label>
+							<div class="relative z-[999]">
+								<input
+									id="location"
+									type="text"
+									value={locationSearchTerm}
+									on:input={handleLocationInput}
+									on:focus={handleLocationFocus}
+									on:blur={handleLocationBlur}
+									placeholder="Search for your city..."
+									required
+									autocomplete="new-password"
+									class="w-full border border-[#0000002E] bg-[#F4F3F1] px-4 py-3 pr-10 text-black placeholder-[#00000075] transition-all duration-300 focus:border-[#000] focus:ring-1 focus:ring-[#000]"
+								/>
+								<!-- Dropdown Arrow -->
+								<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 z-10">
+									<svg
+										class="h-4 w-4 text-gray-500 transition-transform duration-200 {locationDropdownOpen
+											? 'rotate-180'
+											: ''}"
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M19 9l-7 7-7-7"
+										/>
+									</svg>
+								</div>
+
+								<!-- Dropdown List -->
+								{#if locationDropdownOpen && filteredLocations.length > 0}
+									<div
+										class="absolute z-[999] mt-1 max-h-60 w-full overflow-y-auto rounded-lg border border-[#0000002E] bg-white shadow-lg"
+										transition:fade={{ duration: 200 }}
+									>
+										{#each filteredLocations.slice(0, 50) as location}
+											<button
+												type="button"
+												class="cursor-pointer w-full border-b border-gray-100 px-4 py-3 text-left text-black transition-colors duration-200 last:border-b-0 hover:bg-gray-100"
+												on:click={() => handleLocationSelect(location)}
+											>
+												{location}
+											</button>
+										{/each}
+									</div>
+								{/if}
+
+								<!-- No results message -->
+								{#if locationDropdownOpen && filteredLocations.length === 0 && locationSearchTerm}
+									<div
+										class="absolute z-[999] mt-1 w-full rounded-lg border border-[#0000002E] bg-white px-4 py-3 text-gray-500 shadow-lg"
+										transition:fade={{ duration: 200 }}
+									>
+										No locations found. You can still type your custom location.
+									</div>
+								{/if}
+							</div>
 						</div>
 					</div>
 
@@ -279,7 +442,7 @@
 					<div class="flex justify-start pt-6">
 						<button
 							type="submit"
-							class="w-full max-w-md transform rounded-[10px] bg-[#000] px-8 py-4 font-normal tracking-wide text-white hover:text-black uppercase transition-all duration-300 hover:scale-105 hover:bg-[#FFD700] hover:shadow-lg focus:ring-2 focus:ring-[#000] focus:ring-offset-2 focus:ring-offset-black focus:outline-none"
+							class="w-full max-w-md transform rounded-[10px] bg-[#000] px-8 py-4 font-normal tracking-wide text-white uppercase transition-all duration-300 hover:scale-105 hover:bg-[#FFD700] hover:text-black hover:shadow-lg focus:ring-2 focus:ring-[#000] focus:ring-offset-2 focus:ring-offset-black focus:outline-none"
 						>
 							{!submitting ? 'Request Your Invitation' : 'Submitting...'}
 						</button>
@@ -327,7 +490,6 @@
 
 	.custom-checkbox,
 	.custom-radio {
-		appearance: none;
 		width: 1rem;
 		height: 1rem;
 		border: 2px solid #00000075;
@@ -336,6 +498,7 @@
 		cursor: pointer;
 		transition: all 0.3s ease;
 		position: relative;
+		z-index: 1;
 	}
 
 	.custom-checkbox:checked,
@@ -354,18 +517,21 @@
 		height: 100%;
 		border-radius: 0.25rem;
 		background-color: #000;
+		border: 1px solid #000 !important;
+		z-index: 0;
 	}
 
 	.custom-checkbox:checked::after,
 	.custom-radio:checked::after {
 		content: '';
 		position: absolute;
-		top: 2px;
-		left: 3.5px;
+		top: 1px;
+		left: 4px;
 		width: 4px;
 		height: 8px;
 		border: solid white;
 		border-width: 0 2px 2px 0;
 		transform: rotate(45deg);
+		z-index: 2;
 	}
 </style>

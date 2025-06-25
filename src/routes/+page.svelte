@@ -334,26 +334,29 @@
 		class="mx-auto flex w-full max-w-[1728px] flex-col items-center gap-5 md:gap-50 lg:mt-auto lg:mb-20 lg:min-h-screen lg:flex-row lg:px-20 xl:px-[150px]"
 	>
 		<div
-			class="lg:hidden absolute top-0 left-0 z-0 hidden w-full text-center text-[18vw] font-[200] tracking-[0.03em] text-[#181818] uppercase"
+			class="absolute top-0 left-0 z-0 hidden w-full text-center text-[18vw] font-[200] tracking-[0.03em] text-[#181818] uppercase lg:hidden"
 		>
 			LIMITLESS
 		</div>
-		<div class="relative w-full pb-20 lg:pt-20 lg:pb-0 xl:pt-0 xl:pb-20 lg:mx-0 lg:mt-auto lg:w-1/2">
+		<div
+			class="relative w-full pb-20 lg:mx-0 lg:mt-auto lg:w-1/2 lg:pt-20 lg:pb-0 xl:pt-0 xl:pb-20"
+		>
 			<div
-				class="relative z-20 mb-auto flex flex-col items-center gap-5 pt-10 xl:pt-0 xl:pb-20 text-center capitalize lg:mb-0 lg:items-start lg:text-left w-full"
+				class="relative z-20 mb-auto flex w-full flex-col items-center gap-5 pt-10 text-center capitalize lg:mb-0 lg:items-start lg:text-left xl:pt-0 xl:pb-20"
 			>
 				<h1
-					class="3xl:text-[48px] text-center text-[32px] leading-tight font-[200] tracking-tight capitalize sm:text-[37px] lg:text-left lg:text-[37px] lg:leading-none"
+					class="2xl:text-[60px] text-center text-[32px] leading-tight font-[200] tracking-tight capitalize sm:text-[37px] lg:text-left lg:text-[42px] lg:leading-none"
 				>
 					Gold In Your Hands, <br /> Anytime, Anywhere.
 				</h1>
 				<p
-					class="w-[272px] lg:w-auto text-sm font-[200] capitalize md:w-[572px] lg:text-[20px] lg:font-[200]"
+					class="w-[272px] text-[24px] font-[200] capitalize md:w-[572px] lg:w-auto lg:text-[24px] lg:font-[200]"
 				>
 					Experience True Freedom. With Your AULT Mastercard, You Can Spend Your Gold as Currency
 					Anywhere in the World.
 				</p>
 				<button
+					on:click={openJoinForm}
 					class="group mx-auto mt-8 hidden h-[45px] w-[160px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] text-black uppercase transition-all duration-300 md:text-[20px] lg:mx-0 lg:block lg:h-[55px] lg:w-[211px]"
 					><span class="transition-all duration-300 group-hover:tracking-wider">Get your card</span
 					></button
@@ -363,6 +366,7 @@
 		<div class="relative lg:hidden">
 			<img src={AultOnGold} alt="ault-on-gold" class="w-[300px] lg:w-[685px]" />
 			<button
+				on:click={openJoinForm}
 				class="group relative top-[-70px] mx-auto block h-[45px] w-[170px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] text-black uppercase transition-all duration-300 md:text-[20px] lg:mx-0 lg:hidden lg:h-[55px] lg:w-[211px]"
 				><span class="transition-all duration-300 group-hover:tracking-wider">Get your card</span
 				></button
