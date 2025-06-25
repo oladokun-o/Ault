@@ -7,11 +7,8 @@
 	import Exclusivity from '$lib/assets/exclusivity.png';
 	import Liquidity from '$lib/assets/liquidity.png';
 	import AboutImg from '$lib/assets/aboutimg.jpg';
-	import Invitation from '$lib/assets/invitation.png';
-	import Platform from '$lib/assets/platform.png';
 	import Card from '$lib/assets/card.png';
 	import CardLg from '$lib/assets/card-lg.png';
-	import Setup from '$lib/assets/setup.png';
 	import AultOnGold from '$lib/assets/ault-on-gold.png';
 	import Service1 from '$lib/assets/service1.png';
 	import Service2 from '$lib/assets/service2.png';
