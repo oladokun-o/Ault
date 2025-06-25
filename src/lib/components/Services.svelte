@@ -5,18 +5,18 @@
 
 	const services = [
 		{
-			title: '24/7 Concierge:',
-			description: `Your dedicated Relationship Manager is always available to handle your requests and privileges, ensuring your needs are met with care and precision.`,
+			title: 'Personalized Fit:',
+			description: `Access Gold Services Tailored To Your Objectives, Empowering You To Meet Your Financial Goals With Ease.`,
 			image: Service1
 		},
 		{
 			title: 'Global Support:',
-			description: `Our worldwide network provides seamless access to your gold and personalized assistance wherever you are.`,
+			description: `Our trusted worldwide network guarantees seamless access to gold and dedicated assistance wherever you are.`,
 			image: Service2
 		},
 		{
 			title: 'Effortless Fund Access:',
-			description: `Easily manage your allocated gold and securely send instructions through our intuitive web app.`,
+			description: `Manage allocated gold, submit secure instructions, instantly access liquidity through our intuitive app.`,
 			image: Service3
 		}
 	];

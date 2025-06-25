@@ -105,18 +105,18 @@
 
 	const services = [
 		{
-			title: '24/7 Concierge:',
-			description: `Your dedicated Relationship Manager is always available to handle your requests and privileges, ensuring your needs are met with care and precision.`,
+			title: 'Personalized Fit:',
+			description: `Access Gold Services Tailored To Your Objectives, Empowering You To Meet Your Financial Goals With Ease.`,
 			image: Service1
 		},
 		{
 			title: 'Global Support:',
-			description: `Our worldwide network provides seamless access to your gold and personalized assistance wherever you are.`,
+			description: `Our trusted worldwide network guarantees seamless access to gold and dedicated assistance wherever you are.`,
 			image: Service2
 		},
 		{
 			title: 'Effortless Fund Access:',
-			description: `Easily manage your allocated gold and securely send instructions through our intuitive web app.`,
+			description: `Manage allocated gold, submit secure instructions, instantly access liquidity through our intuitive app.`,
 			image: Service3
 		}
 	];
@@ -190,10 +190,10 @@
 				class="3xl:text-[96px] text-[40px] leading-none font-[200] tracking-tighter uppercase sm:text-[45px] lg:text-[60px] xl:text-[70px]"
 			>
 				<span class="hidden lg:block">timeless security,<br />modern liquidity.</span>
-				<span class="block lg:hidden pt-20 leading-tight">timeless<br /> security,<br />modern <br /> liquidity.</span>
+				<span class="block lg:hidden pt-20 leading-tighter">timeless<br /> security,<br />modern <br /> liquidity.</span>
 			</div>
-			<p class="text-[15px] font-[200]">
-				Gold made Flexible <br class="block lg:hidden" /> and Tailored For You
+			<p class="lg:text-[18px] text-[17px] font-[200]">
+				Gold made Flexible and Tailored For You
 			</p>
 		</div>
 	</div>
@@ -371,7 +371,7 @@
 			<h1
 				class="3xl:text-[48px] 3xl:w-[1138px] w-full text-[32px] font-[200] capitalize sm:text-[37px] lg:w-[809px] lg:text-[37px]"
 			>
-				Unparalleled service that combines security, flexibility, and exclusivity tailored for you.
+				Unparalleled service, redefined to deliver more than ease and convinience wherever you are.
 			</h1>
 		</div>
 
