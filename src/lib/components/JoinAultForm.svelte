@@ -104,7 +104,7 @@
 		<!-- Form Container -->
 		<div
 			class="no-scrollbar fixed inset-0 z-[90] flex items-start justify-center overflow-y-auto md:px-10 md:py-20"
-			transition:fly={{ y: 50, duration: 400, easing: quintOut }}
+			transition:fly={{ x: 300, duration: 400, easing: quintOut }}
 		>
 			<div
 				class="w-full max-w-4xl border border-[#00000024] bg-[#F5F5F5] p-5 md:px-10 md:py-20 lg:py-10 shadow-2xl md:rounded-2xl"
@@ -113,7 +113,7 @@
 				<div class="flex justify-end">
 					<button
 						on:click={closeJoinForm}
-						class="group rounded-full border border-[#838383] p-3 text-[#838383] transition-all duration-300 hover:scale-110 hover:border-black hover:text-black"
+						class="group rounded-full cursor-pointer border border-[#838383] p-3 text-[#838383] transition-all duration-300 hover:scale-110 hover:border-black hover:text-black"
 						aria-label="Close form"
 					>
 						<svg
@@ -300,17 +300,17 @@
 	}
 
 	.form-group {
-		animation: fadeInUp 0.6s ease-out forwards;
+		animation: fadeInSide 0.6s ease-out forwards;
 	}
 
-	@keyframes fadeInUp {
+	@keyframes fadeInSide {
 		from {
 			opacity: 0;
-			transform: translateY(20px);
+			transform: translateX(-20px);
 		}
 		to {
 			opacity: 1;
-			transform: translateY(0);
+			transform: translateX(0);
 		}
 	}
 

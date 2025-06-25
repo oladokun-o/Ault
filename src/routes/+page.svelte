@@ -99,7 +99,7 @@
 			title: 'Step 4: AULT Card Issuance',
 			dots: 4,
 			description:
-				'An exclusive AULT Mastercard is issued by a patner bank. You can also link existing Mastercard to gain seamless global access to your gold anytime, anywhere.'
+				'An exclusive AULT Mastercard is issued by a partner bank. You can also link existing Mastercard to gain seamless global access to your gold anytime, anywhere.'
 		}
 	];
 
@@ -156,7 +156,7 @@
 			title: 'Visa & Booking Discounts:',
 			description:
 				'Take advantage of exclusive deals on flights and hotels via partners like Booking.com and Cleartrip, with expert visa support from Fulfill Visa Services.'
-		},
+		}
 	];
 
 	let scrollRef;
@@ -190,7 +190,9 @@
 				class="3xl:text-[96px] text-[40px] leading-none font-[200] tracking-tighter uppercase sm:text-[45px] lg:text-[60px] xl:text-[70px]"
 			>
 				<span class="hidden lg:block">timeless security,<br />modern liquidity.</span>
-				<span class="block lg:hidden pt-20 leading-tighter">timeless<br /> security,<br />modern <br /> liquidity.</span>
+				<span class="block pt-20 leading-tight lg:hidden"
+					>timeless<br /> security,<br />modern <br /> liquidity.</span
+				>
 			</div>
 			<p class="lg:text-[18px] text-[17px] font-[200]">
 				Gold made Flexible and Tailored For You
@@ -258,14 +260,14 @@
 	<div
 		class="mx-auto flex w-full max-w-[1728px] flex-col justify-center gap-20 lg:px-20 xl:px-[150px]"
 	>
-		<div class="flex flex-col gap-8 lg:gap-30 font-[200] lg:flex-row lg:justify-between">
+		<div class="flex flex-col gap-8 font-[200] lg:flex-row lg:justify-between lg:gap-30">
 			<h1
 				class="lg:text[42px] text-[32px] tracking-tighter uppercase sm:text-[37px] md:w-[282px] md:leading-none xl:text-[60px]"
 			>
 				How It Works
 			</h1>
 			<p
-				class="text-[24px] font-[200] text-[#FFFFFFCC] capitalize lg:text-[36px] xl:w-[1200px] 2xl:w-[1006px]"
+				class="text-[24px] font-[200] text-[#FFFFFFCC] lg:text-[36px] xl:w-[1200px] 2xl:w-[1006px]"
 			>
 				The AULT experience is structured for ease and precision. From first contact to activation,
 				each step is guided by your able assistant and powered by systems built to anticipate your
@@ -318,20 +320,20 @@
 <!-- ============================Your Card section======================== -->
 <section
 	id="your-card"
-	class="relative w-full overflow-hidden px-5 py-10 md:py-0 lg:min-h-screen lg:my-auto"
+	class="relative w-full overflow-hidden px-5 py-10 md:py-0 lg:my-auto lg:min-h-screen"
 	style="background-image: url({CardBackground}); background-size: cover; background-position: center; background-repeat: no-repeat;"
 >
 	<div
-		class="mx-auto flex w-full max-w-[1728px] flex-col items-center gap-5 md:gap-50 lg:flex-row lg:px-20 xl:px-[150px] lg:min-h-screen lg:mb-20 lg:mt-auto"
+		class="mx-auto flex w-full max-w-[1728px] flex-col items-center gap-5 md:gap-50 lg:mt-auto lg:mb-20 lg:min-h-screen lg:flex-row lg:px-20 xl:px-[150px]"
 	>
 		<div
 			class="absolute top-0 left-0 z-0 hidden w-full text-center text-[18vw] font-[200] tracking-[0.03em] text-[#181818] uppercase lg:block"
 		>
 			LIMITLESS
 		</div>
-		<div class="relative w-full lg:mx-0 lg:w-auto lg:mt-auto pb-20">
+		<div class="relative w-full pb-20 lg:mx-0 lg:mt-auto lg:w-auto">
 			<div
-				class="relative z-20 mb-auto lg:mb-0 flex flex-col items-center gap-8 pt-10 text-center capitalize  lg:items-start lg:text-left"
+				class="relative z-20 mb-auto flex flex-col items-center gap-8 pt-10 text-center capitalize lg:mb-0 lg:items-start lg:text-left"
 			>
 				<h1
 					class="3xl:text-[48px] text-center text-[32px] leading-tight font-[200] tracking-tight capitalize sm:text-[37px] lg:text-left lg:text-[37px] lg:leading-none"
@@ -490,9 +492,7 @@
 			<!-- Grid for large screens -->
 			<div class="hidden grid-cols-2 gap-10 lg:grid">
 				{#each benefits as benefit}
-					<div
-						class="flex w-[330px] flex-col  text-[14px] font-[571] capitalize lg:text-[20px]"
-					>
+					<div class="flex w-[330px] flex-col text-[14px] font-[571] capitalize lg:text-[20px]">
 						{benefit.title}
 						<span class="font-extralight normal-case">{benefit.description}</span>
 					</div>
@@ -502,67 +502,13 @@
 	</div>
 </section>
 
-<!-- ============================Our Patner section======================== -->
-<!-- <section
-	id="partner"
-	class="relative min-h-screen w-full overflow-x-hidden bg-[#181818] px-5 py-10 md:py-20"
->
-	<div
-		class="mx-auto flex w-full max-w-[1728px] flex-col items-center justify-center gap-20 lg:px-20 xl:px-[150px]"
-	>
-		<div
-			class="flex min-h-[284px] w-full flex-col justify-between gap-5 px-0 py-10 lg:flex-row lg:gap-20 lg:px-0"
-		>
-			<div class="flex flex-col justify-between gap-7">
-				<p class="3xl:text-[36px] text-[24px] font-[200] lg:max-w-[907px] lg:text-[25px]">
-					Our commitment to you is founded on trusted partnerships and a shared dedication to
-					managing your assets with the highest standards of security, transparency, and
-					personalized flexibility.
-				</p>
-				<div class="hidden max-h-[294px] max-w-[908px] lg:block">
-					<img src={PartnerImg} alt="Partner-img" class="h-full w-full" />
-				</div>
-			</div>
-			<div
-				class="mt-10 ml-5 flex flex-col justify-between gap-10 md:flex-row lg:mt-0 lg:ml-0 lg:flex-col lg:gap-2"
-			>
-				<div class="flex max-w-[378px] flex-col gap-5 text-[20px] font-[571]">
-					<div class="max-w-[159px]">
-						<img src={Partner4} alt="partner" class="w-full" />
-					</div>
-					<h3>
-						Emerging Africa
-						<span class="ml-1 text-[16px] font-[200] text-[#FFFFFFCC] lg:w-[312px]">
-							Oversees fiduciary responsibilities, safeguarding your gold assets with exceptional
-							care and strict regulatory compliance.
-						</span>
-					</h3>
-				</div>
-				<div class="flex max-w-[378px] flex-col gap-5 text-[20px] font-[571]">
-					<div class="max-w-[132px] opacity-[60%]">
-						<img src={Partner1} alt="partner" class="w-full" />
-					</div>
-					<h3>
-						Providus Bank
-						<span class="ml-1 text-[16px] font-[200] text-[#FFFFFFCC] lg:w-[312px]">
-							Provides reliable and efficient card solutions, ensuring your funds remain secure,
-							accessible, and available whenever you need them.
-						</span>
-					</h3>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> -->
-
-<!-- ============================Our Patner section======================== -->
+<!-- ============================Our Partner section======================== -->
 <section
 	id="partner"
-	class="item-center relative flex min-h-screen flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:px-20 md:py-20 w-full"
-
+	class="item-center relative flex min-h-screen w-full flex-col justify-center gap-20 overflow-x-hidden bg-[#181818] px-5 py-10 md:py-20"
 >
 	<div
-		class="flex min-h-[284px] flex-col justify-between gap-5 px-0 py-10 lg:flex-row lg:gap-20 lg:px-0 mx-auto max-w-[1728px]"
+		class="mx-auto flex min-h-[284px] max-w-[1728px] flex-col justify-between gap-5 px-0 py-10 lg:flex-row lg:gap-20 lg:px-20 xl:px-[150px] w-full"
 	>
 		<div class="flex flex-col justify-between gap-7">
 			<p class="3xl:text-[36px] text-[24px] font-[200] lg:max-w-[907px] lg:text-[25px]">
@@ -578,13 +524,13 @@
 			class="mt-10 ml-5 flex flex-col justify-between gap-10 md:flex-row lg:mt-0 lg:ml-0 lg:flex-col lg:gap-2"
 		>
 			<div class="flex max-w-[378px] flex-col gap-5 text-[20px] font-[571]">
-				<div class="max-w-[159px] -ml-1">
+				<div class="max-w-[159px]">
 					<img src={Partner4} alt="partner" class="w-full" />
 				</div>
 				<h3>
 					Emerging Africa
 					<span class="ml-1 text-[16px] font-[200] text-[#FFFFFFCC] lg:w-[312px]">
-						Our Trustee partner playin its role as a regulated fiduciary , safeguarding your gold
+						Our Trustee partner playing its role as a regulated fiduciary, safeguarding your gold
 						assets with exceptional care and strict regulatory compliance.
 					</span>
 				</h3>
@@ -596,7 +542,8 @@
 				<h3>
 					ProvidusBank
 					<span class="ml-1 text-[16px] font-[200] text-[#FFFFFFCC] lg:w-[312px]">
-						The spotlight bank in our network providing efficient card solutions, ensuring you maximise all of AULT's offerings, anywhere, anytime.
+						The spotlight bank in our network providing efficient card solutions, ensuring you
+						maximise all of AULT’s offerings, anywhere, anytime.
 					</span>
 				</h3>
 			</div>
@@ -609,7 +556,7 @@
 	id="insight"
 	class="item-center relative flex min-h-screen w-full flex-col justify-center gap-20 overflow-hidden px-5 py-10 md:py-20"
 >
-	<div class="mx-auto max-w-[1728px] lg:px-20 xl:px-[150px]">
+	<div class="mx-auto max-w-[1728px] lg:px-20 xl:px-[150px] w-full">
 		<!-- Left Glow -->
 		<div
 			class="absolute top-1/2 left-1/2 z-0 h-40 w-40 -translate-y-1/2 rounded-full bg-[#C686014D] blur-[130px] md:left-0 md:h-96 md:w-96"
@@ -620,8 +567,8 @@
 			class="absolute top-1/3 right-0 z-0 hidden h-96 w-96 -translate-y-1/2 rounded-full bg-[#C686014D] blur-[130px] md:block"
 		></div>
 
-		<div class="relative z-10 flex flex-col gap-10">
-			<h1 class="lg:text[37px] 3xl:text-[64px] text-[37px] font-[200] uppercase sm:text-[37px]">
+		<div class="relative z-10 flex flex-col gap-10 w-full">
+			<h1 class="lg:text[37px] 3xl:text-[64px] text-[37px] font-[200] uppercase sm:text-[37px] w-full">
 				Insights
 			</h1>
 
@@ -629,7 +576,7 @@
 
 			<a
 				href="/insights"
-				class="ml-auto flex cursor-pointer items-center gap-3 text-[14px] font-[200] tracking-tight lg:text-[32px] lg:font-[200]"
+				class="ml-auto flex cursor-pointer items-center gap-3 text-[14px] font-[200] tracking-tight lg:text-[32px] lg:font-[200] w-full"
 			>
 				Learn more
 				<img
