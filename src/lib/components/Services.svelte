@@ -3,23 +3,7 @@
 	import Service2 from '$lib/assets/service2.png';
 	import Service3 from '$lib/assets/service3.png';
 
-	const services = [
-		{
-			title: '24/7 Concierge:',
-			description: `Your dedicated Relationship Manager is always available to handle your requests and privileges, ensuring your needs are met with care and precision.`,
-			image: Service1
-		},
-		{
-			title: 'Global Support:',
-			description: `Our worldwide network provides seamless access to your gold and personalized assistance wherever you are.`,
-			image: Service2
-		},
-		{
-			title: 'Effortless Fund Access:',
-			description: `Easily manage your allocated gold and securely send instructions through our intuitive web app.`,
-			image: Service3
-		}
-	];
+	export let services = [];
 
 	let currentServiceIndex = 0;
 	let servicesCarouselContainer;

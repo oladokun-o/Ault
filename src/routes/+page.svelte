@@ -389,7 +389,7 @@
 		<div class="flex w-full gap-20">
 			<!-- Carousel (small screens only) -->
 			<div class="flex w-full items-center justify-center overflow-hidden md:hidden">
-				<Services />
+				<Services {services} />
 			</div>
 
 			<!-- for desktop -->
