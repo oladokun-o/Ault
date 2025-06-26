@@ -38,8 +38,6 @@
 		isLoadingLocations = true;
 
 		try {
-			// Using OpenStreetMap Nominatim API (free, no API key required)
-			// You can replace this with your preferred geocoding service
 			const response = await fetch(
 				`https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&limit=8&q=${encodeURIComponent(query)}`
 			);
@@ -47,7 +45,6 @@
 			if (response.ok) {
 				const data = await response.json();
 				locationSuggestions = data.map((item) => {
-					// Format the display name to show city, state/region, country
 					const parts = item.display_name.split(', ');
 					if (parts.length >= 3) {
 						const city = parts[0];
@@ -66,12 +63,11 @@
 		}
 	};
 
-	// Debounced search function
 	const debouncedLocationSearch = (query) => {
 		clearTimeout(searchTimeout);
 		searchTimeout = setTimeout(() => {
 			fetchLocationSuggestions(query);
-		}, 300); // 300ms delay
+		}, 300);
 	};
 
 	const handleLocationSelect = (location: string) => {
@@ -100,7 +96,6 @@
 	};
 
 	const handleLocationBlur = () => {
-		// Delay closing to allow for click on dropdown items
 		setTimeout(() => {
 			locationDropdownOpen = false;
 		}, 200);
@@ -119,8 +114,10 @@
 	let showToast = false;
 	let submitting = false;
 
-	const handleSubmit = async () => {
-		const form = document.forms.namedItem('join-form');
+	const handleSubmit = async (event: Event) => {
+		event.preventDefault();
+		
+		const form = event.target as HTMLFormElement;
 		if (!form) return;
 
 		toastMessage = '';
@@ -129,39 +126,53 @@
 		submitting = true;
 
 		try {
+			// Create FormData from the form
 			const formDataObj = new FormData(form);
-			await fetch('/', {
+			
+			// Add interests as a comma-separated string
+			formDataObj.set('interests', formData.interests.join(', '));
+			
+			// Ensure location is set
+			formDataObj.set('location', formData.location);
+
+			// Submit to Netlify
+			const response = await fetch(form.action || '/', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: new URLSearchParams(formDataObj as any).toString()
 			});
 
-			toastMessage = 'Your request was submitted successfully!';
-			toastType = 'success';
-			showToast = true;
-			submitting = false;
+			if (response.ok) {
+				toastMessage = 'Your request was submitted successfully!';
+				toastType = 'success';
+				showToast = true;
 
-			form.reset();
-			locationSearchTerm = '';
-			formData = {
-				fullName: '',
-				email: '',
-				phone: '',
-				interests: [],
-				ownsGold: '',
-				providusAccount: '',
-				location: ''
-			};
+				// Reset form
+				form.reset();
+				locationSearchTerm = '';
+				formData = {
+					fullName: '',
+					email: '',
+					phone: '',
+					interests: [],
+					ownsGold: '',
+					providusAccount: '',
+					location: ''
+				};
 
-			setTimeout(() => closeJoinForm(), 1500);
-			setTimeout(() => (showToast = false), 3000);
+				setTimeout(() => closeJoinForm(), 1500);
+				setTimeout(() => (showToast = false), 3000);
+			} else {
+				throw new Error('Form submission failed');
+			}
 		} catch (error) {
+			console.error('Form submission error:', error);
 			toastMessage = 'Something went wrong. Please try again.';
 			toastType = 'error';
 			showToast = true;
-			submitting = false;
-
 			setTimeout(() => (showToast = false), 3000);
+		} finally {
+			submitting = false;
 		}
 	};
 
@@ -174,8 +185,7 @@
 
 {#if showToast}
 	<div
-		class="fixed top-6 right-0 z-[9999] w-full transform px-6 text-sm font-normal text-black shadow-lg transition-all duration-300 md:w-auto
-		"
+		class="fixed top-6 right-0 z-[9999] w-full transform px-6 text-sm font-normal text-white shadow-lg transition-all duration-300 md:w-auto"
 		in:fade
 		out:fade
 	>
@@ -243,9 +253,10 @@
 
 				<form
 					name="join-form"
-					netlify
-					netlify-honeypot="bot-field"
-					on:submit|preventDefault={handleSubmit}
+					method="POST"
+					data-netlify="true"
+					data-netlify-honeypot="bot-field"
+					on:submit={handleSubmit}
 					class="space-y-8 text-black"
 					autocomplete="off"
 				>
@@ -376,7 +387,7 @@
 						</div>
 
 						<!-- Interests Section -->
-						<div class="space-y-4">
+						<div class="space-y-4 lg:col-span-2">
 							<div class="flex flex-col gap-2 sm:flex-row sm:items-center">
 								<h3 class="text-sm font-normal">
 									What are you interested in?
@@ -388,8 +399,10 @@
 									<label class="group flex cursor-pointer items-center gap-3">
 										<input
 											type="checkbox"
-											name="interests[]"
+											name="interests"
+											value={interest}
 											class="custom-checkbox"
+											checked={formData.interests.includes(interest)}
 											on:change={(e) =>
 												handleInterestChange(interest, (e.target as HTMLInputElement).checked)}
 										/>
@@ -404,7 +417,7 @@
 						</div>
 
 						<!-- Radio Button Sections -->
-						<div class="space-y-6">
+						<div class="space-y-6 lg:col-span-2">
 							<!-- Gold Ownership -->
 							<div class="space-y-3">
 								<h3 class="text-sm font-normal">Do You Already Own Physical or Tokenized Gold?</h3>
@@ -416,6 +429,7 @@
 											value="yes"
 											bind:group={formData.ownsGold}
 											class="custom-radio"
+											required
 										/>
 										<span
 											class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
@@ -429,6 +443,7 @@
 											value="no"
 											bind:group={formData.ownsGold}
 											class="custom-radio"
+											required
 										/>
 										<span
 											class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
@@ -449,6 +464,7 @@
 											value="yes"
 											bind:group={formData.providusAccount}
 											class="custom-radio"
+											required
 										/>
 										<span
 											class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
@@ -462,6 +478,7 @@
 											value="no"
 											bind:group={formData.providusAccount}
 											class="custom-radio"
+											required
 										/>
 										<span
 											class="text-sm text-[#161616CC] transition-colors duration-300 group-hover:text-black"
@@ -473,18 +490,20 @@
 						</div>
 
 						<!-- Submit Button -->
-						<div class="flex justify-start pt-6">
+						<div class="flex justify-start pt-6 lg:col-span-2">
 							<Button
 								type="submit"
-								extendedClass="w-full max-w-md transform rounded-[10px] font-normal tracking-wide uppercase transition-all duration-300 hover:scale-105 hover:text-black focus:ring-2 focus:ring-[#000] focus:ring-offset-2 focus:ring-offset-black focus:outline-none"
+								disabled={submitting}
+								extendedClass="w-full max-w-md transform rounded-[10px] font-normal tracking-wide uppercase transition-all duration-300 hover:scale-105 hover:text-black focus:ring-2 focus:ring-[#000] focus:ring-offset-2 focus:ring-offset-black focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
 							>
 								{!submitting ? 'Request Your Invitation' : 'Submitting...'}
 							</Button>
 						</div>
 					</div>
 
+					<!-- Hidden honeypot field -->
 					<p class="hidden">
-						<label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+						<label>Don't fill this out if you're human: <input name="bot-field" /></label>
 					</p>
 				</form>
 			</div>
