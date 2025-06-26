@@ -2,6 +2,7 @@
 	import { fly, fade } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 	import { closeJoinForm, showJoinForm } from '$lib/stores/formStore';
+	import Button from './Button.svelte';
 
 	let formData = {
 		fullName: '',
@@ -458,12 +459,12 @@
 
 						<!-- Submit Button -->
 						<div class="flex justify-start pt-6">
-							<button
+							<Button
 								type="submit"
-								class="w-full max-w-md transform rounded-[10px] bg-[#000] px-8 py-4 font-normal tracking-wide text-white uppercase transition-all duration-300 hover:scale-105 hover:bg-[#FFD700] hover:text-black hover:shadow-lg focus:ring-2 focus:ring-[#000] focus:ring-offset-2 focus:ring-offset-black focus:outline-none"
+								extendedClass="w-full max-w-md transform rounded-[10px] font-normal tracking-wide uppercase transition-all duration-300 hover:scale-105 hover:text-black focus:ring-2 focus:ring-[#000] focus:ring-offset-2 focus:ring-offset-black focus:outline-none"
 							>
 								{!submitting ? 'Request Your Invitation' : 'Submitting...'}
-							</button>
+							</Button>
 						</div>
 					</div>
 				</form>

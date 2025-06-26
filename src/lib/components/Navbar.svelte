@@ -3,9 +3,10 @@
 	import Logo from '$lib/assets/logo.svg';
 	import MobileMenu from './MobileMenu.svelte';
 	import { openJoinForm } from '$lib/stores/formStore';
+	import Button from './Button.svelte';
 
 	let scrolled = false;
-	
+
 	onMount(() => {
 		const handleScroll = () => {
 			const hero = document.querySelector('#hero'); // Your hero section ID
@@ -67,17 +68,18 @@
 			</li>
 		</ul>
 		<div class="flex gap-7">
-			<a
-				href="#log-in"
-				class="group grid h-[55px] w-[189px] place-items-center rounded-[10px] border-3 border-[#D9D9D9] bg-transparent text-center text-[20px] font-[400] text-white uppercase transition-all duration-300 hover:bg-[#D9D9D9] hover:text-black hover:shadow-lg"
-				><span class="transition-all duration-300 group-hover:tracking-wider">LOG IN</span></a
+			<Button
+				href="#login"
+				variant="outline"
+				extendedClass="group grid h-[55px] w-[189px] place-items-center rounded-[10px] border-3 justify-center text-[20px] font-[400] uppercase transition-all duration-300"
+				><span class="transition-all duration-300 group-hover:tracking-wider">LOG IN</span></Button
 			>
-			<!-- svelte-ignore a11y_invalid_attribute -->
-			<a
-				href="javaScript:void(0)"
+
+			<Button
 				on:click={openJoinForm}
-				class="group grid h-[55px] w-[189px] place-items-center rounded-[10px] bg-[#D9D9D9] text-center text-[20px] font-[400] text-black uppercase transition-all duration-300"
-				><span class="transition-all duration-300 group-hover:tracking-wider">JOIN AULT</span></a
+				extendedClass="group grid h-[55px] w-[189px] place-items-center rounded-[10px] bg-[#D9D9D9] justify-center text-[20px] font-[400] text-black uppercase transition-all duration-300"
+				><span class="transition-all duration-300 group-hover:tracking-wider">JOIN AULT</span
+				></Button
 			>
 		</div>
 	</div>

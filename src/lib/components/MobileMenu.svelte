@@ -3,6 +3,7 @@
 	import { fly, fade } from 'svelte/transition';
 	import { quintOut, backOut } from 'svelte/easing';
 	import { openJoinForm } from '$lib/stores/formStore';
+	import Button from './Button.svelte';
 
 	let isOpen = false;
 	let mounted = false;
@@ -134,26 +135,24 @@
 			<!-- CTA Buttons -->
 			<div class="mt-8 space-y-4 px-2 text-[20px]">
 				<div in:fly={{ y: 50, duration: 400, delay: 250, easing: backOut }}>
-					<a
-						href="#about"
-						class="group flex w-full items-center justify-center gap-3 rounded-[10px] border border-white bg-transparent px-6 py-4 font-[400] text-white transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black hover:shadow-lg"
+					<Button
 						on:click={closeMenu}
+						variant="outline"
+						extendedClass="group grid h-[55px] w-full place-items-center rounded-[10px] border-3 justify-center text-[20px] font-[400] uppercase transition-all duration-300 active:scale-95"
 					>
-						<span class="transition-all duration-300 group-hover:tracking-wider">LOG IN</span>
-					</a>
+						LOG IN
+					</Button>
 				</div>
 				<div in:fly={{ y: 50, duration: 400, delay: 200, easing: backOut }}>
-					<!-- svelte-ignore a11y_invalid_attribute -->
-					<a
-						href="javaScript:void(0)"
+					<Button
 						on:click={() => {
 							closeMenu();
 							openJoinForm();
 						}}
-						class="group flex w-full items-center justify-center gap-3 rounded-[10px] bg-gradient-to-r from-white to-gray-100 px-6 py-4 font-[400] text-black transition-all duration-300 hover:scale-105 hover:from-gray-100 hover:to-white hover:shadow-lg"
+						extendedClass="group grid h-[55px] w-full place-items-center rounded-[10px] border-3 justify-center text-[20px] font-[400] uppercase transition-all duration-300 active:scale-95"
 					>
 						<span class="transition-all duration-300 group-hover:tracking-wider">JOIN AULT</span>
-					</a>
+					</Button>
 				</div>
 			</div>
 		</div>

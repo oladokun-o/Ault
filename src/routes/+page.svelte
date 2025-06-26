@@ -34,6 +34,7 @@
 	import arrow from '$lib/assets/solar_arrow-up-linear.svg';
 	import JoinAultForm from '$lib/components/JoinAultForm.svelte';
 	import { openJoinForm } from '$lib/stores/formStore';
+	import Button from '$lib/components/Button.svelte';
 
 	const vision = [
 		{
@@ -222,10 +223,10 @@
 			Asset. Through Cutting Edge Technology And Trusted Institutional Partnerships, We Empower You
 			To Buy, Hold, Spend, Lease, And Borrow-Against Gold With Unmatched Freedom And Confidence.
 		</div>
-		<button
+		<Button
 			on:click={openJoinForm}
-			class="mx-auto block h-[45px] w-[144px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] text-black uppercase md:text-[20px] lg:hidden lg:h-[55px] lg:w-[211px]"
-			>JOIN AULT</button
+			extendedClass="group transition-all duration-300 mx-auto justify-center block h-[45px] w-[144px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] text-black uppercase md:text-[20px] lg:hidden lg:h-[55px] lg:w-[211px]"
+			><span class="transition-all duration-300 group-hover:tracking-wider">JOIN AULT</span></Button
 		>
 	</div>
 
@@ -342,7 +343,7 @@
 				class="relative z-20 mb-auto flex w-full flex-col items-center gap-5 pt-10 text-center capitalize lg:mb-0 lg:items-start lg:text-left xl:pt-0 xl:pb-20"
 			>
 				<h1
-					class="2xl:text-[60px] text-center text-[32px] leading-tight font-[200] tracking-tight capitalize sm:text-[37px] lg:text-left lg:text-[42px] lg:leading-none"
+					class="text-center text-[32px] leading-tight font-[200] tracking-tight capitalize sm:text-[37px] lg:text-left lg:text-[42px] lg:leading-none 2xl:text-[60px]"
 				>
 					Gold In Your Hands, <br /> Anytime, Anywhere.
 				</h1>
@@ -352,21 +353,21 @@
 					Experience True Freedom. With Your AULT Mastercard, You Can Spend Your Gold as Currency
 					Anywhere in the World.
 				</p>
-				<button
+				<Button
 					on:click={openJoinForm}
-					class="group mx-auto mt-8 hidden h-[45px] w-[160px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] text-black uppercase transition-all duration-300 md:text-[20px] lg:mx-0 lg:block lg:h-[55px] lg:w-[211px]"
+					extendedClass="group mt-8 hidden h-[45px] justify-center w-[160px] cursor-pointer rounded-[10px] text-[15px] font-[400] text-black uppercase transition-all duration-300 md:text-[20px] lg:block lg:h-[55px] lg:w-[211px]"
 					><span class="transition-all duration-300 group-hover:tracking-wider">Get your card</span
-					></button
+					></Button
 				>
 			</div>
 		</div>
 		<div class="relative lg:hidden">
 			<img src={AultOnGold} alt="ault-on-gold" class="w-[300px] lg:w-[685px]" />
-			<button
+			<Button
 				on:click={openJoinForm}
-				class="group relative top-[-70px] mx-auto block h-[45px] w-[170px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] text-black uppercase transition-all duration-300 md:text-[20px] lg:mx-0 lg:hidden lg:h-[55px] lg:w-[211px]"
+				extendedClass="group relative justify-center top-[-70px] mx-auto block h-[45px] w-[170px] cursor-pointer rounded-[10px] text-[15px] font-[400] text-black uppercase transition-all duration-300 md:text-[20px] lg:mx-0 lg:hidden lg:h-[55px] lg:w-[211px]"
 				><span class="transition-all duration-300 group-hover:tracking-wider">Get your card</span
-				></button
+				></Button
 			>
 		</div>
 	</div>
