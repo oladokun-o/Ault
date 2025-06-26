@@ -120,20 +120,29 @@
 	let submitting = false;
 
 	const handleSubmit = async () => {
-		// Simulate request delay
+		const form = document.forms.namedItem('join-form');
+		if (!form) return;
+
 		toastMessage = '';
 		toastType = '';
 		showToast = false;
 		submitting = true;
 
 		try {
-			// Simulate request (use await real API later)
-			await new Promise((resolve) => setTimeout(resolve, 1000));
+			const formDataObj = new FormData(form);
+			await fetch('/', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				body: new URLSearchParams(formDataObj as any).toString()
+			});
 
 			toastMessage = 'Your request was submitted successfully!';
 			toastType = 'success';
 			showToast = true;
 			submitting = false;
+
+			form.reset();
+			locationSearchTerm = '';
 			formData = {
 				fullName: '',
 				email: '',
@@ -143,13 +152,8 @@
 				providusAccount: '',
 				location: ''
 			};
-			locationSearchTerm = '';
 
-			// Close modal after short delay
-			setTimeout(() => {
-				closeJoinForm();
-			}, 1500);
-
+			setTimeout(() => closeJoinForm(), 1500);
 			setTimeout(() => (showToast = false), 3000);
 		} catch (error) {
 			toastMessage = 'Something went wrong. Please try again.';
@@ -176,7 +180,7 @@
 		out:fade
 	>
 		<div
-			class="w-full px-6 py-4 rounded-[10px] {toastType === 'success' ? 'bg-green-600' : ''}
+			class="w-full rounded-[10px] px-6 py-4 {toastType === 'success' ? 'bg-green-600' : ''}
 		{toastType === 'error' ? 'bg-red-600' : ''}"
 		>
 			{toastMessage}
@@ -200,7 +204,7 @@
 			transition:fly={{ x: 300, duration: 400, easing: quintOut }}
 		>
 			<div
-				class="w-full h-full md:h-auto max-w-4xl border border-[#00000024] bg-[#F5F5F5] p-5 shadow-2xl md:rounded-2xl md:px-10 md:py-20 lg:py-10"
+				class="h-full w-full max-w-4xl border border-[#00000024] bg-[#F5F5F5] p-5 shadow-2xl md:h-auto md:rounded-2xl md:px-10 md:py-20 lg:py-10"
 			>
 				<!-- Close Button -->
 				<div class="flex justify-end">
@@ -238,16 +242,23 @@
 				</div>
 
 				<form
+					name="join-form"
+					netlify
+					netlify-honeypot="bot-field"
 					on:submit|preventDefault={handleSubmit}
 					class="space-y-8 text-black"
 					autocomplete="off"
 				>
+					<input type="hidden" name="form-name" value="join-form" />
+					<input type="hidden" name="bot-field" />
+
 					<!-- Personal Information -->
 					<div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
 						<div class="form-group">
 							<label for="fullName" class="mb-2 block text-[14px] font-normal">Full Name</label>
 							<input
 								id="fullName"
+								name="fullName"
 								type="text"
 								bind:value={formData.fullName}
 								placeholder="Gabriel David"
@@ -260,6 +271,7 @@
 							<input
 								id="email"
 								type="email"
+								name="email"
 								bind:value={formData.email}
 								placeholder="david@blank.design"
 								required
@@ -271,6 +283,7 @@
 							<input
 								id="phone"
 								type="tel"
+								name="phone"
 								bind:value={formData.phone}
 								placeholder="+444 1234 567890"
 								required
@@ -283,6 +296,7 @@
 							<div class="relative z-[999]">
 								<input
 									id="location"
+									name="location"
 									type="text"
 									value={locationSearchTerm}
 									on:input={handleLocationInput}
@@ -374,6 +388,7 @@
 									<label class="group flex cursor-pointer items-center gap-3">
 										<input
 											type="checkbox"
+											name="interests[]"
 											class="custom-checkbox"
 											on:change={(e) =>
 												handleInterestChange(interest, (e.target as HTMLInputElement).checked)}
@@ -467,6 +482,10 @@
 							</Button>
 						</div>
 					</div>
+
+					<p class="hidden">
+						<label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+					</p>
 				</form>
 			</div>
 		</div>
