@@ -102,7 +102,7 @@
 				{vision[activeIndex].to}
 			</h2>
 			<p
-				class="transform px-5 text-[14px] text-[#FFFFFFCC] transition-all duration-700 ease-out lg:text-[20px]"
+				class="transform px-5 text-[14px] text-[#FFFFFFCC] transition-all duration-700 ease-out lg:text-[20px] h-[70px]"
 				style="animation: slideInUp 0.7s ease-out 0.1s both;"
 			>
 				{vision[activeIndex].how}
