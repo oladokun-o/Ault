@@ -16,7 +16,7 @@
 	import Partner1 from '$lib/assets/partner1.png';
 	import Partner2 from '$lib/assets/partner2.png';
 	import Partner3 from '$lib/assets/partner3.png';
-	import Partner4 from '$lib/assets/partner4.png';
+	import Partner4 from '$lib/assets/emerging-africa.svg';
 	import Partner5 from '$lib/assets/partner5.png';
 	import Gold from '$lib/assets/golden.png';
 	import HowItWorksImg from '$lib/assets/how-it-works.png';
@@ -98,19 +98,19 @@
 			title: 'Step 4: AULT Card Issuance',
 			dots: 4,
 			description:
-				'An exclusive AULT Mastercard is issued by a partner bank. You can also link existing Mastercard to gain seamless global access to your gold anytime, anywhere.'
+				'An exclusive Mastercard is issued by a partner bank. You can also link existing Mastercard to gain seamless global access to your gold anytime, anywhere.'
 		}
 	];
 
 	const services = [
 		{
 			title: 'Personalized Fit:',
-			description: `Access Gold Services Tailored To Your Objectives, Empowering You To Meet Your Financial Goals With Ease.`,
+			description: `Access Gold-Backed Services Tailored To Your Objectives, Empowering You To Meet Your Financial Goals.`,
 			image: Service1
 		},
 		{
 			title: 'Global Support:',
-			description: `Our Trusted Worldwide Network Guarantees Seamless Access To  Gold And Dedicated Assistance.`,
+			description: `Our Trusted Worldwide Network Guarantees Seamless Access To Gold And Dedicated Assistance.`,
 			image: Service2
 		},
 		{
@@ -185,7 +185,7 @@
 
 		<!-- hero content -->
 		<div
-			class="relative top-[-50px] z-[1] mx-5 flex flex-col items-center justify-center gap-5 text-center lg:top-0 lg:text-left"
+			class="relative top-[-50px] z-[1] mx-5 flex flex-col items-center justify-center gap-5 text-center lg:top-[-40px] lg:text-left xl:top-0"
 		>
 			<div
 				class="3xl:text-[96px] text-[40px] leading-none font-[200] tracking-tighter uppercase sm:text-[45px] lg:top-0 lg:text-[60px] xl:text-[70px]"
@@ -197,8 +197,8 @@
 					>timeless<br /> security,<br />modern <br /> liquidity.</span
 				>
 			</div>
-			<p class="w-full text-center text-[20px] font-[200]">
-				Gold made Flexible and Tailored For You
+			<p class="w-full text-center text-[20px] font-[200] capitalize">
+				Gold made Flexible <br class="block lg:hidden" /> and Tailored For You
 			</p>
 		</div>
 	</div>
@@ -219,9 +219,9 @@
 		</div>
 
 		<div class="text-[24px] font-[200] text-[#E4E4E4] capitalize lg:text-[36px]">
-			AULT Is A Concierge Service That Transforms Physical Allocated Gold Into A Liquid Financial
-			Asset. Through Cutting Edge Technology And Trusted Institutional Partnerships, We Empower You
-			To Buy, Hold, Spend, Lease, And Borrow-Against Gold With Unmatched Freedom And Confidence.
+			AULT Is A Concierge Service That Transforms Allocated Gold Into A Liquid Financial Asset.
+			Through Cutting Edge Technology And Trusted Institutional Partnerships, We Empower You To Buy,
+			Hold, Spend, Lease, And Borrow-Against Gold With Unmatched Freedom And Confidence.
 		</div>
 		<Button
 			on:click={openJoinForm}
@@ -547,8 +547,8 @@
 					<img src={Partner1} alt="partner" class="w-full" />
 				</div>
 				<span class="ml-1 text-[16px] font-[200] text-[#FFFFFFCC] lg:w-[312px]">
-					<span class="font-normal">ProvidusBank</span> The spotlight bank in our network providing efficient
-					card solutions, ensuring you maximise all of AULT’s offerings, anywhere, anytime.
+					<span class="font-normal">ProvidusBank</span> The spotlight bank in our network of banks providing
+					efficient card solutions, ensuring you maximise all of AULT’s offerings, anywhere, anytime.
 				</span>
 			</div>
 		</div>

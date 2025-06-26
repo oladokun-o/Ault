@@ -108,7 +108,7 @@
 							class="group block rounded-xl px-2 py-3 text-[20px] font-[400] text-white/90 transition-all duration-300 hover:translate-x-2 hover:bg-white/5 hover:text-white active:scale-98"
 							on:click={closeMenu}
 						>
-							<span class="flex items-center justify-between lowercase">
+							<span class="flex items-center justify-between capitalize">
 								{item.label}
 								<svg
 									class="h-4 w-4 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100"

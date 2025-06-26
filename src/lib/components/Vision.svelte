@@ -5,7 +5,7 @@
 		{
 			title: 'BUY',
 			to: 'Own With Confidence',
-			how: 'Securely purchase and hold physical allocated gold, safely stored in LBMA-certified vaults.'
+			how: 'Securely purchase and hold allocated gold, safely stored in LBMA-certified vaults.'
 		},
 		{
 			title: 'SPEND',
@@ -15,7 +15,7 @@
 		{
 			title: 'MORE',
 			to: 'Unlock Returns and Credit',
-			how: 'Lease and borrow-against your gold assets with unparalleled flexibility and security.'
+			how: 'Lease or borrow-against your gold assets with unparalleled flexibility and security.'
 		}
 	];
 
@@ -102,7 +102,7 @@
 				{vision[activeIndex].to}
 			</h2>
 			<p
-				class="transform text-[14px] text-[#FFFFFFCC] transition-all duration-700 ease-out lg:text-[20px] px-5"
+				class="transform px-5 text-[14px] text-[#FFFFFFCC] transition-all duration-700 ease-out lg:text-[20px]"
 				style="animation: slideInUp 0.7s ease-out 0.1s both;"
 			>
 				{vision[activeIndex].how}
@@ -113,9 +113,9 @@
 	<!-- Progress Indicator -->
 	<!-- <div class="mt-8 flex gap-2">
 		{#each vision as _, index} -->
-			<!-- svelte-ignore a11y_consider_explicit_label -->
-			<!-- svelte-ignore element_invalid_self_closing_tag -->
-			<!-- <button
+	<!-- svelte-ignore a11y_consider_explicit_label -->
+	<!-- svelte-ignore element_invalid_self_closing_tag -->
+	<!-- <button
 				class="h-3 w-3 rounded-full transition-all duration-300 {index === activeIndex
 					? 'bg-white'
 					: 'bg-[#686868] hover:bg-[#888888]'}"

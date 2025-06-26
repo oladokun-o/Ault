@@ -18,7 +18,7 @@
 		{
 			id: 3,
 			question: "How Do I Fund My AULT Account?",
-			answer: "You can fund your AULT account by transferring fiat currency (USD, EUR, NGN) through our secure platform. Once the funds are received, we will purchase the gold on your behalf. All gold purchased is securely stored in LBMA-certified vaults in London, Zurich, or the UAE."
+			answer: "You can fund your AULT account by transferring fiat currency (USD, GBP, EUR etc.) through our secure platform. Once the funds are received, we will purchase the gold on your behalf. All gold purchased is securely stored in LBMA-certified vaults in London, Zurich, or the UAE."
 		},
 		{
 			id: 4,

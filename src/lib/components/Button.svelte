@@ -13,9 +13,9 @@
   const baseClasses = 'items-center justify-content gap-2 rounded font-medium cursor-pointer transition-all duration-200 border focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current disabled:opacity-60 disabled:cursor-not-allowed relative';
 
   const variantClasses = {
-    primary: 'bg-[#ffefc2] text-gray-800 border-[#ffefc2] hover:bg-[#ffe4a3] hover:border-[#ffe4a3] disabled:hover:bg-[#ffefc2] disabled:hover:border-[#ffefc2]',
+    primary: 'bg-[#ffffff] text-gray-800 border-[#ffffff] hover:bg-[#ffefc2] hover:border-[#ffefc2] disabled:hover:bg-[#ffefc2] disabled:hover:border-[#ffefc2]',
     secondary: 'bg-gray-500 text-white border-gray-500 hover:bg-gray-600 hover:border-gray-600 disabled:hover:bg-gray-500 disabled:hover:border-gray-500',
-    outline: 'bg-transparent text-[#ffefc2] hover:text-black border-[#ffefc2] hover:bg-[#ffefc2] hover:bg-opacity-10 disabled:hover:bg-transparent',
+    outline: 'bg-transparent text-[#ffffff] hover:text-black border-[#ffffff] hover:border-[#ffefc2] hover:bg-[#ffefc2] hover:bg-opacity-10 disabled:hover:bg-transparent',
     ghost: 'bg-transparent text-[#ffefc2] border-transparent hover:bg-[#ffefc2] hover:bg-opacity-10 disabled:hover:bg-transparent',
     danger: 'bg-red-500 text-white border-red-500 hover:bg-red-600 hover:border-red-600 disabled:hover:bg-red-500 disabled:hover:border-red-500'
   };
