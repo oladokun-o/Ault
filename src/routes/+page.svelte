@@ -110,7 +110,7 @@
 		},
 		{
 			title: 'Global Support:',
-			description: `Our Trusted Worldwide Network Guarantees Seamless Access To  Gold And Dedicated Assistance Wherever You Are.`,
+			description: `Our Trusted Worldwide Network Guarantees Seamless Access To  Gold And Dedicated Assistance.`,
 			image: Service2
 		},
 		{
@@ -350,8 +350,8 @@
 				<p
 					class="w-[272px] text-[24px] font-[200] capitalize md:w-[572px] lg:w-auto lg:text-[24px] lg:font-[200]"
 				>
-					Experience True Freedom. With Your AULT Mastercard, You Can Spend Your Gold as Currency
-					Anywhere in the World.
+					Enjoy the freedom to spend your gold like cash with your Mastercard wherever life takes
+					you.
 				</p>
 				<Button
 					on:click={openJoinForm}
