@@ -101,14 +101,14 @@
 						></Button
 					>
 
-					<Button
+					<!-- <Button
 						on:click={openJoinForm}
 						variant="outline"
 						extendedClass="group transition-all duration-300 justify-center block md:w-[220px] h-[45px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] uppercase md:text-[20px] lg:h-[55px]"
 						><span class="transition-all duration-300 group-hover:tracking-wider"
 							>Get your card</span
 						></Button
-					>
+					> -->
 				</div>
 			</div>
 		</div>

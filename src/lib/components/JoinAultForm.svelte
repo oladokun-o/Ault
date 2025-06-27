@@ -116,7 +116,7 @@
 
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
-		
+
 		const form = event.target as HTMLFormElement;
 		if (!form) return;
 
@@ -128,15 +128,15 @@
 		try {
 			// Create FormData from the form
 			const formDataObj = new FormData(form);
-			
+
 			// Add interests as a comma-separated string
 			formDataObj.set('interests', formData.interests.join(', '));
-			
+
 			// Ensure location is set
 			formDataObj.set('location', formData.location);
 
 			// Submit to Netlify
-			const response = await fetch(form.action || '/', {
+			const response = await fetch(form.action || 'https://edgeforms.nxtedgestudio.com/api/submit', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: new URLSearchParams(formDataObj as any).toString()
@@ -252,17 +252,12 @@
 				</div>
 
 				<form
-					name="join-form"
+					action="https://edgeforms.nxtedgestudio.com/api/submit"
 					method="POST"
-					data-netlify="true"
-					data-netlify-honeypot="bot-field"
 					on:submit={handleSubmit}
 					class="space-y-8 text-black"
 					autocomplete="off"
 				>
-					<input type="hidden" name="form-name" value="join-form" />
-					<input type="hidden" name="bot-field" />
-
 					<!-- Personal Information -->
 					<div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
 						<div class="form-group">
@@ -500,11 +495,6 @@
 							</Button>
 						</div>
 					</div>
-
-					<!-- Hidden honeypot field -->
-					<p class="hidden">
-						<label>Don't fill this out if you're human: <input name="bot-field" /></label>
-					</p>
 				</form>
 			</div>
 		</div>
