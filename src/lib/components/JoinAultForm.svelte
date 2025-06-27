@@ -214,7 +214,7 @@
 			transition:fly={{ x: 300, duration: 400, easing: quintOut }}
 		>
 			<div
-				class="h-full w-full max-w-4xl border border-[#00000024] bg-[#F5F5F5] p-5 shadow-2xl md:h-auto md:rounded-2xl md:px-10 md:py-20 lg:py-10"
+				class="w-full max-w-4xl border border-[#00000024] bg-[#F5F5F5] p-5 shadow-2xl md:h-auto md:rounded-2xl md:px-10 md:py-20 lg:py-10"
 			>
 				<!-- Close Button -->
 				<div class="flex justify-end">
