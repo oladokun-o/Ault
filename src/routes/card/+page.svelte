@@ -4,7 +4,7 @@
 	import Button from '$lib/components/Button.svelte';
 	import CardGuide from '$lib/assets/Card Guide.png';
 	import { openJoinForm } from '$lib/stores/formStore';
-	import PdfCover from '$lib/assets/ProvidusBank World Elite Mastercard-1_page-0001.jpg';
+	import PdfCover from '$lib/assets/grid_landscape.jpeg';
 	import ProvidusBank_World_Elite_Mastercard from '$lib/assets/ProvidusBank World Elite Mastercard.pdf';
 
 	let pdfImageUrl = PdfCover; // URL for the PDF cover image
@@ -39,9 +39,9 @@
 	/>
 	<meta
 		property="og:image"
-		content="https://res.cloudinary.com/dksfuytfd/image/upload/v1751027743/ProvidusBank_World_Elite_Mastercard-1_page-0001_yfvdi8.jpg"
+		content="https://res.cloudinary.com/dksfuytfd/image/upload/v1751067817/ProvidusBank_World_Elite_Mastercard-1_page-0001_yfvdi8.jpg"
 	/>
-	<meta property="og:url" content="https://goault.com/guide" />
+	<meta property="og:url" content="https://goault.com/card" />
 	<meta property="og:type" content="website" />
 	<!-- Twitter Card Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image" />
@@ -52,9 +52,9 @@
 	/>
 	<meta
 		name="twitter:image"
-		content="https://res.cloudinary.com/dksfuytfd/image/upload/v1751027743/ProvidusBank_World_Elite_Mastercard-1_page-0001_yfvdi8.jpg"
+		content="https://res.cloudinary.com/dksfuytfd/image/upload/v1751067817/ProvidusBank_World_Elite_Mastercard-1_page-0001_yfvdi8.jpg"
 	/>
-	<meta name="twitter:url" content="https://goault.com/guide" />
+	<meta name="twitter:url" content="https://goault.com/card" />
 </svelte:head>
 
 {#if !showPage}

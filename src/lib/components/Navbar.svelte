@@ -44,23 +44,23 @@
 			</li>
 			<li>
 				<a
-					href="/#your-card"
+					href="/#solutions"
 					rel="external"
 					class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
-					>Your Card</a
+					>Solutions</a
 				>
 			</li>
 			<li>
 				<a
-					href="/#benefits"
+					href="/#onboarding"
 					rel="external"
 					class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
-					>Benefits</a
+					>Onboarding</a
 				>
 			</li>
 			<li>
 				<a
-					href="/#insight"
+					href="/#insights"
 					rel="external"
 					class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
 					>Insights</a

@@ -304,7 +304,7 @@
 
 <!-- ============================How It Works section======================== -->
 <section
-	id="how-it-works"
+	id="onboarding"
 	class="relative min-h-screen w-full overflow-x-hidden bg-[#181818] px-5 py-10 md:px-5 md:py-20"
 >
 	<div
@@ -412,7 +412,7 @@
 
 <!-- ============================Insight section======================== -->
 <section
-	id="insight"
+	id="insights"
 	class="item-center relative flex min-h-screen w-full flex-col justify-center gap-20 overflow-hidden px-5 py-10 md:py-20"
 >
 	<div class="mx-auto w-full max-w-[1728px] lg:px-20 xl:px-[150px]">

@@ -5,8 +5,8 @@
 </script>
 
 <section
-	id="your-card"
-	class="relative flex w-full flex-col items-center justify-center overflow-hidden px-5 py-10 md:py-20 lg:my-auto lg:min-h-screen"
+	id="solutions"
+	class="relative flex w-full flex-col items-center justify-center overflow-hidden px-5 py-20 md:py-20 lg:my-auto lg:min-h-screen"
 >
 	<div
 		class="mx-auto flex w-full max-w-[1728px] flex-col justify-center gap-20 lg:px-20 xl:px-[150px]"
@@ -49,7 +49,7 @@
 				</div>
 				<div class="w-full">
 					<a
-						href="/card"
+						href="/insights"
 						class="ml-auto flex w-full cursor-pointer items-center gap-3 text-[14px] font-normal tracking-tight lg:text-[32px]"
 					>
 						Learn More
