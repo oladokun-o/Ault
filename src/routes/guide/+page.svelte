@@ -91,11 +91,11 @@
 					Discover exclusive benefits and global convenience with your new Mastercard.
 				</p>
 
-				<div class="flex w-full flex-col justify-center gap-4 sm:flex-row lg:justify-start">
+				<div class="flex w-full flex-col justify-center gap-5 sm:flex-row lg:justify-start">
 					<Button
 						on:click={downloadPDF}
 						variant="primary"
-						extendedClass="group transition-all duration-300 justify-center block md:w-[211px] h-[45px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] uppercase md:text-[20px] lg:h-[55px]"
+						extendedClass="group transition-all duration-300 justify-center block md:w-[220px] h-[45px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] uppercase md:text-[20px] lg:h-[55px]"
 						><span class="transition-all duration-300 group-hover:tracking-wider"
 							>View Brochure</span
 						></Button
@@ -104,7 +104,7 @@
 					<Button
 						on:click={openJoinForm}
 						variant="outline"
-						extendedClass="group transition-all duration-300 justify-center block md:w-[211px] h-[45px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] uppercase md:text-[20px] lg:h-[55px]"
+						extendedClass="group transition-all duration-300 justify-center block md:w-[220px] h-[45px] cursor-pointer rounded-[10px] bg-[#D9D9D9] text-[15px] font-[400] uppercase md:text-[20px] lg:h-[55px]"
 						><span class="transition-all duration-300 group-hover:tracking-wider"
 							>Get your card</span
 						></Button
