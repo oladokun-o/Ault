@@ -59,7 +59,7 @@
 			title: 'Security',
 			image: Security,
 			description:
-				'All Deposits Are Stored As Physical Allocated Gold Vaulted In LBMA-Certified London Vault.'
+				'All Deposits Are Stored As Allocated Gold Vaulted In LBMA-Certified London Vault.'
 		},
 		{
 			title: 'Exclusivity',

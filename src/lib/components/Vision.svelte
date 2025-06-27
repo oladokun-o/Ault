@@ -10,7 +10,7 @@
 		{
 			title: 'SPEND',
 			to: 'Spend Without Limits',
-			how: 'Enjoy seamless global Spending with instant access to your gold and exclusive benefits through your Mastercard.'
+			how: 'Enjoy seamless global spending with instant access to your gold and exclusive benefits through your Mastercard.'
 		},
 		{
 			title: 'MORE',

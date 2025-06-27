@@ -18,17 +18,17 @@
 		{
 			id: 3,
 			question: "How Do I Fund My AULT Account?",
-			answer: "You can fund your AULT account by transferring fiat currency (USD, GBP, EUR etc.) through our secure platform. Once the funds are received, we will purchase the gold on your behalf. All gold purchased is securely stored in LBMA-certified vaults in London."
+			answer: "You can fund your AULT account by transferring fiat currency (USD, GBP, EUR etc) to our Trustee partner. Once we acquire your gold, the Trustee will release your funds to us. All gold purchased is securely stored in LBMA-certified vaults in London."
 		},
 		{
 			id: 4,
 			question: "How Do I Access My Gold?",
-			answer: "Once your account is active, access your gold via the AULT app, liquidate it, and spend it using your AULT Mastercard. The entire process of liquidating your allocated gold is supported by robust technology infrastructure and is audited by KPMG LLP for added assurance."
+			answer: "Once your account is active, access your gold via the AULT app. You liquidate your hold by spending through your Mastercard. The entire process of liquidating your allocated gold is supported by robust technology infrastructure and is audited by KPMG LLP for added assurance."
 		},
 		{
 			id: 5,
 			question: "How Is My Gold Stored?",
-			answer: "Your gold is securely stored in insured vaults in London, Zurich, and the UAE. These vaults meet international standards of security and compliance, ensuring your assets are safe and protected."
+			answer: "Your gold is securely stored in insured vaults in London. These vaults meet international standards of security and compliance, ensuring your assets are safe and protected."
 		},
 		{
 			id: 6,
