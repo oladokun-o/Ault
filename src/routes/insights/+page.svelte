@@ -3,6 +3,8 @@
 	import ChevronSvg from '$lib/assets/chevron.svg';
 	import InsightsBg from '$lib/assets/insights.png';
 	import { onMount } from 'svelte';
+	import Navbar from '$lib/components/Navbar.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 
 	let openGroups = new Set<string>(
 		insights.map(group => group.title)
@@ -32,6 +34,9 @@
     }, 50);
   });
 </script>
+
+<!-- navbar -->
+<Navbar />
 
 <section class="relative mx-auto max-w-[1728px]">
 	<div id="hero"
@@ -77,3 +82,5 @@
 		{/each}
 	</div>
 </section>
+
+<Footer />

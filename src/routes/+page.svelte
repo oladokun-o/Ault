@@ -119,7 +119,7 @@
 			</div>
 		</div>
 
-		<div class="text-[24px] font-[200] text-[#E4E4E4] capitalize lg:text-[36px]">
+		<div class="text-[24px] font-extralight text-[#E4E4E4] capitalize lg:text-[36px]">
 			AULT Is A Concierge Service That Transforms Allocated Gold Into A Liquid Financial Asset.
 			Through Cutting Edge Technology And Trusted Institutional Partnerships, We Empower You To Buy,
 			Hold, Spend, Lease, And Borrow-Against Gold With Unmatched Freedom And Confidence.
