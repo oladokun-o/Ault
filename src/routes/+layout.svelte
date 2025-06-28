@@ -27,11 +27,11 @@
 </script>
 
 <!-- navbar -->
-<Navbar />
+<!-- <Navbar /> -->
 
 <!-- Join Ault Form Component -->
 <JoinAultForm />
 
 {@render children()}
 
-<Footer />
+<!-- <Footer /> -->

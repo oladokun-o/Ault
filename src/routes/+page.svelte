@@ -1,79 +1,25 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
-	import Logo from '$lib/assets/logo.svg';
 	import HeroBackground from '$lib/assets/herobg.png';
-	import Security from '$lib/assets/security.png';
-	import Exclusivity from '$lib/assets/exclusivity.png';
-	import Liquidity from '$lib/assets/liquidity.png';
-	import AboutImg from '$lib/assets/aboutimg.jpg';
-	import CardLg from '$lib/assets/card-lg.png';
-	import AultOnGold from '$lib/assets/ault-on-gold.png';
 	import Service1 from '$lib/assets/service1.png';
 	import Service2 from '$lib/assets/service2.png';
 	import Service3 from '$lib/assets/service3.png';
 	import Partner1 from '$lib/assets/partner1.png';
-	import Partner2 from '$lib/assets/partner2.png';
-	import Partner3 from '$lib/assets/partner3.png';
 	import Partner4 from '$lib/assets/emerging-africa.svg';
-	import Partner5 from '$lib/assets/partner5.png';
 	import Gold from '$lib/assets/golden.png';
 	import HowItWorksImg from '$lib/assets/how-it-works.png';
-	import CardBackground from '$lib/assets/card-bg.png';
-	import BenefitImg from '$lib/assets/benefit.png';
-	import AultGold from '$lib/assets/ault-gold.png';
 	import Vision from '$lib/components/Vision.svelte';
 	import Beyond from '$lib/components/Beyond.svelte';
 	import Howitworks from '$lib/components/Howitworks.svelte';
 	import Services from '$lib/components/Services.svelte';
-	import MobileMenu from '$lib/components/MobileMenu.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import PartnerImg from '$lib/assets/partner-image.png';
 	import Insights from '$lib/components/Insights.svelte';
 	import arrow from '$lib/assets/solar_arrow-up-linear.svg';
-	import JoinAultForm from '$lib/components/JoinAultForm.svelte';
 	import { openJoinForm } from '$lib/stores/formStore';
 	import Button from '$lib/components/Button.svelte';
 	import Card from '$lib/components/sections/Card.svelte';
-
-	const vision = [
-		{
-			title: 'BUY',
-			to: 'Own With Confidence',
-			how: 'Securely purchase and hold physical allocated gold, safely stored in LBMA-certified vaults.'
-		},
-		{
-			title: 'SPEND',
-			to: 'Spend Without Limits',
-			how: 'Instantly access your gold or its benefits via the AULT Mastercard, enabling seamless global spending.'
-		},
-		{
-			title: 'MORE',
-			to: 'Unlock Financial Freedom',
-			how: 'Lease, borrow against, or transfer your gold assets with unparalleled flexibility and security.'
-		}
-	];
-
-	const features = [
-		{
-			title: 'Security',
-			image: Security,
-			description:
-				'All Deposits Are Stored As Allocated Gold Vaulted In LBMA-Certified London Vault.'
-		},
-		{
-			title: 'Exclusivity',
-			image: Exclusivity,
-			description:
-				'Our referral-only model ensures you belong to a carefully curated group of members and that we deliver a personalized service, tailored to your needs.'
-		},
-		{
-			title: 'Liquidity',
-			image: Liquidity,
-			description:
-				'Seamless Access To Your Funds. Withdraw, Transfer, Or Spend Your Allocated Gold Assets Wherever And Whenever Needed.'
-		}
-	];
+	import Footer from '$lib/components/Footer.svelte';
+	import { features } from '$lib/data';
 
 	const steps = [
 		{
@@ -119,55 +65,10 @@
 			image: Service3
 		}
 	];
-
-	const benefits = [
-		{
-			title: 'Concierge Services:',
-			description:
-				'Enjoy bespoke assistance with travel planning, dining reservations, and more — your dedicated team is here to curate seamless experiences.'
-		},
-		{
-			title: 'Fast-Track Security & Airport Concierge:',
-			description:
-				'Experience hassle-free travel with priority security screening and dedicated concierge support.'
-		},
-		{
-			title: 'Luxury Travel Discounts:',
-			description:
-				'Access exclusive offers at premier hotels and resorts, including renowned brands like Soneva and IHG'
-		},
-		{
-			title: 'Global Blue VIP Services:',
-			description:
-				'Benefit from expedited VAT refunds at select international airports, making your travels smoother.'
-		},
-		{
-			title: 'Airport Lounge Access:',
-			description:
-				'Relax in luxury with complimentary entry to premium airport lounges worldwide — bring a guest along to share the experience.'
-		},
-		{
-			title: 'Car Rental Upgrades:',
-			description:
-				'Travel in style with complimentary vehicle upgrades at Hertz and Avis, enhancing your journey from start to finish.'
-		},
-		{
-			title: 'Visa & Booking Discounts:',
-			description:
-				'Take advantage of exclusive deals on flights and hotels via partners like Booking.com and Cleartrip, with expert visa support from Fulfill Visa Services.'
-		}
-	];
-
-	let scrollRef;
-
-	function scrollLeft() {
-		scrollRef.scrollBy({ left: -300, behavior: 'smooth' });
-	}
-
-	function scrollRight() {
-		scrollRef.scrollBy({ left: 300, behavior: 'smooth' });
-	}
 </script>
+
+<!-- navbar -->
+<Navbar />
 
 <!-- ============================Hero section======================== -->
 <section
@@ -206,7 +107,7 @@
 
 <!-- ============================About section======================== -->
 <section
-	id="about"
+	id="discover"
 	class="relative mx-auto flex min-h-screen max-w-[1728px] flex-col items-center justify-center gap-40 px-5 py-10 text-center md:py-20 lg:px-20 xl:px-[150px]"
 >
 	<div class="mx-auto flex flex-col justify-center gap-5">
@@ -239,15 +140,15 @@
 		<Beyond />
 
 		<!-- Grid layout for desktop -->
-		<div class="hidden grid-cols-2 gap-5 md:grid lg:grid-cols-3">
+		<div class="hidden md:grid grid-cols-2 gap-5 md:grid-cols-2 lg:grid-cols-3">
 			{#each features as feature (feature.title)}
-				<div class="w-[365px] space-y-4 rounded-[4px] bg-[#181818] p-4">
+				<div class="w-full xl:w-[365px] space-y-4 rounded-[4px] bg-[#181818] p-4">
 					<div class="mx-auto max-w-[152px]">
 						<img src={feature.image} alt={feature.title} class="w-full" />
 					</div>
 					<div>
-						<h3 class="font-nromal text-[25px] text-white">{feature.title}</h3>
-						<p class="text-[15px] text-white/80">{feature.description}</p>
+						<h3 class="font-normal text-[25px] text-white">{feature.title}</h3>
+						<p class="text-[15px] text-white/80 capitalize">{feature.description}</p>
 					</div>
 				</div>
 			{/each}
@@ -264,7 +165,7 @@
 		class="mx-auto flex min-h-[284px] w-full max-w-[1728px] flex-col justify-between gap-5 px-0 py-10 lg:flex-row lg:gap-20 lg:px-20 xl:px-[150px]"
 	>
 		<div class="flex flex-col justify-between gap-7">
-			<p class="3xl:text-[36px] text-[24px] font-[200] lg:max-w-[907px] lg:text-[25px]">
+			<p class="3xl:text-[36px] text-[24px] font-[200] lg:max-w-[907px] lg:text-[25px] capitalize">
 				Our commitment to you is founded on trusted partnerships and a shared dedication to managing
 				your assets with the highest standards of security, transparency, and personalized
 				flexibility.
@@ -450,23 +351,4 @@
 	</div>
 </section>
 
-<style>
-	@media (max-width: 465px) {
-		.card-bg {
-			background-position: 81% -60px;
-		}
-	}
-
-	@media (max-width: 768px) {
-		.card-bg {
-			background-position: 90% 0px;
-		}
-	}
-
-	/* Large screens (do not show card background image) */
-	@media (min-width: 1024px) {
-		.card-bg {
-			background-image: none !important;
-		}
-	}
-</style>
+<Footer />

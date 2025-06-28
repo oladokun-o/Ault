@@ -50,7 +50,7 @@ export const insights = [
 			{
 				question: 'How Do I Access My Gold?',
 				answer:
-					'Once your account is active, your gold is stored securely in LBMA-certified and insured vaults in London, audited monthly by KPMG LLP. You can access it via the AULT app and use it as currency through your AULT Mastercard.'
+					'Once your account is active, your gold is stored securely in LBMA-certified and insured vaults in London, audited monthly by KPMG LLP. You can access it via the AULT app and use it as currency through your Mastercard.'
 			},
 			{
 				question: 'Do I Need To Sell My Gold To Spend It?',

@@ -71,7 +71,7 @@
 
 {#if showPage}
 	<main class="flex min-h-screen justify-center bg-black px-6 pb-16">
-		<div class="grid w-full max-w-6xl grid-cols-1 gap-0 lg:grid-cols-2">
+		<div class="grid w-full max-w-6xl grid-cols-1 gap-10 lg:grid-cols-2">
 			<!-- PDF Preview -->
 			<div class="relative flex items-center justify-center">
 				<img

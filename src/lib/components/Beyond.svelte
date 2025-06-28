@@ -1,28 +1,5 @@
-<script>
-	import Security from '$lib/assets/security.png';
-	import Exclusivity from '$lib/assets/exclusivity.png';
-	import Liquidity from '$lib/assets/liquidity.png';
-
-	const features = [
-		{
-			title: 'Security',
-			image: Security,
-			description:
-				'All Deposits Are Stored As Physical Allocated Gold Vaulted In LBMA-Certified London Vault.'
-		},
-		{
-			title: 'Exclusivity',
-			image: Exclusivity,
-			description:
-				'Our referral-only model ensures you belong to a carefully curated group of members and that we deliver a personalized service, tailored to your needs.'
-		},
-		{
-			title: 'Liquidity',
-			image: Liquidity,
-			description:
-				'Seamless Access To Your Funds. Withdraw, Transfer, Or Spend Your Allocated Gold Assets Wherever And Whenever Needed.'
-		}
-	];
+<script lang="ts">
+	import { features } from '$lib/data/index';
 
 	let currentIndex = 0;
 	let carouselContainer;
@@ -83,7 +60,7 @@
 <!-- Carousel for small screens only -->
 <div class="relative h-[300px] w-full md:hidden">
 	<div class="absolute right-0 left-0">
-		<div class="overflow-hidden px- md:hidden">
+		<div class="px- overflow-hidden md:hidden">
 			<div
 				bind:this={carouselContainer}
 				on:scroll={handleScroll}
@@ -95,7 +72,7 @@
 					<div class="w-[288px] flex-shrink-0 snap-start rounded-[4px] bg-[#181818] p-4">
 						<img src={feature.image} alt={feature.title} class="mx-auto mb-4 w-[165px]" />
 						<h3 class="text-[25px] font-[400] text-white">{feature.title}</h3>
-						<p class="text-sm text-white/80">{feature.description}</p>
+						<p class="text-sm text-white/80 capitalize">{feature.description}</p>
 					</div>
 				{/each}
 			</div>

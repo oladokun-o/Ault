@@ -36,7 +36,7 @@
 		<ul class="flex gap-10 text-[20px]">
 			<li>
 				<a
-					href="/#how-it-works"
+					href="/#discover"
 					rel="external"
 					class="relative after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0"
 					>Discover</a
@@ -71,13 +71,13 @@
 			<Button
 				href="#login"
 				variant="outline"
-				extendedClass="group grid h-[55px] w-[189px] place-items-center rounded-[10px] border-3 justify-center text-[20px] font-[400] uppercase transition-all duration-300"
+				extendedClass="group grid h-[45px] w-[140px] place-items-center rounded-[10px] border-3 justify-center text-[18px] font-[400] uppercase transition-all duration-300"
 				><span class="transition-all duration-300 group-hover:tracking-wider">LOG IN</span></Button
 			>
 
 			<Button
 				on:click={openJoinForm}
-				extendedClass="group grid h-[55px] w-[189px] place-items-center rounded-[10px] bg-[#D9D9D9] justify-center text-[20px] font-[400] text-black uppercase transition-all duration-300"
+				extendedClass="group grid h-[45px] w-[140px] place-items-center rounded-[10px] bg-[#D9D9D9] justify-center text-[18px] font-[400] text-black uppercase transition-all duration-300"
 				><span class="transition-all duration-300 group-hover:tracking-wider">JOIN AULT</span
 				></Button
 			>

@@ -39,7 +39,7 @@
 			id: 6,
 			question: 'Do I Need To Sell My Gold To Spend It?',
 			answer:
-				"No, you don't need to sell your gold. AULT has partnered with regulated financial entities, allowing you to spend your gold directly anywhere in the world using the AULT Mastercard."
+				"No, you don't need to sell your gold. AULT has partnered with regulated financial entities, allowing you to spend your gold directly anywhere in the world using the Mastercard."
 		}
 	];
 

@@ -100,7 +100,7 @@
 		<!-- Menu Content -->
 		<div class="mt-5 p-6 pt-20">
 			<ul class="text-left">
-				{#each [{ href: '/#how-it-works', label: 'Discover', delay: 0 }, { href: '/#solutions', label: 'Solutions', delay: 50 }, { href: '/#onboarding', label: 'Onboarding', delay: 100 }, { href: '/#insights', label: 'Insights', delay: 150 }] as item, index}
+				{#each [{ href: '/#discover', label: 'Discover', delay: 0 }, { href: '/#solutions', label: 'Solutions', delay: 50 }, { href: '/#onboarding', label: 'Onboarding', delay: 100 }, { href: '/#insights', label: 'Insights', delay: 150 }] as item, index}
 					<li in:fly={{ x: 100, duration: 300, delay: item.delay, easing: quintOut }}>
 						<a
 							href={item.href}
