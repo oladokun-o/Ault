@@ -84,11 +84,11 @@
 
 			<!-- Text & Actions -->
 			<div
-				class="flex flex-col items-center text-center text-white lg:items-start lg:justify-center lg:text-left"
+				class="flex flex-col items-center text-center lg:items-start lg:justify-center lg:text-left"
 			>
-				<h1 class="mb-4 text-3xl leading-tight font-medium xl:text-nowrap">Welcome!</h1>
-				<p class="mb-8 text-lg text-gray-300 md:w-1/2 lg:w-[80%]">
-					Discover exclusive benefits and global convenience with your new Mastercard.
+				<h1 class="mb-4 text-3xl leading-tight font-normal xl:text-nowrap text-white">Welcome to World Elite!</h1>
+				<p class="mb-8 text-lg text-white font-light md:w-1/2 lg:w-[80%]">
+					Unlock elevated lifestyle experiences with your World Elite Mastercard. Enjoy intuitive support, seamless global mobility, and privileges that empower every journey.
 				</p>
 
 				<div class="flex w-full flex-col justify-center gap-5 sm:flex-row lg:justify-start">
