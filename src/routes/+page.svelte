@@ -119,7 +119,7 @@
 			</div>
 		</div>
 
-		<div class="text-[24px] font-extralight text-[#E4E4E4] capitalize lg:text-[36px]">
+		<div class="text-[24px] font-light text-[#E4E4E4] capitalize lg:text-[36px]">
 			AULT Is A Concierge Service That Transforms Allocated Gold Into A Liquid Financial Asset.
 			Through Cutting Edge Technology And Trusted Institutional Partnerships, We Empower You To Buy,
 			Hold, Spend, Lease, And Borrow-Against Gold With Unmatched Freedom And Confidence.
@@ -213,7 +213,7 @@
 	>
 		<div class="flex flex-col gap-8 font-[200] lg:flex-row lg:justify-between lg:gap-30">
 			<h1
-				class="lg:text[42px] text-[32px] tracking-tighter text-nowrap uppercase sm:text-[37px] md:w-[282px] md:leading-none xl:text-[60px]"
+				class="lg:text[42px] font-normal text-[32px] tracking-tighter text-nowrap uppercase sm:text-[37px] md:w-[282px] md:leading-none xl:text-[60px]"
 			>
 				How It <br class="hidden lg:block" /> Works
 			</h1>
@@ -338,6 +338,7 @@
 
 			<a
 				href="/insights"
+				target="_blank"
 				class="ml-auto flex w-full cursor-pointer items-center gap-3 text-[14px] font-[200] tracking-tight lg:text-[32px] lg:font-[200]"
 			>
 				Learn more

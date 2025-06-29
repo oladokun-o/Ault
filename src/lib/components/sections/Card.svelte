@@ -75,7 +75,7 @@
 		<div class="flex w-full flex-wrap justify-between">
 			<div class="flex w-full flex-wrap gap-10 lg:pr-20 lg:w-[65%]">
 				<div class="w-full">
-					<h1 class="text-start text-[32px] font-normal text-white md:text-[32px] lg:leading-10">
+					<h1 class="text-start text-[32px] font-normal text-white md:text-[32px] lg:leading-10 capitalize">
 						Experience true freedom with your Mastercard. Spend your gold as currency worldwide and
 						enjoy a suite of exclusive privileges Powered By World Elite.
 					</h1>
