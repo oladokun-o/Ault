@@ -5,7 +5,7 @@ export const insights = [
 			{
 				question: 'What Is AULT?',
 				answer:
-					'AULT is a concierge service designed to provide seamless access to gold-backed financial services, allowing the purchase, spend and leasing of gold assets securely, with flexibility and ease.'
+					'AULT is a concierge service designed to provide seamless access to gold-backed financial services, allowing the purchase, spend, leasing and borrowing against of gold assets securely, with flexibility and ease.'
 			},
 			{
 				question: 'Why Gold?',

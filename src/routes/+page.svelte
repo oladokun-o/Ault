@@ -124,9 +124,9 @@
 		</div>
 
 		<div class="text-[24px] font-light text-[#E4E4E4] capitalize lg:text-[36px]">
-			AULT Is A Concierge Service That Transforms Allocated Gold Into A Liquid Financial Asset.
-			Through Cutting Edge Technology And Trusted Institutional Partnerships, We Empower You To Buy,
-			Hold, Spend, Lease, And Borrow-Against Gold With Unmatched Freedom And Confidence.
+			AULT is a concierge service providing seamless access to gold-backed financial solutions,
+			allowing secure purchase, spending, and leveraging of gold assets with ultimate flexibility
+			and ease.
 		</div>
 		<Button
 			on:click={openJoinForm}
@@ -184,10 +184,7 @@
 			<div class="flex max-w-[378px] flex-col gap-5 text-[20px] font-[571]">
 				<div class="max-w-[159px]">
 					<!-- Emerging Africa (hover to show colored image) -->
-					<a
-						href="javascript:void(0);"
-						class="relative group flex h-full w-full items-center"
-					>
+					<a href="javascript:void(0);" class="group relative flex h-full w-full items-center">
 						<img
 							src={EmergingAfricaWhite}
 							alt="Emerging Africa"
@@ -196,7 +193,7 @@
 						<img
 							src={EmergingAfricaColored}
 							alt="Emerging Africa"
-							class="opacity-0 w-full transition-opacity duration-300 group-hover:opacity-100 absolute left-0"
+							class="absolute left-0 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
 						/>
 					</a>
 				</div>
@@ -209,10 +206,7 @@
 			<div class="flex max-w-[378px] flex-col gap-5 text-[20px] font-[571]">
 				<div class="max-w-[132px]">
 					<!-- ProvidusBank (hover to show colored image) -->
-					<a
-						href="javascript:void(0);"
-						class="relative group flex h-full w-full items-center"
-					>
+					<a href="javascript:void(0);" class="group relative flex h-full w-full items-center">
 						<img
 							src={ProvidusWhite}
 							alt="ProvidusBank"
@@ -221,7 +215,7 @@
 						<img
 							src={ProvidusColored}
 							alt="ProvidusBank"
-							class="opacity-0 w-full transition-opacity duration-300 group-hover:opacity-100 absolute left-0"
+							class="absolute left-0 w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
 						/>
 					</a>
 				</div>
@@ -363,7 +357,7 @@
 
 		<div class="relative z-10 flex w-full flex-col gap-10">
 			<h1
-				class="lg:text[37px] font-normal 3xl:text-[64px] w-full text-[37px] uppercase sm:text-[37px]"
+				class="lg:text[37px] 3xl:text-[64px] w-full text-[37px] font-normal uppercase sm:text-[37px]"
 			>
 				Insights
 			</h1>
