@@ -20,6 +20,10 @@
 	import Card from '$lib/components/sections/Card.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { features } from '$lib/data';
+	import EmergingAfricaWhite from '$lib/assets/Emerging - White.png';
+	import EmergingAfricaColored from '$lib/assets/Emerging - Colored.png';
+	import ProvidusWhite from '$lib/assets/providus-white 1.png';
+	import ProvidusColored from '$lib/assets/providus-colored.png';
 
 	const steps = [
 		{
@@ -140,14 +144,14 @@
 		<Beyond />
 
 		<!-- Grid layout for desktop -->
-		<div class="hidden md:grid grid-cols-2 gap-5 md:grid-cols-2 lg:grid-cols-3">
+		<div class="hidden grid-cols-2 gap-5 md:grid md:grid-cols-2 lg:grid-cols-3">
 			{#each features as feature (feature.title)}
-				<div class="w-full xl:w-[365px] space-y-4 rounded-[4px] bg-[#181818] p-4">
+				<div class="w-full space-y-4 rounded-[4px] bg-[#181818] p-4 xl:w-[365px]">
 					<div class="mx-auto max-w-[152px]">
 						<img src={feature.image} alt={feature.title} class="w-full" />
 					</div>
 					<div>
-						<h3 class="font-normal text-[25px] text-white">{feature.title}</h3>
+						<h3 class="text-[25px] font-normal text-white">{feature.title}</h3>
 						<p class="text-[15px] text-white/80 capitalize">{feature.description}</p>
 					</div>
 				</div>
@@ -165,7 +169,7 @@
 		class="mx-auto flex min-h-[284px] w-full max-w-[1728px] flex-col justify-between gap-5 px-0 py-10 lg:flex-row lg:gap-20 lg:px-20 xl:px-[150px]"
 	>
 		<div class="flex flex-col justify-between gap-7">
-			<p class="3xl:text-[36px] text-[24px] font-[200] lg:max-w-[907px] lg:text-[25px] capitalize">
+			<p class="3xl:text-[36px] text-[24px] font-[200] capitalize lg:max-w-[907px] lg:text-[25px]">
 				Our commitment to you is founded on trusted partnerships and a shared dedication to managing
 				your assets with the highest standards of security, transparency, and personalized
 				flexibility.
@@ -179,7 +183,22 @@
 		>
 			<div class="flex max-w-[378px] flex-col gap-5 text-[20px] font-[571]">
 				<div class="max-w-[159px]">
-					<img src={Partner4} alt="partner" class="w-full" />
+					<!-- Emerging Africa (hover to show colored image) -->
+					<a
+						href="javascript:void(0);"
+						class="relative group flex h-full w-full items-center"
+					>
+						<img
+							src={EmergingAfricaWhite}
+							alt="Emerging Africa"
+							class="w-full transition-opacity duration-300 group-hover:opacity-0"
+						/>
+						<img
+							src={EmergingAfricaColored}
+							alt="Emerging Africa"
+							class="opacity-0 w-full transition-opacity duration-300 group-hover:opacity-100 absolute left-0"
+						/>
+					</a>
 				</div>
 				<span class="ml-1 text-[16px] font-[200] text-[#FFFFFFCC] lg:w-[312px]">
 					<span class="font-normal">Emerging Africa</span> Our Trustee partner playing its role as a
@@ -188,8 +207,23 @@
 				</span>
 			</div>
 			<div class="flex max-w-[378px] flex-col gap-5 text-[20px] font-[571]">
-				<div class="max-w-[132px] opacity-[60%]">
-					<img src={Partner1} alt="partner" class="w-full" />
+				<div class="max-w-[132px]">
+					<!-- ProvidusBank (hover to show colored image) -->
+					<a
+						href="javascript:void(0);"
+						class="relative group flex h-full w-full items-center"
+					>
+						<img
+							src={ProvidusWhite}
+							alt="ProvidusBank"
+							class="w-full transition-opacity duration-300 group-hover:opacity-0"
+						/>
+						<img
+							src={ProvidusColored}
+							alt="ProvidusBank"
+							class="opacity-0 w-full transition-opacity duration-300 group-hover:opacity-100 absolute left-0"
+						/>
+					</a>
 				</div>
 				<span class="ml-1 text-[16px] font-[200] text-[#FFFFFFCC] lg:w-[312px]">
 					<span class="font-normal">ProvidusBank</span> The spotlight bank in our network of banks providing
@@ -213,7 +247,7 @@
 	>
 		<div class="flex flex-col gap-8 font-[200] lg:flex-row lg:justify-between lg:gap-30">
 			<h1
-				class="lg:text[42px] font-normal text-[32px] tracking-tighter text-nowrap uppercase sm:text-[37px] md:w-[282px] md:leading-none xl:text-[60px]"
+				class="lg:text[42px] text-[32px] font-normal tracking-tighter text-nowrap uppercase sm:text-[37px] md:w-[282px] md:leading-none xl:text-[60px]"
 			>
 				How It <br class="hidden lg:block" /> Works
 			</h1>
