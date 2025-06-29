@@ -6,7 +6,7 @@ export const features = [
 	{
 		title: 'Security',
 		image: Security,
-		description: 'All Deposits Are Stored As Allocated Gold Vaulted In LBMA-Certified London Vault.'
+		description: 'All Deposits Are Stored As Allocated Gold Vaulted In LBMA-Certified London Vaults.'
 	},
 	{
 		title: 'Exclusivity',

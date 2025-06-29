@@ -33,7 +33,7 @@
 			id: 5,
 			question: 'How Is My Gold Stored?',
 			answer:
-				'Your gold is securely stored in insured vaults in London. These vaults meet international standards of security and compliance, ensuring your assets are safe and protected.'
+				'Your gold is securely stored at insured vaults in London. These vaults meet international standards of security and compliance, ensuring your assets are safe and protected.'
 		},
 		{
 			id: 6,

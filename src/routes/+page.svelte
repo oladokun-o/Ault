@@ -363,7 +363,7 @@
 
 		<div class="relative z-10 flex w-full flex-col gap-10">
 			<h1
-				class="lg:text[37px] 3xl:text-[64px] w-full text-[37px] font-[200] uppercase sm:text-[37px]"
+				class="lg:text[37px] font-normal 3xl:text-[64px] w-full text-[37px] uppercase sm:text-[37px]"
 			>
 				Insights
 			</h1>
